@@ -1,0 +1,9 @@
+{
+  "businessName": "宇和島運輸",
+  "routeName": "八幡浜～別府",
+  "url": "https://www.uwajimaunyu.co.jp/timetable/",
+  "freq": 3,
+  "car": 1,
+  "bike": 1,
+  "bicycle": 1
+}

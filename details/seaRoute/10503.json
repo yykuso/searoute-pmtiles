@@ -1,0 +1,11 @@
+{
+  "businessName": "新日本海フェリー",
+  "routeName": "敦賀～新潟～秋田～苫小牧",
+  "url": "https://www.snf.jp/guide/time_schedule/",
+  "freq": 2,
+  "freqInfo": "敦賀～新潟：週1運航, 新潟～秋田～苫小牧：週6運航",
+  "car": 1,
+  "bike": 1,
+  "bicycle": 1,
+  "shipName": "らいらっく, ゆうかり"
+}

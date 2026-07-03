@@ -1,0 +1,12 @@
+{
+  "businessName": "西海沿岸商船",
+  "routeName": "佐世保～大島～松島～池島",
+  "url": "https://www.saryokyo.com/member/member-01.html",
+  "info": "高速船、火・金曜日以外は佐世保～大島のみ",
+  "freq": 3,
+  "freqInfo": "1日9～10往復",
+  "car": 0,
+  "bike": 0,
+  "bicycle": 1,
+  "shipName": "れぴーど, Rapid Lily"
+}

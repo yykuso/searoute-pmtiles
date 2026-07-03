@@ -1,0 +1,10 @@
+{
+  "businessName": "マルエーフェリー",
+  "routeName": "鹿児島～奄美大島～徳之島～沖永良部島～与論島～本部～那覇",
+  "url": "https://www.aline-ferry.com/kagoshima/time/",
+  "info": "隔日運航",
+  "freq": 1,
+  "car": 1,
+  "bike": 1,
+  "bicycle": 1
+}

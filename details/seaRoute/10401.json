@@ -1,0 +1,11 @@
+{
+  "businessName": "青函フェリー",
+  "routeName": "函館～青森",
+  "url": "https://www.seikan-ferry.co.jp/schedule/",
+  "freq": 3,
+  "freqInfo": "1日8往復",
+  "car": 1,
+  "bike": 1,
+  "bicycle": 1,
+  "shipName": "はやぶさⅢ, はやぶさⅡ, はやぶさ, あさかぜ21"
+}

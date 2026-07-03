@@ -1,0 +1,9 @@
+{
+  "businessName": "なんきゅうドック",
+  "routeName": "山川～根占",
+  "url": "http://nankyu-ferry.com/time/",
+  "freq": 3,
+  "car": 1,
+  "bike": 1,
+  "bicycle": 1
+}

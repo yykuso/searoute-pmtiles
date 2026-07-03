@@ -1,0 +1,10 @@
+{
+  "businessName": "十島村",
+  "routeName": "鹿児島～口之島～中之島～諏訪之瀬島～平島～悪石島～小宝島～宝島～奄美大島",
+  "url": "http://www.tokara.jp/ferryinfo/ferrytoshima/",
+  "info": "週2往復",
+  "freq": 1,
+  "car": 1,
+  "bike": 1,
+  "bicycle": 1
+}

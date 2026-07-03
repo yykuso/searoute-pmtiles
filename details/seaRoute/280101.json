@@ -1,0 +1,10 @@
+{
+  "businessName": "ジャンボフェリー",
+  "routeName": "神戸～小豆島（坂手）～高松",
+  "url": "https://ferry.co.jp/home/kobe-takamatsu/",
+  "freq": 3,
+  "car": 1,
+  "bike": 1,
+  "bicycle": 1,
+  "shipName": "あおい, りつりん２"
+}

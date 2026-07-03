@@ -1,0 +1,11 @@
+{
+  "businessName": "関釜フェリー（釜関フェリー）",
+  "routeName": "下関〜釜山",
+  "url": "https://www.kampuferry.co.jp/passenger_info/schedule/index.html",
+  "freq": 2,
+  "car": 1,
+  "bike": 1,
+  "bicycle": 1,
+  "freqInfo": "1日1便",
+  "shipName": "はまゆう, 星希"
+}

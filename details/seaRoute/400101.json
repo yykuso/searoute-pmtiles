@@ -1,0 +1,10 @@
+{
+  "businessName": "東京九州フェリー",
+  "routeName": "横須賀～新門司",
+  "url": "https://tqf.co.jp/time_schedule/",
+  "freq": 2,
+  "car": 1,
+  "bike": 1,
+  "bicycle": 1,
+  "shipName": "はまゆう, それいゆ"
+}

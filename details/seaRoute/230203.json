@@ -1,0 +1,10 @@
+{
+  "businessName": "名鉄海上観光船",
+  "routeName": "師崎～日間賀島",
+  "url": "https://www.meikaijo.co.jp/timetable",
+  "freq": 3,
+  "car": 1,
+  "bike": 1,
+  "bicycle": 1,
+  "shipName": "しまゆり"
+}

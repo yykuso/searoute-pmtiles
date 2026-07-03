@@ -1,0 +1,12 @@
+{
+  "businessName": "対州海運",
+  "routeName": "対馬島（厳原）～博多",
+  "url": "http://www.taishu-kk.co.jp/ferry/",
+  "info": "RORO船",
+  "freq": 2,
+  "freqInfo": "1日1往復",
+  "car": 1,
+  "bike": 1,
+  "bicycle": 1,
+  "shipName": "フェリーたいしゅう"
+}

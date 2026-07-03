@@ -1,0 +1,10 @@
+{
+  "businessName": "阪九フェリー",
+  "routeName": "泉大津～新門司",
+  "url": "https://www.han9f.co.jp/izumiotsu/timetable/",
+  "freq": 2,
+  "car": 1,
+  "bike": 1,
+  "bicycle": 1,
+  "shipName": "いずみ, ひびき"
+}

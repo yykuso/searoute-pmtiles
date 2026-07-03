@@ -1,0 +1,11 @@
+{
+  "businessName": "商船三井さんふらわあ",
+  "routeName": "大阪～志布志",
+  "url": "https://www.ferry-sunflower.co.jp/route/osaka-shibushi/time/",
+  "freq": 2,
+  "freqInfo": "毎日運航",
+  "car": 1,
+  "bike": 1,
+  "bicycle": 1,
+  "shipName": "さんふらわあ さつま, さんふらわあ きりしま"
+}

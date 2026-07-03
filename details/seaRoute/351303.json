@@ -1,0 +1,9 @@
+{
+  "businessName": "萩海運",
+  "routeName": "萩～大島",
+  "url": "http://hagikaiun.co.jp/oshima/time-table.html",
+  "freq": 3,
+  "car": 1,
+  "bike": 1,
+  "bicycle": 1
+}

@@ -1,0 +1,9 @@
+{
+  "businessName": "備讃フェリー",
+  "routeName": "丸亀～広島～小手島～手島",
+  "url": "http://bisan-ferry.jp/time_table/",
+  "freq": 3,
+  "car": 1,
+  "bike": 1,
+  "bicycle": 1
+}

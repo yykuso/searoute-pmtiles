@@ -1,0 +1,9 @@
+{
+  "businessName": "中島汽船",
+  "routeName": "松山～釣島～中島～二神島～津和地島～怒和島～中島",
+  "url": "http://www.nakajimakisen.co.jp/contents/time-table.html",
+  "freq": 3,
+  "car": 1,
+  "bike": 1,
+  "bicycle": 1
+}

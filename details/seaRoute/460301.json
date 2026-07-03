@@ -1,0 +1,9 @@
+{
+  "businessName": "奄美海運",
+  "routeName": "鹿児島～喜界島～奄美大島～徳之島～沖永良部島",
+  "url": "https://www.aline-ferry.com/amami/time/",
+  "freq": 2,
+  "car": 1,
+  "bike": 1,
+  "bicycle": 1
+}

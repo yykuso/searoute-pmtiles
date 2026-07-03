@@ -1,0 +1,13 @@
+{
+  "businessName": "むつ湾フェリー",
+  "routeName": "蟹田～脇野沢",
+  "url": "https://mutsuwan-ferry.jp/",
+  "info": "4月～11月",
+  "note": "season",
+  "freq": 2,
+  "freqInfo": "1日2往復",
+  "car": 1,
+  "bike": 1,
+  "bicycle": 1,
+  "shipName": "かもしか"
+}

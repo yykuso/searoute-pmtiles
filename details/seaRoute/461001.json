@@ -1,0 +1,9 @@
+{
+  "businessName": "鹿児島市船舶局",
+  "routeName": "鹿児島～桜島港",
+  "url": "https://www.city.kagoshima.lg.jp/sakurajima-ferry/koro-jikoku/timetable.html",
+  "freq": 3,
+  "car": 1,
+  "bike": 1,
+  "bicycle": 1
+}

@@ -1,0 +1,11 @@
+{
+  "businessName": "羽幌沿海フェリー",
+  "routeName": "羽幌～焼尻島～天売島",
+  "url": "https://haboro-enkai.com/timetable/",
+  "freq": 3,
+  "freqInfo": "1日1～6往復",
+  "car": 1,
+  "bike": 1,
+  "bicycle": 1,
+  "shipName": "おろろん2, さんらいなぁ2"
+}

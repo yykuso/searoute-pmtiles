@@ -1,0 +1,11 @@
+{
+  "businessName": "カメリアライン",
+  "routeName": "博多〜釜山",
+  "url": "https://www.camellia-line.co.jp/dia/",
+  "freq": 2,
+  "car": 1,
+  "bike": 1,
+  "bicycle": 1,
+  "freqInfo": "1日1往復",
+  "shipName": "ニューかめりあ"
+}

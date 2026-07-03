@@ -1,0 +1,11 @@
+{
+  "businessName": "津軽海峡フェリー",
+  "routeName": "函館～青森",
+  "url": "https://www.tsugarukaikyo.co.jp/timetable/",
+  "freq": 3,
+  "freqInfo": "1日6～7往復",
+  "car": 1,
+  "bike": 1,
+  "bicycle": 1,
+  "shipName": "ブルードルフィン, ブルーマーメイド, ブルーハピネス"
+}

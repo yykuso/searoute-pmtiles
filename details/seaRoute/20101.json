@@ -1,0 +1,11 @@
+{
+  "businessName": "川崎近海汽船",
+  "routeName": "八戸～苫小牧",
+  "url": "https://www.silverferry.jp/route_guide/index.html",
+  "freq": 3,
+  "freqInfo": "1日4往復",
+  "car": 1,
+  "bike": 1,
+  "bicycle": 1,
+  "shipName": "シルバープリンセス, シルバーティアラ, シルバーブリーズ, シルバーエイト"
+}

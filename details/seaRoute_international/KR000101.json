@@ -1,0 +1,11 @@
+{
+  "businessName": "PanStar Line.com（サンスターライン）",
+  "routeName": "釜山〜比田勝〜厳原",
+  "url": "https://www.panstar.jp/tsushimalink/",
+  "freq": 2,
+  "car": 0,
+  "bike": 0,
+  "bicycle": 1,
+  "freqInfo": "1日1～2往復",
+  "shipName": "PANSTAR TSUSHIMA LINK"
+}

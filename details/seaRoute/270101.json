@@ -1,0 +1,10 @@
+{
+  "businessName": "名門大洋フェリー",
+  "routeName": "大阪～新門司",
+  "url": "https://www.cityline.co.jp/route",
+  "freq": 3,
+  "car": 1,
+  "bike": 1,
+  "bicycle": 1,
+  "shipName": "フェリーきょうと, フェリーふくおか, フェリーおおさかⅡ, フェリーきたきゅうしゅうⅡ"
+}

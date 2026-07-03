@@ -1,0 +1,11 @@
+{
+  "businessName": "PanStar Line.com（サンスターライン）",
+  "routeName": "釜山〜大阪南港",
+  "url": "https://www.panstar.jp/plyschedule/",
+  "freq": 1,
+  "car": 0,
+  "bike": 0,
+  "bicycle": 1,
+  "freqInfo": "週3往復",
+  "shipName": "PANSTAR MIRACLE"
+}

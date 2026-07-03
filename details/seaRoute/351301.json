@@ -1,0 +1,9 @@
+{
+  "businessName": "萩海運",
+  "routeName": "萩～見島",
+  "url": "http://hagikaiun.co.jp/mishima/time-table.html",
+  "freq": 3,
+  "car": 0,
+  "bike": 1,
+  "bicycle": 1
+}

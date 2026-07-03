@@ -1,0 +1,11 @@
+{
+  "businessName": "オクシリアイランドフェリー",
+  "routeName": "江差～奥尻島",
+  "url": "https://heartlandferry.jp/timetable/",
+  "freq": 2,
+  "freqInfo": "1日1～2往復",
+  "car": 1,
+  "bike": 1,
+  "bicycle": 1,
+  "shipName": "カランセ奥尻"
+}

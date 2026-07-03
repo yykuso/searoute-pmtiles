@@ -1,0 +1,10 @@
+{
+  "businessName": "東海汽船",
+  "routeName": "東京～三宅島～御蔵島～八丈島",
+  "url": "https://www.tokaikisen.co.jp/boarding/timetable/",
+  "freq": 2,
+  "car": 0,
+  "bike": 0,
+  "bicycle": 1,
+  "shipName": "橘丸"
+}

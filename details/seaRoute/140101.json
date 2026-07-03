@@ -1,0 +1,10 @@
+{
+  "businessName": "東京湾フェリー",
+  "routeName": "金谷～久里浜",
+  "url": "https://www.tokyowanferry.com/diagram/schedule/",
+  "freq": 3,
+  "car": 1,
+  "bike": 1,
+  "bicycle": 1,
+  "shipName": "かなや丸, しらはま丸"
+}

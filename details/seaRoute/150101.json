@@ -1,0 +1,10 @@
+{
+  "businessName": "佐渡汽船",
+  "routeName": "新潟～佐渡島（両津）",
+  "url": "https://www.sadokisen.co.jp/timetables/",
+  "freq": 3,
+  "car": 1,
+  "bike": 1,
+  "bicycle": 1,
+  "shipName": "ときわ丸, おけさ丸, ぎんが, つばさ, すいせい"
+}

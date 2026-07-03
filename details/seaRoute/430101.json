@@ -1,0 +1,9 @@
+{
+  "businessName": "熊本フェリー",
+  "routeName": "熊本～島原",
+  "url": "https://www.kumamotoferry.co.jp/timefare/",
+  "freq": 3,
+  "car": 1,
+  "bike": 1,
+  "bicycle": 1
+}

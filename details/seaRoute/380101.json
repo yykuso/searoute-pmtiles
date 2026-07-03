@@ -1,0 +1,10 @@
+{
+  "businessName": "四国開発フェリー",
+  "routeName": "東予～大阪",
+  "url": "https://www.orange-ferry.co.jp/fare-price/kansai/toyo-osaka/index.html",
+  "freq": 2,
+  "car": 1,
+  "bike": 1,
+  "bicycle": 1,
+  "shipName": "おれんじ えひめ, おれんじ おおさか"
+}

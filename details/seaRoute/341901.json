@@ -1,0 +1,10 @@
+{
+  "businessName": "契島運輸",
+  "routeName": "竹原～契島",
+  "url": "https://www.toho-zinc.co.jp/chigirishimaunyu/ippanryokyaku.html",
+  "info": "会社休日は旅客船のみ",
+  "freq": 3,
+  "car": 1,
+  "bike": 1,
+  "bicycle": 1
+}

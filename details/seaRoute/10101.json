@@ -1,0 +1,11 @@
+{
+  "businessName": "ハートランドフェリー",
+  "routeName": "稚内～利礼島（鴛泊）～礼文（香深）",
+  "url": "https://heartlandferry.jp/timetable/",
+  "freq": 3,
+  "freqInfo": "1日2～3往復",
+  "car": 1,
+  "bike": 1,
+  "bicycle": 1,
+  "shipName": "アマポーラ宗谷, サイプリア宗谷, ボレアース宗谷"
+}

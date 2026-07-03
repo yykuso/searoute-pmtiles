@@ -1,0 +1,12 @@
+{
+  "businessName": "ハートランドフェリー",
+  "routeName": "利礼島（沓形）～礼文（香深）",
+  "url": "https://heartlandferry.jp/timetable/",
+  "note": "season",
+  "freq": 1,
+  "freqInfo": "6月～9月運航, 1日1往復",
+  "car": 1,
+  "bike": 1,
+  "bicycle": 1,
+  "shipName": "アマポーラ宗谷, サイプリア宗谷, ボレアース宗谷"
+}

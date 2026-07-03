@@ -1,0 +1,10 @@
+{
+  "businessName": "南海フェリー",
+  "routeName": "和歌山～徳島",
+  "url": "https://nankai-ferry.co.jp/timetable/",
+  "freq": 3,
+  "car": 1,
+  "bike": 1,
+  "bicycle": 1,
+  "shipName": "フェリーあい, フェリーかつらぎ"
+}

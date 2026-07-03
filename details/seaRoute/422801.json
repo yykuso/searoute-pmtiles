@@ -1,0 +1,9 @@
+{
+  "businessName": "九商フェリー",
+  "routeName": "熊本～島原",
+  "url": "https://www.kyusho-ferry.co.jp/diagram/",
+  "freq": 3,
+  "car": 1,
+  "bike": 1,
+  "bicycle": 1
+}

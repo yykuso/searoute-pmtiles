@@ -1,0 +1,12 @@
+{
+  "businessName": "Dae-A Express Shipping（大亜高速海運）",
+  "routeName": "釜山〜厳原",
+  "url": "https://www.daea.com/info/schedule",
+  "info": "火・木曜運航",
+  "freq": 1,
+  "car": 0,
+  "bike": 0,
+  "bicycle": 1,
+  "freqInfo": "1日1往復",
+  "shipName": "SEA FLOWER"
+}

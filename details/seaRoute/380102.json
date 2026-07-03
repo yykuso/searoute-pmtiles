@@ -1,0 +1,11 @@
+{
+  "businessName": "四国開発フェリー",
+  "routeName": "新居浜～神戸",
+  "url": "https://www.orange-ferry.co.jp/fare-price/kansai/niihama-kobe/index.html",
+  "info": "運航日注意",
+  "freq": 1,
+  "car": 1,
+  "bike": 1,
+  "bicycle": 1,
+  "shipName": "おれんじホープ"
+}

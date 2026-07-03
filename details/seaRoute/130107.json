@@ -1,0 +1,12 @@
+{
+  "businessName": "東海汽船",
+  "routeName": "東京～久里浜～大島",
+  "url": "https://www.tokaikisen.co.jp/boarding/timetable/",
+  "info": "季節運航",
+  "note": "season",
+  "freq": 1,
+  "car": 0,
+  "bike": 0,
+  "bicycle": 0,
+  "shipName": "セブンアイランド結, セブンアイランド愛, セブンアイランド友, セブンアイランド大漁"
+}

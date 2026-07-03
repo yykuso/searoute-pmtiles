@@ -1,0 +1,12 @@
+{
+  "businessName": "Uniwagon Shipping（東聯航運）",
+  "routeName": "基隆～石垣島",
+  "url": "https://yaimaline.com/map.html",
+  "info": "Yaima Line",
+  "freq": 1,
+  "car": 0,
+  "bike": 0,
+  "bicycle": 1,
+  "freqInfo": "週1～2往復",
+  "shipName": "YAIMAMARU（やいま丸）"
+}

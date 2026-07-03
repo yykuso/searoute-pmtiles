@@ -1,0 +1,11 @@
+{
+  "businessName": "DuWon Shipping（ドゥウォン商船）",
+  "routeName": "境港〜東海〜ウラジオストク",
+  "url": "https://www.dwship.co.kr/ja/routes/vladivostok-sakaiminato",
+  "freq": 1,
+  "car": 1,
+  "bike": 1,
+  "bicycle": 1,
+  "freqInfo": "週1往復",
+  "shipName": "EASTERN DREAM"
+}

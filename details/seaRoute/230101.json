@@ -1,0 +1,10 @@
+{
+  "businessName": "太平洋フェリー",
+  "routeName": "名古屋～仙台～苫小牧",
+  "url": "https://www.taiheiyo-ferry.co.jp/koro/#jikan",
+  "freq": 2,
+  "car": 1,
+  "bike": 1,
+  "bicycle": 1,
+  "shipName": "いしかり, きそ, きたかみ"
+}

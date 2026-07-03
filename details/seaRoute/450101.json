@@ -1,0 +1,10 @@
+{
+  "businessName": "宮崎カーフェリー",
+  "routeName": "神戸～宮崎",
+  "url": "https://www.miyazakicarferry.com/schedule/",
+  "freq": 2,
+  "car": 1,
+  "bike": 1,
+  "bicycle": 1,
+  "shipName": "フェリーたかちほ, フェリーろっこう"
+}

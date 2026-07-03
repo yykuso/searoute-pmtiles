@@ -1,0 +1,12 @@
+{
+  "businessName": "佐渡汽船",
+  "routeName": "直江津～佐渡島（小木）",
+  "url": "https://www.sadokisen.co.jp/timetables/",
+  "info": "3月～11月",
+  "note": "season",
+  "freq": 2,
+  "car": 1,
+  "bike": 1,
+  "bicycle": 1,
+  "shipName": "こがね丸"
+}
