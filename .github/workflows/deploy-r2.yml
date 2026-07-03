@@ -24,8 +24,10 @@ jobs:
           AWS_SECRET_ACCESS_KEY: ${{ secrets.R2_SECRET_ACCESS_KEY }}
           AWS_DEFAULT_REGION: auto
         run: |
-          aws s3 cp searoute.pmtiles s3://$R2_BUCKET_NAME/searoute.pmtiles \
-            --endpoint-url "$R2_ENDPOINT"
+          aws s3 sync . s3://$R2_BUCKET_NAME \
+            --endpoint-url "$R2_ENDPOINT" \
+            --exclude "*" \
+            --include "searoute.pmtiles"
           aws s3 sync details s3://$R2_BUCKET_NAME/details \
             --endpoint-url "$R2_ENDPOINT" \
             --delete
