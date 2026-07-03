@@ -16,6 +16,9 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
 
+      - name: Generate lightweight JSON
+        run: node scripts/generate-lightweight-json.mjs
+
       - name: Upload data files to R2
         env:
           R2_BUCKET_NAME: ${{ secrets.R2_BUCKET_NAME }}
@@ -32,5 +35,8 @@ jobs:
             --endpoint-url "$R2_ENDPOINT" \
             --delete
           aws s3 sync geojson s3://$R2_BUCKET_NAME/geojson \
+            --endpoint-url "$R2_ENDPOINT" \
+            --delete
+          aws s3 sync lightweight s3://$R2_BUCKET_NAME/lightweight \
             --endpoint-url "$R2_ENDPOINT" \
             --delete
