@@ -43,6 +43,15 @@ jobs:
       - name: Generate lightweight JSON
         run: node scripts/generate-lightweight-json.mjs
 
+      - name: Validate PMTiles header
+        run: |
+          magic=$(head -c 8 searoute.pmtiles | od -An -t x1 | tr -d ' \n')
+          if [ "$magic" != "504d54696c657303" ]; then
+            echo "Invalid searoute.pmtiles header: $magic"
+            echo "Expected PMTiles v3 magic bytes: 504d54696c657303"
+            exit 1
+          fi
+
       - name: Upload data files to R2
         env:
           R2_BUCKET_NAME: ${{ secrets.R2_BUCKET_NAME }}
