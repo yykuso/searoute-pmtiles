@@ -34,11 +34,18 @@ jobs:
             -v "$PWD:/work" \
             -w /work \
             klokantech/tippecanoe:latest \
-            tippecanoe -zg -o searoute.pmtiles --force \
+            tippecanoe -zg -o searoute.mbtiles --force \
               -L seaRoute:geojson/seaRoute.geojson \
               -L seaRoute_limited:geojson/seaRoute_limited.geojson \
               -L seaRoute_international:geojson/seaRoute_international.geojson \
               -L seaRoute_KR:geojson/seaRoute_KR.geojson
+
+          docker run --rm \
+            -v "$PWD:/data" \
+            protomaps/go-pmtiles \
+            convert /data/searoute.mbtiles /data/searoute.pmtiles
+
+          rm -f searoute.mbtiles
 
       - name: Generate lightweight JSON
         run: node scripts/generate-lightweight-json.mjs
@@ -51,6 +58,13 @@ jobs:
             echo "Expected PMTiles v3 magic bytes: 504d54696c657303"
             exit 1
           fi
+
+      - name: Verify PMTiles archive
+        run: |
+          docker run --rm \
+            -v "$PWD:/data" \
+            protomaps/go-pmtiles \
+            verify /data/searoute.pmtiles
 
       - name: Upload data files to R2
         env:
