@@ -16,6 +16,27 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
 
+      - name: Detect geojson changes
+        id: changes
+        uses: dorny/paths-filter@v3
+        with:
+          filters: |
+            geojson:
+              - 'geojson/**'
+
+      - name: Build PMTiles with tippecanoe (Docker)
+        if: steps.changes.outputs.geojson == 'true'
+        run: |
+          docker run --rm \
+            -v "$PWD:/work" \
+            -w /work \
+            klokantech/tippecanoe:latest \
+            tippecanoe -zg -o searoute.pmtiles --force \
+              -L '{"file":"geojson/seaRoute.geojson","layer":"seaRoute"}' \
+              -L '{"file":"geojson/seaRoute_limited.geojson","layer":"seaRoute_limited"}' \
+              -L '{"file":"geojson/seaRoute_international.geojson","layer":"seaRoute_international"}' \
+              -L '{"file":"geojson/seaRoute_KR.geojson","layer":"seaRoute_KR"}'
+
       - name: Generate lightweight JSON
         run: node scripts/generate-lightweight-json.mjs
 
