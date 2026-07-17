@@ -12,10 +12,31 @@ GeoJSON からベクタタイルを生成し、各レイヤーに対応する詳
 
 ## PMTiles の生成
 
-以下のコマンドで `geojson/` 配下の 4 レイヤーをまとめて `searoute.pmtiles` に変換します。
 
 ```
-tippecanoe -zg -o searoute.pmtiles --force -L '{"file":"geojson/seaRoute.geojson","layer":"seaRoute"}' -L '{"file":"geojson/seaRoute_limited.geojson","layer":"seaRoute_limited"}' -L '{"file":"geojson/seaRoute_international.geojson","layer":"seaRoute_international"}' -L '{"file":"geojson/seaRoute_KR.geojson","layer":"seaRoute_KR"}'
+tippecanoe -zg -o searoute.pmtiles --force \
+	-L seaRoute:geojson/seaRoute.geojson \
+	-L seaRoute_limited:geojson/seaRoute_limited.geojson \
+	-L seaRoute_international:geojson/seaRoute_international.geojson \
+	-L seaRoute_KR:geojson/seaRoute_KR.geojson
+
+docker run --rm \
+	-v "$PWD:/data" \
+	protomaps/go-pmtiles@sha256:dcec7fe1bdd371e28289f2e7cef419a0a402289e02640c094570d54beb29fa8a \
+	verify /data/searoute.pmtiles
+```
+
+補足:
+
+- 基準は `tippecanoe v2.80.0` です。
+- 必要なら固定ズームも使えます（例: `-Z0 -z12`）。
+
+```
+tippecanoe -Z0 -z12 -o searoute.pmtiles --force \
+	-L seaRoute:geojson/seaRoute.geojson \
+	-L seaRoute_limited:geojson/seaRoute_limited.geojson \
+	-L seaRoute_international:geojson/seaRoute_international.geojson \
+	-L seaRoute_KR:geojson/seaRoute_KR.geojson
 ```
 
 ## 軽量 JSON の生成
