@@ -14,15 +14,18 @@ jobs:
 
     steps:
       - name: Checkout repository
-        uses: actions/checkout@v4
+        uses: actions/checkout@v5
+        with:
+          fetch-depth: 0
 
       - name: Detect geojson changes
         id: changes
-        uses: dorny/paths-filter@v3
-        with:
-          filters: |
-            geojson:
-              - 'geojson/**'
+        run: |
+          if git diff --name-only "${{ github.event.before }}" "${{ github.sha }}" | grep -q '^geojson/'; then
+            echo "geojson=true" >> "$GITHUB_OUTPUT"
+          else
+            echo "geojson=false" >> "$GITHUB_OUTPUT"
+          fi
 
       - name: Build PMTiles with tippecanoe (Docker)
         if: steps.changes.outputs.geojson == 'true'
@@ -32,10 +35,10 @@ jobs:
             -w /work \
             klokantech/tippecanoe:latest \
             tippecanoe -zg -o searoute.pmtiles --force \
-              -L '{"file":"geojson/seaRoute.geojson","layer":"seaRoute"}' \
-              -L '{"file":"geojson/seaRoute_limited.geojson","layer":"seaRoute_limited"}' \
-              -L '{"file":"geojson/seaRoute_international.geojson","layer":"seaRoute_international"}' \
-              -L '{"file":"geojson/seaRoute_KR.geojson","layer":"seaRoute_KR"}'
+              -L seaRoute:geojson/seaRoute.geojson \
+              -L seaRoute_limited:geojson/seaRoute_limited.geojson \
+              -L seaRoute_international:geojson/seaRoute_international.geojson \
+              -L seaRoute_KR:geojson/seaRoute_KR.geojson
 
       - name: Generate lightweight JSON
         run: node scripts/generate-lightweight-json.mjs
