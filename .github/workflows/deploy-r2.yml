@@ -40,10 +40,11 @@ jobs:
           sudo make -C /tmp/tippecanoe install
           tippecanoe --version
 
-      - name: Build PMTiles (direct output)
+      - name: Build PMTiles
         if: steps.changes.outputs.geojson == 'true'
         run: |
-          tippecanoe -zg -o searoute.pmtiles --force \
+          tippecanoe -Z0 -z14 -o searoute.pmtiles --force \
+            --drop-densest-as-needed \
             -L seaRoute:geojson/seaRoute.geojson \
             -L seaRoute_limited:geojson/seaRoute_limited.geojson \
             -L seaRoute_international:geojson/seaRoute_international.geojson \
