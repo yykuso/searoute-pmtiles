@@ -1,0 +1,1649 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sea Route JSON Editor</title>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: 'Segoe UI', 'Meiryo', sans-serif;
+      font-size: 14px;
+      background: #f0f2f5;
+      color: #1a1a2e;
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    header {
+      background: #1a237e;
+      color: #fff;
+      padding: 10px 16px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      flex-shrink: 0;
+    }
+    header h1 { font-size: 16px; font-weight: 600; flex: 1; }
+    header button {
+      background: #fff;
+      color: #1a237e;
+      border: none;
+      border-radius: 4px;
+      padding: 6px 14px;
+      font-size: 13px;
+      font-weight: 600;
+      cursor: pointer;
+    }
+    header button:hover { background: #e8eaf6; }
+
+    .main {
+      display: flex;
+      flex: 1;
+      overflow: hidden;
+      position: relative;
+    }
+
+    /* ---- Drop Overlay ---- */
+    #dropOverlay {
+      display: none;
+      position: absolute;
+      inset: 0;
+      background: rgba(63, 81, 181, 0.12);
+      border: 3px dashed #3f51b5;
+      z-index: 100;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      gap: 10px;
+      pointer-events: none;
+    }
+    #dropOverlay.active { display: flex; }
+    #dropOverlay .drop-icon { font-size: 52px; }
+    #dropOverlay .drop-text { font-size: 18px; font-weight: 700; color: #1a237e; }
+    #dropOverlay .drop-sub  { font-size: 13px; color: #3f51b5; }
+
+    /* ---- Sidebar ---- */
+    .sidebar {
+      width: 250px;
+      min-width: 200px;
+      background: #fff;
+      border-right: 1px solid #dde;
+      display: flex;
+      flex-direction: column;
+      flex-shrink: 0;
+    }
+
+    .sidebar-controls {
+      padding: 10px;
+      border-bottom: 1px solid #eee;
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+    .sidebar-controls select,
+    .sidebar-controls input {
+      width: 100%;
+      padding: 6px 8px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      font-size: 13px;
+    }
+    .sidebar-controls input:focus,
+    .sidebar-controls select:focus {
+      outline: none;
+      border-color: #3f51b5;
+    }
+    .sidebar-actions {
+      display: flex;
+      gap: 6px;
+    }
+    .sidebar-btn {
+      flex: 1;
+      padding: 6px 8px;
+      border: 1px solid #c5cae9;
+      border-radius: 4px;
+      background: #f5f7ff;
+      color: #303f9f;
+      font-size: 12px;
+      font-weight: 600;
+      cursor: pointer;
+    }
+    .sidebar-btn:hover:not(:disabled) {
+      background: #e8eaf6;
+    }
+    .sidebar-btn:disabled {
+      opacity: 0.45;
+      cursor: default;
+    }
+
+    .file-list {
+      flex: 1;
+      overflow-y: auto;
+      padding: 4px 0;
+      outline: none;
+    }
+    .file-item {
+      padding: 8px 14px;
+      cursor: pointer;
+      border-left: 3px solid transparent;
+      transition: background 0.1s;
+      font-size: 13px;
+      overflow: hidden;
+      outline: none;
+    }
+    .file-item:hover { background: #e8eaf6; }
+    .file-item.focused { background: #dde2f5; }
+    .file-item.active {
+      background: #e8eaf6;
+      border-left-color: #3f51b5;
+      font-weight: 600;
+    }
+    .file-item .file-id {
+      color: #1a1a2e;
+      font-weight: 600;
+      line-height: 1.3;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+    .file-item .file-business {
+      color: #555;
+      font-size: 12px;
+      line-height: 1.3;
+      margin-top: 2px;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+    .file-item .file-business.empty { color: #9aa0b6; }
+
+    .sidebar-footer {
+      padding: 8px 10px;
+      font-size: 12px;
+      color: #888;
+      border-top: 1px solid #eee;
+    }
+
+    /* ---- Editor Panel ---- */
+    .editor-panel {
+      flex: 1;
+      overflow-y: auto;
+      padding: 20px;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+
+    .placeholder {
+      margin: auto;
+      text-align: center;
+      color: #aaa;
+    }
+    .placeholder .icon { font-size: 48px; margin-bottom: 8px; }
+    .placeholder p { font-size: 14px; }
+    .placeholder .hint {
+      margin-top: 20px;
+      padding: 16px 24px;
+      border: 2px dashed #c5cae9;
+      border-radius: 8px;
+      color: #7986cb;
+      font-size: 13px;
+      line-height: 1.7;
+    }
+
+    .editor-header {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+    .editor-header h2 {
+      font-size: 16px;
+      font-weight: 600;
+      flex: 1;
+      min-width: 0;
+      word-break: break-all;
+    }
+
+    .badge {
+      display: inline-block;
+      background: #3f51b5;
+      color: #fff;
+      border-radius: 10px;
+      padding: 2px 10px;
+      font-size: 11px;
+      white-space: nowrap;
+    }
+
+    .card {
+      background: #fff;
+      border-radius: 8px;
+      padding: 16px 20px;
+      box-shadow: 0 1px 4px rgba(0,0,0,0.08);
+    }
+    .card h3 {
+      font-size: 13px;
+      font-weight: 600;
+      color: #3f51b5;
+      margin-bottom: 12px;
+      padding-bottom: 6px;
+      border-bottom: 1px solid #e8eaf6;
+    }
+
+    .form-grid {
+      display: grid;
+      grid-template-columns: 2fr 3fr;
+      gap: 12px 20px;
+    }
+    .form-grid .full { grid-column: 1 / -1; }
+
+    .field label {
+      display: block;
+      font-size: 12px;
+      font-weight: 600;
+      color: #555;
+      margin-bottom: 4px;
+    }
+    .field select {
+      width: 100%;
+      padding: 7px 10px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      font-size: 13px;
+      font-family: inherit;
+      background: #fff;
+      cursor: pointer;
+      transition: border-color 0.15s;
+    }
+    .field select:focus {
+      outline: none;
+      border-color: #3f51b5;
+      box-shadow: 0 0 0 2px rgba(63,81,181,0.15);
+    }
+    .field input[type="text"],
+    .field input[type="number"],
+    .field input[type="url"],
+    .field textarea,
+    .field select {
+      width: 100%;
+      padding: 7px 10px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      font-size: 13px;
+      font-family: inherit;
+      transition: border-color 0.15s;
+    }
+    .field select { background: #fff; cursor: pointer; }
+    .field input:focus,
+    .field textarea:focus,
+    .field select:focus {
+      outline: none;
+      border-color: #3f51b5;
+      box-shadow: 0 0 0 2px rgba(63,81,181,0.15);
+    }
+    .field textarea { resize: none; min-height: 60px; overflow: hidden; }
+    .field textarea[data-format="comma"] { min-height: 0; }
+
+    .tags-field {
+      width: 100%;
+    }
+    .tags-list {
+      width: 100%;
+      min-height: 36px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      padding: 4px;
+      background: #fff;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 4px;
+      transition: border-color 0.15s, box-shadow 0.15s;
+      margin-bottom: 6px;
+    }
+    .tags-empty {
+      color: #9aa0b6;
+      font-size: 12px;
+      padding: 2px 4px;
+    }
+    .tag-chip {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: #e8eaf6;
+      color: #1a237e;
+      border-radius: 999px;
+      padding: 3px 8px;
+      font-size: 12px;
+      max-width: 100%;
+    }
+    .tag-chip-text {
+      max-width: 320px;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+    .tag-chip-remove {
+      border: none;
+      background: transparent;
+      color: #3949ab;
+      cursor: pointer;
+      font-size: 13px;
+      line-height: 1;
+      padding: 0;
+    }
+    .tags-editor {
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      outline: none;
+      flex: 1;
+      min-width: 0;
+      font-size: 13px;
+      padding: 7px 10px;
+      font-family: inherit;
+      transition: border-color 0.15s, box-shadow 0.15s;
+    }
+    .tags-editor:focus {
+      border-color: #3f51b5;
+      box-shadow: 0 0 0 2px rgba(63,81,181,0.15);
+    }
+    .tags-input-row {
+      display: flex;
+      gap: 6px;
+      align-items: center;
+    }
+    .btn-tag-add {
+      height: 32px;
+      padding: 0 12px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      background: #f5f5f5;
+      color: #333;
+      font-size: 12px;
+      cursor: pointer;
+      white-space: nowrap;
+      flex-shrink: 0;
+    }
+    .btn-tag-add:hover {
+      background: #e8eaf6;
+      border-color: #3f51b5;
+      color: #1a237e;
+    }
+    .tags-subhint {
+      margin-top: 4px;
+      font-size: 11px;
+      color: #777;
+    }
+
+    .checkbox-label.flag-disabled { opacity: 0.4; cursor: default; }
+    .checkbox-group { display: flex; gap: 16px; flex-wrap: wrap; }
+    .checkbox-label {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      cursor: pointer;
+      font-size: 13px;
+    }
+    .checkbox-label input[type="checkbox"] {
+      width: 16px; height: 16px;
+      accent-color: #3f51b5;
+      cursor: pointer;
+    }
+
+    .flag-sep {
+      width: 1px;
+      background: #dde;
+      align-self: stretch;
+      margin: 0 4px;
+    }
+
+    .raw-editor {
+      font-family: 'Consolas', 'Courier New', monospace;
+      font-size: 12px;
+      background: #fafafa;
+      border: 1px solid #ddd;
+      border-radius: 4px;
+      padding: 10px;
+      width: 100%;
+      min-height: 180px;
+      resize: vertical;
+      color: #1a1a2e;
+    }
+    .raw-editor:focus { outline: none; border-color: #3f51b5; }
+
+    .url-row {
+      display: flex;
+      gap: 6px;
+      align-items: center;
+    }
+    .url-row input { flex: 1; min-width: 0; }
+    .btn-url-check {
+      padding: 7px 10px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      background: #f5f5f5;
+      font-size: 12px;
+      cursor: pointer;
+      white-space: nowrap;
+      flex-shrink: 0;
+    }
+    .btn-url-check:hover { background: #e8eaf6; border-color: #3f51b5; }
+    .url-open-link {
+      font-size: 16px;
+      text-decoration: none;
+      flex-shrink: 0;
+      line-height: 1;
+      opacity: 0.6;
+    }
+    .url-open-link:hover { opacity: 1; }
+    .url-status {
+      font-size: 12px;
+      margin-top: 4px;
+      min-height: 18px;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .url-status .dot {
+      width: 10px; height: 10px;
+      border-radius: 50%;
+      flex-shrink: 0;
+    }
+    .dot-ok    { background: #2e7d32; }
+    .dot-error { background: #c62828; }
+    .dot-checking { background: #f9a825; animation: pulse 1s infinite; }
+    @keyframes pulse { 0%,100%{opacity:1} 50%{opacity:0.4} }
+
+    .raw-error { color: #c62828; font-size: 12px; margin-top: 4px; }
+    /* ---- Field hint tooltip ---- */
+    .field-label-wrap {
+      display: flex;
+      align-items: center;
+      gap: 5px;
+      margin-bottom: 4px;
+    }
+    .field-label-wrap label { margin-bottom: 0; }
+    .required-mark { color: #c62828; margin-left: 2px; font-size: 11px; }
+    .hint-icon {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 15px;
+      height: 15px;
+      border-radius: 50%;
+      background: #9fa8da;
+      color: #fff;
+      font-size: 10px;
+      font-weight: 700;
+      cursor: default;
+      position: relative;
+      flex-shrink: 0;
+      line-height: 1;
+    }
+    .hint-icon:hover .hint-tooltip { display: block; }
+    .hint-tooltip {
+      display: none;
+      position: absolute;
+      left: 20px;
+      top: 50%;
+      transform: translateY(-50%);
+      background: #37474f;
+      color: #fff;
+      font-size: 12px;
+      font-weight: 400;
+      padding: 7px 11px;
+      border-radius: 5px;
+      white-space: nowrap;
+      z-index: 200;
+      pointer-events: none;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.25);
+      line-height: 1.6;
+    }
+    .hint-tooltip::before {
+      content: '';
+      position: absolute;
+      left: -5px;
+      top: 50%;
+      transform: translateY(-50%);
+      border: 5px solid transparent;
+      border-right-color: #37474f;
+      border-left: 0;
+    }
+
+    .tab-bar { display: flex; gap: 4px; margin-bottom: -1px; }
+    .tab-btn {
+      padding: 6px 14px;
+      border: 1px solid #dde;
+      border-bottom: none;
+      border-radius: 4px 4px 0 0;
+      background: #f0f2f5;
+      font-size: 13px;
+      cursor: pointer;
+      color: #555;
+    }
+    .tab-btn.active {
+      background: #fff;
+      color: #3f51b5;
+      font-weight: 600;
+      border-color: #dde;
+    }
+
+    .action-bar { display: flex; gap: 10px; flex-wrap: wrap; }
+    .btn {
+      padding: 8px 18px;
+      border: none;
+      border-radius: 5px;
+      font-size: 13px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: opacity 0.15s;
+    }
+    .btn:disabled { opacity: 0.4; cursor: default; }
+    .btn-primary { background: #3f51b5; color: #fff; }
+    .btn-primary:not(:disabled):hover { background: #303f9f; }
+    .btn-secondary { background: #e8eaf6; color: #3f51b5; }
+    .btn-secondary:not(:disabled):hover { background: #c5cae9; }
+    .btn-danger { background: #ef5350; color: #fff; }
+    .btn-danger:not(:disabled):hover { background: #d32f2f; }
+
+    .toast {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      background: #323232;
+      color: #fff;
+      padding: 10px 18px;
+      border-radius: 6px;
+      font-size: 13px;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.3s;
+      z-index: 9999;
+    }
+    .toast.show { opacity: 1; }
+    .toast.success { background: #2e7d32; }
+    .toast.error   { background: #c62828; }
+
+    .unsaved-dot {
+      display: inline-block;
+      width: 8px; height: 8px;
+      background: #ff9800;
+      border-radius: 50%;
+      margin-left: 4px;
+      vertical-align: middle;
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <h1>Sea Route JSON Editor</h1>
+  <button id="openBtn" type="button">📂 フォルダを開く</button>
+</header>
+
+<div class="main" id="mainArea">
+  <!-- ドロップ時オーバーレイ -->
+  <div id="dropOverlay">
+    <div class="drop-icon">📂</div>
+    <div class="drop-text">details フォルダをドロップ</div>
+    <div class="drop-sub">読み書き権限が必要です</div>
+  </div>
+
+  <div class="sidebar">
+    <div class="sidebar-controls">
+      <select id="layerSelect" disabled>
+        <option value="">— レイヤー選択 —</option>
+        <option value="seaRoute">seaRoute</option>
+        <option value="seaRoute_international">seaRoute_international</option>
+        <option value="seaRoute_KR">seaRoute_KR</option>
+        <option value="seaRoute_limited">seaRoute_limited</option>
+      </select>
+      <input type="text" id="searchInput" placeholder="ルートID・名前を検索…" disabled>
+      <div class="sidebar-actions">
+        <button class="sidebar-btn" id="createBtn" type="button" disabled>＋ 新規作成</button>
+        <button class="sidebar-btn" id="duplicateBtn" type="button" disabled>複製</button>
+      </div>
+    </div>
+    <div class="file-list" id="fileList" tabindex="0">
+      <div style="padding:20px;text-align:center;color:#aaa;font-size:12px;">
+        フォルダを開くと<br>ファイル一覧が表示されます
+      </div>
+    </div>
+    <div class="sidebar-footer" id="sidebarFooter"></div>
+  </div>
+
+  <div class="editor-panel" id="editorPanel">
+    <div class="placeholder">
+      <div class="icon">📋</div>
+      <p>左のリストからJSONファイルを選択してください</p>
+      <div class="hint">
+        📂 ボタンをクリックするか、<br>
+        <strong>details フォルダをここにドラッグ＆ドロップ</strong>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="toast" id="toast"></div>
+
+<script>
+  // ---- State ----
+  let rootDirHandle = null;
+  let allFiles = {};
+  let currentLayer = '';
+  let currentFileHandle = null;
+  let currentFileName = '';
+  let currentData = null;
+  let isModified = false;
+  let activeTab = 'form';
+  let sidebarMetaByLayer = {};
+  let sidebarMetaLoadPromise = {};
+  const HANDLE_DB_NAME = 'searoute-editor-db';
+  const HANDLE_STORE_NAME = 'handles';
+  const HANDLE_KEY_ROOT = 'rootDir';
+  const UI_STATE_KEY = 'searoute-editor-ui-state';
+
+  const LAYERS = ['seaRoute', 'seaRoute_international', 'seaRoute_KR', 'seaRoute_limited'];
+
+  const FIELDS = [
+    { key: 'businessName', label: '事業者名',           type: 'text',   full: false, required: true },
+    { key: 'routeName',    label: '航路名',            type: 'text',   full: false, required: true },
+    { key: 'url',          label: 'スケジュールURL',                type: 'url',    full: true  },
+    { key: 'note',  label: '運行情報',  type: 'select', full: false,
+      options: [{ value: '', label: '—' }, { value: 'season', label: 'season（季節・不定期）' }, { value: 'suspend', label: 'suspend（休止中）' }] },
+    { key: 'freqInfo',     label: '運行頻度（テキスト）', type: 'text', full: false, hint: '複数項目は", "で区切られます' },
+    { key: 'freq',  label: '運行頻度',  type: 'select', full: false, required: true,
+      options: [{ value: '', label: '—' }, { value: 1, label: '1（1日1往復未満）' }, { value: 2, label: '2（1日1・2往復以上）' }, { value: 3, label: '3（1日3往復以上）' }] },
+    { key: 'info',         label: '運行情報（テキスト）',               type: 'text',   full: false },
+    { key: 'shipName',     label: '船名',               type: 'tags',   full: true },
+  ];
+  const FLAG_FIELDS = [
+    { key: 'car',     label: '車両積載' },
+    { key: 'bike',    label: 'バイク積載' },
+    { key: 'bicycle', label: '自転車積載' },
+  ];
+
+  // ---- Natural sort comparator ----
+  function naturalCompare(a, b) {
+    return a.name.localeCompare(b.name, undefined, { numeric: true, sensitivity: 'base' });
+  }
+
+  // ---- Open folder (button) ----
+  document.getElementById('openBtn').addEventListener('click', async () => {
+    try {
+      const handle = await window.showDirectoryPicker({ mode: 'readwrite' });
+      await initFromHandle(handle);
+    } catch (e) {
+      if (e.name !== 'AbortError') showToast('フォルダを開けませんでした: ' + e.message, 'error');
+    }
+  });
+
+  // ---- Drag & Drop ----
+  const mainArea = document.getElementById('mainArea');
+  const dropOverlay = document.getElementById('dropOverlay');
+
+  // dragenter/dragleave でオーバーレイ表示切り替え
+  let dragCounter = 0;
+  mainArea.addEventListener('dragenter', e => {
+    e.preventDefault();
+    dragCounter++;
+    dropOverlay.classList.add('active');
+  });
+  mainArea.addEventListener('dragleave', e => {
+    dragCounter--;
+    if (dragCounter <= 0) { dragCounter = 0; dropOverlay.classList.remove('active'); }
+  });
+  mainArea.addEventListener('dragover', e => { e.preventDefault(); });
+
+  mainArea.addEventListener('drop', async e => {
+    e.preventDefault();
+    dragCounter = 0;
+    dropOverlay.classList.remove('active');
+
+    const items = e.dataTransfer.items;
+    if (!items || items.length === 0) { showToast('アイテムがありません', 'error'); return; }
+
+    // getAsFileSystemHandle() は Chrome 86+ で使用可能
+    const item = items[0];
+    if (typeof item.getAsFileSystemHandle !== 'function') {
+      showToast('このブラウザはドロップによるフォルダ読み込みに対応していません。ボタンをお使いください。', 'error');
+      return;
+    }
+
+    try {
+      const handle = await item.getAsFileSystemHandle();
+      if (handle.kind !== 'directory') {
+        showToast('フォルダをドロップしてください', 'error');
+        return;
+      }
+      await initFromHandle(handle);
+    } catch (e) {
+      showToast('ドロップ失敗: ' + e.message, 'error');
+    }
+  });
+
+  // ---- Init from handle ----
+  async function initFromHandle(handle, options = {}) {
+    rootDirHandle = handle;
+    await saveRootDirectoryHandle(handle);
+    await loadAllFiles();
+    document.getElementById('layerSelect').disabled = false;
+    document.getElementById('searchInput').disabled = false;
+    updateSidebarActionButtons();
+    await restoreUiStateAfterLoad();
+    if (!options.silent) showToast(`「${handle.name}」を読み込みました`, 'success');
+  }
+
+  async function loadAllFiles() {
+    allFiles = {};
+    sidebarMetaByLayer = {};
+    sidebarMetaLoadPromise = {};
+    for (const layer of LAYERS) {
+      try {
+        const layerHandle = await rootDirHandle.getDirectoryHandle(layer);
+        const files = [];
+        for await (const [name, handle] of layerHandle.entries()) {
+          if (name.endsWith('.json') && handle.kind === 'file') {
+            files.push({ name, handle });
+          }
+        }
+        files.sort(naturalCompare);
+        allFiles[layer] = files;
+        sidebarMetaByLayer[layer] = {};
+      } catch { allFiles[layer] = []; }
+    }
+
+    const first = LAYERS.find(l => allFiles[l] && allFiles[l].length > 0);
+    if (first) {
+      document.getElementById('layerSelect').value = first;
+      currentLayer = first;
+      renderFileList();
+      ensureLayerSidebarMeta(first);
+    }
+  }
+
+  document.getElementById('layerSelect').addEventListener('change', e => {
+    currentLayer = e.target.value;
+    document.getElementById('searchInput').value = '';
+    renderFileList();
+    ensureLayerSidebarMeta(currentLayer);
+    updateSidebarActionButtons();
+    persistUiState();
+  });
+
+  document.getElementById('searchInput').addEventListener('input', () => {
+    renderFileList();
+    persistUiState();
+  });
+  document.getElementById('createBtn').addEventListener('click', e => {
+    e.preventDefault();
+    createOrDuplicateFile(false);
+  });
+  document.getElementById('duplicateBtn').addEventListener('click', e => {
+    e.preventDefault();
+    createOrDuplicateFile(true);
+  });
+
+  function renderFileList() {
+    const list = document.getElementById('fileList');
+    const query = document.getElementById('searchInput').value.trim().toLowerCase();
+    const layerMeta = sidebarMetaByLayer[currentLayer] || {};
+    const files = (allFiles[currentLayer] || []).filter(f =>
+      !query
+      || f.name.toLowerCase().includes(query)
+      || (layerMeta[f.name]?.businessName || '').toLowerCase().includes(query)
+      || (layerMeta[f.name]?.routeName || '').toLowerCase().includes(query)
+    );
+
+    if (!files.length) {
+      list.innerHTML = '<div style="padding:16px;text-align:center;color:#aaa;font-size:12px;">該当なし</div>';
+      document.getElementById('sidebarFooter').textContent = '0 件';
+      return;
+    }
+
+    list.innerHTML = files.map(f => {
+      const id = f.name.replace('.json', '');
+      const businessName = layerMeta[f.name]?.businessName || '';
+      return `<div class="file-item${f.name === currentFileName ? ' active' : ''}"
+        data-name="${f.name}" title="${escHtml(id)}${businessName ? ' - ' + escHtml(businessName) : ''}" tabindex="-1">
+        <div class="file-id">${escHtml(id)}</div>
+        <div class="file-business${businessName ? '' : ' empty'}">${businessName ? escHtml(businessName) : '事業者名未設定'}</div>
+      </div>`;
+    }).join('');
+
+    document.getElementById('sidebarFooter').textContent = `${files.length} 件`;
+
+    list.querySelectorAll('.file-item').forEach(el => {
+      el.addEventListener('click', () => {
+        list.focus();
+        setFocusedItem(el);
+        openFile(el.dataset.name);
+      });
+    });
+
+    // 矢印キーナビゲーション
+    list.onkeydown = e => {
+      const items = [...list.querySelectorAll('.file-item')];
+      if (!items.length) return;
+      const focused = list.querySelector('.file-item.focused');
+      let idx = focused ? items.indexOf(focused) : items.findIndex(el => el.classList.contains('active'));
+      if (idx < 0) idx = 0;
+
+      if (e.key === 'ArrowDown') {
+        e.preventDefault();
+        const next = items[Math.min(idx + 1, items.length - 1)];
+        setFocusedItem(next);
+        openFile(next.dataset.name);
+      } else if (e.key === 'ArrowUp') {
+        e.preventDefault();
+        const prev = items[Math.max(idx - 1, 0)];
+        setFocusedItem(prev);
+        openFile(prev.dataset.name);
+      }
+    };
+  }
+
+  async function ensureLayerSidebarMeta(layer) {
+    if (!layer) return;
+    const files = allFiles[layer] || [];
+    if (!files.length) return;
+    if (sidebarMetaLoadPromise[layer]) return sidebarMetaLoadPromise[layer];
+
+    const meta = sidebarMetaByLayer[layer] || (sidebarMetaByLayer[layer] = {});
+    const pending = files.filter(f => !meta[f.name]);
+    if (!pending.length) return;
+
+    const loadPromise = (async () => {
+      for (const f of pending) {
+        try {
+          const file = await f.handle.getFile();
+          const text = await file.text();
+          const data = JSON.parse(text);
+          meta[f.name] = {
+            businessName: typeof data.businessName === 'string' ? data.businessName.trim() : '',
+            routeName: typeof data.routeName === 'string' ? data.routeName.trim() : '',
+          };
+        } catch {
+          meta[f.name] = { businessName: '', routeName: '' };
+        }
+      }
+    })().finally(() => {
+      delete sidebarMetaLoadPromise[layer];
+      if (layer === currentLayer) renderFileList();
+    });
+
+    sidebarMetaLoadPromise[layer] = loadPromise;
+    return loadPromise;
+  }
+
+  function setFocusedItem(el) {
+    const list = document.getElementById('fileList');
+    list.querySelectorAll('.file-item.focused').forEach(e => e.classList.remove('focused'));
+    if (!el) return;
+    el.classList.add('focused');
+    el.scrollIntoView({ block: 'nearest' });
+  }
+
+  async function openFile(name, options = {}) {
+    if (isModified && !options.skipUnsavedCheck) {
+      if (!confirm('保存されていない変更があります。破棄しますか？')) return;
+    }
+    const fileEntry = allFiles[currentLayer].find(f => f.name === name);
+    if (!fileEntry) return;
+
+    try {
+      const file = await fileEntry.handle.getFile();
+      const text = await file.text();
+      currentData = JSON.parse(text);
+      if (!sidebarMetaByLayer[currentLayer]) sidebarMetaByLayer[currentLayer] = {};
+      sidebarMetaByLayer[currentLayer][name] = {
+        businessName: typeof currentData.businessName === 'string' ? currentData.businessName.trim() : '',
+        routeName: typeof currentData.routeName === 'string' ? currentData.routeName.trim() : '',
+      };
+      currentFileHandle = fileEntry.handle;
+      currentFileName = name;
+      isModified = false;
+      renderEditor();
+      updateSidebarActionButtons();
+      persistUiState();
+    } catch (e) {
+      showToast('ファイルを開けませんでした: ' + e.message, 'error');
+    }
+  }
+
+  function updateSidebarActionButtons() {
+    const createBtn = document.getElementById('createBtn');
+    const duplicateBtn = document.getElementById('duplicateBtn');
+    const deleteBtn = document.getElementById('deleteBtn');
+    const selectedLayer = currentLayer || document.getElementById('layerSelect').value;
+    const canCreate = !!(rootDirHandle && selectedLayer);
+    createBtn.disabled = !canCreate;
+    duplicateBtn.disabled = !(canCreate && currentFileHandle);
+    if (deleteBtn) deleteBtn.disabled = !(canCreate && currentFileHandle);
+  }
+
+  async function createOrDuplicateFile(isDuplicate) {
+    if (!rootDirHandle) {
+      showToast('先に details フォルダを開いてください', 'error');
+      return;
+    }
+
+    const targetLayer = currentLayer || document.getElementById('layerSelect').value;
+    if (!targetLayer) {
+      showToast('先にレイヤーを選択してください', 'error');
+      return;
+    }
+    if (isDuplicate && !currentFileHandle) {
+      showToast('複製するファイルを先に選択してください', 'error');
+      return;
+    }
+
+    const defaultNameBase = isDuplicate
+      ? currentFileName.replace(/\.json$/i, '') + '_copy'
+      : '';
+    const answer = prompt(
+      isDuplicate
+        ? '複製先のファイル名を入力してください（拡張子 .json は省略可）'
+        : '新規ファイル名を入力してください（拡張子 .json は省略可）',
+      defaultNameBase
+    );
+    if (answer === null) return;
+
+    const normalized = normalizeJsonFileName(answer);
+    if (!normalized) {
+      showToast('ファイル名は英数字・_・- のみ使用できます', 'error');
+      return;
+    }
+    const fileName = normalized + '.json';
+
+    const layerFiles = allFiles[targetLayer] || (allFiles[targetLayer] = []);
+    if (layerFiles.some(f => f.name === fileName)) {
+      showToast(`${fileName} は既に存在します`, 'error');
+      return;
+    }
+
+    const newData = isDuplicate
+      ? JSON.parse(JSON.stringify(currentData))
+      : { businessName: '', routeName: '', freq: 1 };
+
+    try {
+      const layerHandle = await rootDirHandle.getDirectoryHandle(targetLayer);
+      const newFileHandle = await layerHandle.getFileHandle(fileName, { create: true });
+      const writable = await newFileHandle.createWritable();
+      await writable.write(JSON.stringify(newData, null, 2) + '\n');
+      await writable.close();
+
+      layerFiles.push({ name: fileName, handle: newFileHandle });
+      layerFiles.sort(naturalCompare);
+      if (!sidebarMetaByLayer[targetLayer]) sidebarMetaByLayer[targetLayer] = {};
+      sidebarMetaByLayer[targetLayer][fileName] = {
+        businessName: typeof newData.businessName === 'string' ? newData.businessName.trim() : '',
+        routeName: typeof newData.routeName === 'string' ? newData.routeName.trim() : '',
+      };
+
+      currentLayer = targetLayer;
+      document.getElementById('layerSelect').value = targetLayer;
+      document.getElementById('searchInput').value = '';
+      currentData = newData;
+      currentFileHandle = newFileHandle;
+      currentFileName = fileName;
+      isModified = false;
+      renderFileList();
+      renderEditor();
+      updateSidebarActionButtons();
+      persistUiState();
+      showToast(
+        isDuplicate ? `${fileName} を複製作成しました` : `${fileName} を新規作成しました`,
+        'success'
+      );
+    } catch (e) {
+      showToast('ファイル作成失敗: ' + e.message, 'error');
+    }
+  }
+
+  function normalizeJsonFileName(name) {
+    const trimmed = String(name || '').trim().replace(/\.json$/i, '');
+    if (!trimmed) return '';
+    return /^[A-Za-z0-9_-]+$/.test(trimmed) ? trimmed : '';
+  }
+
+  async function deleteCurrentFile() {
+    if (!rootDirHandle || !currentLayer || !currentFileHandle || !currentFileName) return;
+
+    if (isModified) {
+      const discard = confirm('保存されていない変更があります。削除を続行しますか？');
+      if (!discard) return;
+    }
+
+    const confirmed = confirm(`${currentFileName} を削除します。元に戻せません。`);
+    if (!confirmed) return;
+
+    const layerFiles = allFiles[currentLayer] || [];
+    const deletedIndex = layerFiles.findIndex(f => f.name === currentFileName);
+    if (deletedIndex < 0) {
+      showToast('削除対象ファイルが見つかりません', 'error');
+      return;
+    }
+
+    try {
+      const fileName = currentFileName;
+      const layerHandle = await rootDirHandle.getDirectoryHandle(currentLayer);
+      await layerHandle.removeEntry(fileName);
+
+      layerFiles.splice(deletedIndex, 1);
+      if (sidebarMetaByLayer[currentLayer]) delete sidebarMetaByLayer[currentLayer][fileName];
+
+      const nextFile = layerFiles[deletedIndex] || layerFiles[deletedIndex - 1] || null;
+      currentFileHandle = null;
+      currentFileName = '';
+      currentData = null;
+      isModified = false;
+
+      renderFileList();
+
+      if (nextFile) {
+        await openFile(nextFile.name, { skipUnsavedCheck: true });
+      } else {
+        renderEditorPlaceholder('このレイヤーにはJSONファイルがありません');
+        updateSidebarActionButtons();
+        persistUiState();
+      }
+
+      showToast(`${fileName} を削除しました`, 'success');
+    } catch (e) {
+      showToast('削除失敗: ' + e.message, 'error');
+    }
+  }
+
+  function renderEditorPlaceholder(message) {
+    const panel = document.getElementById('editorPanel');
+    panel.innerHTML = `
+      <div class="placeholder">
+        <div class="icon">📋</div>
+        <p>${escHtml(message || '左のリストからJSONファイルを選択してください')}</p>
+        <div class="hint">
+          📂 ボタンをクリックするか、<br>
+          <strong>details フォルダをここにドラッグ＆ドロップ</strong>
+        </div>
+      </div>
+    `;
+  }
+
+  async function restoreUiStateAfterLoad() {
+    const state = readUiState();
+    if (!state) return;
+
+    const layerSelectEl = document.getElementById('layerSelect');
+    const searchInputEl = document.getElementById('searchInput');
+
+    if (state.layer && allFiles[state.layer]) {
+      currentLayer = state.layer;
+      layerSelectEl.value = state.layer;
+    }
+    if (!currentLayer) {
+      currentLayer = layerSelectEl.value;
+    }
+
+    searchInputEl.value = typeof state.search === 'string' ? state.search : '';
+    renderFileList();
+    ensureLayerSidebarMeta(currentLayer);
+
+    if (state.fileName && (allFiles[currentLayer] || []).some(f => f.name === state.fileName)) {
+      await openFile(state.fileName, { skipUnsavedCheck: true });
+    }
+  }
+
+  function persistUiState() {
+    try {
+      localStorage.setItem(UI_STATE_KEY, JSON.stringify({
+        layer: currentLayer || document.getElementById('layerSelect').value || '',
+        fileName: currentFileName || '',
+        search: document.getElementById('searchInput').value || ''
+      }));
+    } catch {
+      // Ignore storage errors.
+    }
+  }
+
+  function readUiState() {
+    try {
+      const raw = localStorage.getItem(UI_STATE_KEY);
+      return raw ? JSON.parse(raw) : null;
+    } catch {
+      return null;
+    }
+  }
+
+  async function openHandleDb() {
+    return new Promise((resolve, reject) => {
+      const request = indexedDB.open(HANDLE_DB_NAME, 1);
+      request.onupgradeneeded = () => {
+        const db = request.result;
+        if (!db.objectStoreNames.contains(HANDLE_STORE_NAME)) {
+          db.createObjectStore(HANDLE_STORE_NAME);
+        }
+      };
+      request.onsuccess = () => resolve(request.result);
+      request.onerror = () => reject(request.error);
+    });
+  }
+
+  async function saveRootDirectoryHandle(handle) {
+    try {
+      const db = await openHandleDb();
+      await new Promise((resolve, reject) => {
+        const tx = db.transaction(HANDLE_STORE_NAME, 'readwrite');
+        tx.objectStore(HANDLE_STORE_NAME).put(handle, HANDLE_KEY_ROOT);
+        tx.oncomplete = () => resolve();
+        tx.onerror = () => reject(tx.error);
+      });
+      db.close();
+    } catch {
+      // Ignore IndexedDB errors.
+    }
+  }
+
+  async function getSavedRootDirectoryHandle() {
+    try {
+      const db = await openHandleDb();
+      const result = await new Promise((resolve, reject) => {
+        const tx = db.transaction(HANDLE_STORE_NAME, 'readonly');
+        const req = tx.objectStore(HANDLE_STORE_NAME).get(HANDLE_KEY_ROOT);
+        req.onsuccess = () => resolve(req.result || null);
+        req.onerror = () => reject(req.error);
+      });
+      db.close();
+      return result;
+    } catch {
+      return null;
+    }
+  }
+
+  async function verifyDirectoryPermission(handle) {
+    if (!handle) return false;
+    const opts = { mode: 'readwrite' };
+    if ((await handle.queryPermission(opts)) === 'granted') return true;
+    if ((await handle.requestPermission(opts)) === 'granted') return true;
+    return false;
+  }
+
+  async function restoreHandleOnStartup() {
+    const savedHandle = await getSavedRootDirectoryHandle();
+    if (!savedHandle) return;
+    try {
+      const granted = await verifyDirectoryPermission(savedHandle);
+      if (!granted) return;
+      await initFromHandle(savedHandle, { silent: true });
+      showToast('前回のフォルダを復元しました', 'success');
+    } catch {
+      // Ignore restore errors.
+    }
+  }
+
+  // ---- Render editor ----
+  function renderEditor() {
+    const panel = document.getElementById('editorPanel');
+    const id = currentFileName.replace('.json', '');
+
+    panel.innerHTML = `
+      <div class="editor-header">
+        <h2>${escHtml(id)}</h2>
+        <span class="badge">${escHtml(currentLayer)}</span>
+        <span id="unsavedMark" style="display:none"><span class="unsaved-dot"></span> 未保存</span>
+      </div>
+      <div class="tab-bar">
+        <button class="tab-btn${activeTab==='form'?' active':''}" id="tabForm" type="button">フォームで編集</button>
+        <button class="tab-btn${activeTab==='raw'?' active':''}" id="tabRaw" type="button">JSON（生）</button>
+      </div>
+      <div class="card" id="tabContent">
+        ${activeTab === 'form' ? renderFormContent() : renderRawContent()}
+      </div>
+      <div class="action-bar">
+        <button class="btn btn-primary" id="saveBtn" type="button">💾 保存</button>
+        <button class="btn btn-secondary" id="reloadBtn" type="button">↺ 再読み込み</button>
+        <button class="btn btn-danger" id="deleteBtn" type="button">🗑 削除</button>
+      </div>
+    `;
+
+    document.getElementById('tabForm').addEventListener('click', () => { activeTab = 'form'; renderEditor(); });
+    document.getElementById('tabRaw').addEventListener('click',  () => { activeTab = 'raw';  renderEditor(); });
+    document.getElementById('saveBtn').addEventListener('click', saveFile);
+    document.getElementById('reloadBtn').addEventListener('click', () => openFile(currentFileName));
+    document.getElementById('deleteBtn').addEventListener('click', deleteCurrentFile);
+
+    if (activeTab === 'form') bindFormEvents();
+    if (activeTab === 'raw')  bindRawEvents();
+
+    document.querySelectorAll('.file-item').forEach(el => {
+      el.classList.toggle('active', el.dataset.name === currentFileName);
+    });
+  }
+
+  function renderFormContent() {
+    const d = currentData;
+    const fieldsHtml = FIELDS.map(f => {
+      const val = d[f.key] !== undefined ? String(d[f.key]) : '';
+      const cls = f.full ? 'field full' : 'field';
+      const reqMark = f.required ? '<span class="required-mark">*</span>' : '';
+      const labelHtml = f.hint
+        ? `<div class="field-label-wrap">
+            <label>${f.label}${reqMark}</label>
+            <span class="hint-icon">i<span class="hint-tooltip">${escHtml(f.hint).replace(/\n/g, '<br>')}</span></span>
+          </div>`
+        : `<label>${f.label}${reqMark}</label>`;
+      if (f.type === 'select') {
+        const optionsHtml = f.options.map(o =>
+          `<option value="${escHtml(String(o.value))}"${String(d[f.key] ?? '') === String(o.value) ? ' selected' : ''}>${escHtml(o.label)}</option>`
+        ).join('');
+        return `<div class="${cls}">
+          ${labelHtml}
+          <select data-key="${f.key}" data-valuetype="${typeof f.options[1]?.value}">${optionsHtml}</select>
+        </div>`;
+      }
+      if (f.type === 'url') {
+        const statusId = 'urlStatus_' + f.key;
+        return `<div class="${cls}">
+          ${labelHtml}
+          <div class="url-row">
+            <input type="url" data-key="${f.key}" value="${escHtml(val)}">
+            <a class="url-open-link" href="${escHtml(val) || '#'}" target="_blank" rel="noopener" title="新しいタブで開く">🔗</a>
+            <button class="btn-url-check" data-urlkey="${f.key}" data-statusid="${statusId}" type="button">確認</button>
+          </div>
+          <div class="url-status" id="${statusId}"></div>
+        </div>`;
+      }
+      if (f.type === 'number') {
+        return `<div class="${cls}">
+          ${labelHtml}
+          <input type="number" data-key="${f.key}" value="${escHtml(val)}" min="0">
+        </div>`;
+      }
+      if (f.type === 'textarea') {
+        return `<div class="${cls}">
+          ${labelHtml}
+          <textarea data-key="${f.key}">${escHtml(val)}</textarea>
+        </div>`;
+      }
+      if (f.type === 'tags') {
+        const tags = parseCommaTags(val);
+        const tagsHtml = tags.map((tag, idx) => `
+          <span class="tag-chip">
+            <span class="tag-chip-text" title="${escHtml(tag)}">${escHtml(tag)}</span>
+            <button class="tag-chip-remove" type="button" data-remove-tag="${idx}" aria-label="${escHtml(tag)} を削除">×</button>
+          </span>
+        `).join('');
+        return `<div class="${cls}">
+          ${labelHtml}
+          <div class="tags-field" data-key="${f.key}">
+            <div class="tags-list">
+              ${tagsHtml || '<span class="tags-empty">追加された船名はありません</span>'}
+            </div>
+            <div class="tags-input-row">
+              <input class="tags-editor" type="text" data-tag-editor="${f.key}" placeholder="船名を入力">
+              <button class="btn-tag-add" type="button" data-tag-add="${f.key}">追加</button>
+            </div>
+          </div>
+        </div>`;
+      }
+      return `<div class="${cls}">
+        ${labelHtml}
+        <input type="text" data-key="${f.key}" value="${escHtml(val)}">
+      </div>`;
+    }).join('');
+
+    const knownFlagKeys = FLAG_FIELDS.map(f => f.key);
+    const isUnknown = knownFlagKeys.every(k => !(k in d));
+    const flagsHtml = `
+      <label class="checkbox-label">
+        <input type="checkbox" id="flagUnknown" ${isUnknown ? 'checked' : ''}> 不明
+      </label>
+      <div class="flag-sep"></div>
+      ${FLAG_FIELDS.map(f => {
+        const checked = d[f.key] ? 'checked' : '';
+        const disabled = isUnknown ? 'disabled' : '';
+        return `<label class="checkbox-label${isUnknown ? ' flag-disabled' : ''}">
+          <input type="checkbox" data-key="${f.key}" ${checked} ${disabled}> ${f.label}
+        </label>`;
+      }).join('')}`;
+
+    const knownKeys = new Set([...FIELDS.map(f => f.key), ...FLAG_FIELDS.map(f => f.key)]);
+    const extraKeys = Object.keys(d).filter(k => !knownKeys.has(k));
+    const extraHtml = extraKeys.length ? `
+      <div class="field full" style="margin-top:8px">
+        <label>その他のフィールド (JSON)</label>
+        <textarea id="extraFields" rows="3">${escHtml(JSON.stringify(Object.fromEntries(extraKeys.map(k => [k, d[k]])), null, 2))}</textarea>
+        <div class="raw-error" id="extraError"></div>
+      </div>` : '';
+
+    return `
+      <h3>基本情報</h3>
+      <div class="form-grid">
+        ${fieldsHtml}
+        <div class="field full">
+          <label>積載可否</label>
+          <div class="checkbox-group">${flagsHtml}</div>
+        </div>
+        ${extraHtml}
+      </div>
+    `;
+  }
+
+  function renderRawContent() {
+    return `
+      <h3>JSON（生編集）</h3>
+      <textarea class="raw-editor" id="rawEditor" spellcheck="false">${escHtml(JSON.stringify(currentData, null, 2))}</textarea>
+      <div class="raw-error" id="rawError"></div>
+    `;
+  }
+
+  function bindFormEvents() {
+    document.querySelectorAll('#tabContent input[data-key][type="text"], #tabContent input[data-key][type="number"], #tabContent input[data-key][type="url"]')
+      .forEach(el => el.addEventListener('input', () => {
+        const key = el.dataset.key;
+        if (el.type === 'number') {
+          const v = el.value.trim();
+          if (v === '') delete currentData[key]; else currentData[key] = Number(v);
+        } else {
+          const v = el.value.trim();
+          if (v === '') delete currentData[key]; else currentData[key] = v;
+        }
+        // URL フィールドの場合はリンクアイコンも更新
+        if (el.type === 'url') {
+          const link = el.closest('.field')?.querySelector('.url-open-link');
+          if (link) link.href = el.value || '#';
+          const statusEl = el.closest('.field')?.querySelector('.url-status');
+          if (statusEl) statusEl.innerHTML = '';
+        }
+        markModified();
+      }));
+
+    // Textarea fields
+    document.querySelectorAll('#tabContent textarea[data-key]')
+      .forEach(el => el.addEventListener('input', () => {
+        const key = el.dataset.key;
+        const v = el.value.trim();
+        if (v === '') {
+          delete currentData[key];
+        } else {
+          currentData[key] = v;
+        }
+        // 高さを自動調整
+        el.style.height = 'auto';
+        el.style.height = el.scrollHeight + 'px';
+        markModified();
+      }));
+
+    // Tag fields (comma separated string)
+    document.querySelectorAll('#tabContent .tags-field[data-key]').forEach(field => {
+      const key = field.dataset.key;
+      const editor = field.querySelector('.tags-editor');
+      const addBtn = document.querySelector(`#tabContent button[data-tag-add="${key}"]`);
+      let isComposing = false;
+
+      const getTags = () => parseCommaTags(currentData[key] ?? '');
+
+      const setTags = tags => {
+        const uniqueTags = [];
+        tags.forEach(tag => {
+          if (!uniqueTags.includes(tag)) uniqueTags.push(tag);
+        });
+        if (!uniqueTags.length) {
+          delete currentData[key];
+        } else {
+          currentData[key] = uniqueTags.join(', ');
+        }
+        markModified();
+      };
+
+      const commitEditorValue = () => {
+        const raw = editor.value;
+        if (!raw || !raw.trim()) return;
+        const newTags = parseCommaTags(raw);
+        if (!newTags.length) {
+          editor.value = '';
+          return;
+        }
+        // Clear first to avoid duplicate commit when blur fires during rerender.
+        editor.value = '';
+        const tags = getTags();
+        setTags(tags.concat(newTags));
+        renderEditor();
+      };
+
+      editor.addEventListener('keydown', e => {
+        if (e.isComposing || isComposing) return;
+        if (e.key === ',' || e.key === '、' || e.key === 'Enter') {
+          e.preventDefault();
+          commitEditorValue();
+          return;
+        }
+        if (e.key === 'Backspace' && !editor.value) {
+          const tags = getTags();
+          if (!tags.length) return;
+          tags.pop();
+          setTags(tags);
+          renderEditor();
+        }
+      });
+
+      editor.addEventListener('input', () => {
+        if (isComposing) return;
+        if (editor.value.includes(',') || editor.value.includes('、')) {
+          commitEditorValue();
+        }
+      });
+
+      editor.addEventListener('compositionstart', () => { isComposing = true; });
+      editor.addEventListener('compositionend', () => { isComposing = false; });
+
+      editor.addEventListener('blur', commitEditorValue);
+
+      if (addBtn) {
+        addBtn.addEventListener('click', commitEditorValue);
+      }
+
+      field.querySelectorAll('button[data-remove-tag]').forEach(btn => {
+        btn.addEventListener('click', () => {
+          const idx = Number(btn.dataset.removeTag);
+          const tags = getTags();
+          if (Number.isNaN(idx) || idx < 0 || idx >= tags.length) return;
+          tags.splice(idx, 1);
+          setTags(tags);
+          renderEditor();
+        });
+      });
+    });
+
+    // URL 確認ボタン
+    document.querySelectorAll('#tabContent .btn-url-check').forEach(btn => {
+      btn.addEventListener('click', async () => {
+        const key = btn.dataset.urlkey;
+        const statusEl = document.getElementById(btn.dataset.statusid);
+        const url = currentData[key];
+        if (!url) { statusEl.innerHTML = '<span style="color:#888">URLが未入力です</span>'; return; }
+        statusEl.innerHTML = '<span class="dot dot-checking"></span> 確認中…';
+        await checkUrl(url, statusEl);
+      });
+    });
+
+    document.querySelectorAll('#tabContent select[data-key]')
+      .forEach(el => el.addEventListener('change', () => {
+        const v = el.value;
+        if (v === '') { delete currentData[el.dataset.key]; }
+        else { currentData[el.dataset.key] = el.dataset.valuetype === 'number' ? Number(v) : v; }
+        markModified();
+      }));
+
+    const flagUnknown = document.getElementById('flagUnknown');
+    if (flagUnknown) {
+      flagUnknown.addEventListener('change', () => {
+        const flagEls = document.querySelectorAll('#tabContent input[type="checkbox"][data-key]');
+        if (flagUnknown.checked) {
+          FLAG_FIELDS.forEach(f => delete currentData[f.key]);
+          flagEls.forEach(el => {
+            el.checked = false;
+            el.disabled = true;
+            el.closest('.checkbox-label').classList.add('flag-disabled');
+          });
+        } else {
+          FLAG_FIELDS.forEach(f => { currentData[f.key] = 0; });
+          flagEls.forEach(el => {
+            el.disabled = false;
+            el.closest('.checkbox-label').classList.remove('flag-disabled');
+          });
+        }
+        markModified();
+      });
+    }
+
+    document.querySelectorAll('#tabContent input[type="checkbox"][data-key]')
+      .forEach(el => el.addEventListener('change', () => {
+        currentData[el.dataset.key] = el.checked ? 1 : 0;
+        markModified();
+      }));
+
+    const extraArea = document.getElementById('extraFields');
+    if (extraArea) {
+      extraArea.addEventListener('input', () => {
+        const errEl = document.getElementById('extraError');
+        try {
+          const parsed = JSON.parse(extraArea.value || '{}');
+          const knownKeys = new Set([...FIELDS.map(f => f.key), ...FLAG_FIELDS.map(f => f.key)]);
+          Object.keys(currentData).filter(k => !knownKeys.has(k)).forEach(k => delete currentData[k]);
+          Object.assign(currentData, parsed);
+          errEl.textContent = '';
+          markModified();
+        } catch (e) {
+          errEl.textContent = 'JSON構文エラー: ' + e.message;
+        }
+      });
+    }
+
+    // 全textareaの高さを初期化
+    document.querySelectorAll('#tabContent textarea').forEach(el => {
+      el.style.height = 'auto';
+      el.style.height = el.scrollHeight + 'px';
+    });
+  }
+
+  function bindRawEvents() {
+    const rawEl = document.getElementById('rawEditor');
+    const errEl = document.getElementById('rawError');
+    rawEl.addEventListener('input', () => {
+      try {
+        currentData = JSON.parse(rawEl.value);
+        errEl.textContent = '';
+        markModified();
+      } catch (e) {
+        errEl.textContent = 'JSON構文エラー: ' + e.message;
+      }
+    });
+  }
+
+  function markModified() {
+    isModified = true;
+    const mark = document.getElementById('unsavedMark');
+    if (mark) mark.style.display = '';
+  }
+
+  async function saveFile() {
+    if (!currentFileHandle) return;
+    const missing = FIELDS.filter(f => f.required && (currentData[f.key] === undefined || currentData[f.key] === '' || currentData[f.key] === null));
+    if (missing.length) {
+      showToast('必須項目が未入力です: ' + missing.map(f => f.label).join('、'), 'error');
+      return;
+    }
+    try {
+      const writable = await currentFileHandle.createWritable();
+      await writable.write(JSON.stringify(currentData, null, 2) + '\n');
+      await writable.close();
+      if (!sidebarMetaByLayer[currentLayer]) sidebarMetaByLayer[currentLayer] = {};
+      sidebarMetaByLayer[currentLayer][currentFileName] = {
+        businessName: typeof currentData.businessName === 'string' ? currentData.businessName.trim() : '',
+        routeName: typeof currentData.routeName === 'string' ? currentData.routeName.trim() : '',
+      };
+      isModified = false;
+      const mark = document.getElementById('unsavedMark');
+      if (mark) mark.style.display = 'none';
+      renderFileList();
+      showToast(`${currentFileName} を保存しました`, 'success');
+    } catch (e) {
+      showToast('保存失敗: ' + e.message, 'error');
+    }
+  }
+
+  // ---- URL チェック ----
+  async function checkUrl(url, statusEl) {
+    const signal = AbortSignal.timeout(10000);
+    // まず通常 fetch（CORS 対応サイトならタイトルも取得できる）
+    try {
+      const res = await fetch(url, { signal });
+      if (!res.ok) {
+        statusEl.innerHTML = `<span class="dot dot-error"></span> <span style="color:#c62828">✗ HTTP ${res.status}</span>`;
+        return;
+      }
+      const ct = res.headers.get('content-type') || '';
+      if (ct.includes('text/html')) {
+        const html = await res.text();
+        const m = html.match(/<title[^>]*>([\s\S]*?)<\/title>/i);
+        const title = m ? m[1].trim().replace(/&amp;/g,'&').replace(/&lt;/g,'<').replace(/&gt;/g,'>').replace(/\s+/g,' ') : '';
+        statusEl.innerHTML = `<span class="dot dot-ok"></span> <span style="color:#2e7d32">✓ 生存</span>`
+          + (title ? ` <span style="color:#555;font-size:11px">— ${escHtml(title)}</span>` : '');
+      } else {
+        statusEl.innerHTML = `<span class="dot dot-ok"></span> <span style="color:#2e7d32">✓ 生存</span> <span style="color:#888;font-size:11px">(${escHtml(ct.split(';')[0])})</span>`;
+      }
+      return;
+    } catch (e) {
+      if (e.name === 'TimeoutError') {
+        statusEl.innerHTML = `<span class="dot dot-error"></span> <span style="color:#c62828">✗ タイムアウト</span>`;
+        return;
+      }
+      // CORS エラーなど → no-cors で死活だけ確認
+    }
+    try {
+      await fetch(url, { mode: 'no-cors', signal: AbortSignal.timeout(8000) });
+      // no-cors は opaque response → エラーなければ生存
+      statusEl.innerHTML = `<span class="dot dot-ok"></span> <span style="color:#2e7d32">✓ 生存</span> <span style="color:#888;font-size:11px">(タイトル取得不可)</span>`;
+    } catch (e2) {
+      statusEl.innerHTML = `<span class="dot dot-error"></span> <span style="color:#c62828">✗ 到達不能: ${escHtml(e2.message)}</span>`;
+    }
+  }
+
+  // ---- Utils ----
+  function parseCommaTags(value) {
+    return String(value)
+      .split(/[、,]/)
+      .map(v => v.trim())
+      .filter(Boolean);
+  }
+
+  function escHtml(str) {
+    return String(str)
+      .replace(/&/g, '&amp;').replace(/</g, '&lt;')
+      .replace(/>/g, '&gt;').replace(/"/g, '&quot;');
+  }
+
+  let toastTimer = null;
+  function showToast(msg, type = '') {
+    const el = document.getElementById('toast');
+    el.textContent = msg;
+    el.className = 'toast show' + (type ? ' ' + type : '');
+    clearTimeout(toastTimer);
+    toastTimer = setTimeout(() => { el.className = 'toast'; }, 3000);
+  }
+
+  // Ctrl+S で保存
+  document.addEventListener('keydown', e => {
+    if ((e.ctrlKey || e.metaKey) && e.key === 's') {
+      e.preventDefault();
+      if (currentFileHandle) saveFile();
+    }
+  });
+
+  restoreHandleOnStartup();
+</script>
+</body>
+</html>
