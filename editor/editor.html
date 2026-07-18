@@ -1286,10 +1286,10 @@
     { key: 'url',          label: 'スケジュールURL',                type: 'url',    full: true  },
     { key: 'note',  label: '運行情報',  type: 'select', full: false,
       options: [{ value: '', label: '—' }, { value: 'season', label: 'season（季節・不定期）' }, { value: 'suspend', label: 'suspend（休止中）' }] },
-    { key: 'freqInfo',     label: '運行頻度（テキスト）', type: 'text', full: false, hint: '複数項目は", "で区切られます' },
+    { key: 'info',         label: '運行情報（テキスト）',               type: 'text',   full: false },
     { key: 'freq',  label: '運行頻度',  type: 'select', full: false, required: true,
       options: [{ value: '', label: '—' }, { value: 1, label: '1（1日1往復未満）' }, { value: 2, label: '2（1日1・2往復以上）' }, { value: 3, label: '3（1日3往復以上）' }] },
-    { key: 'info',         label: '運行情報（テキスト）',               type: 'text',   full: false },
+    { key: 'freqInfo',     label: '運行頻度（テキスト）', type: 'text', full: false, hint: '複数項目は", "で区切られます' },
     { key: 'shipName',     label: '船名',               type: 'tags',   full: true },
   ];
   const FLAG_FIELDS = [
