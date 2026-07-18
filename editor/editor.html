@@ -4,6 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Sea Route JSON Editor</title>
+  <link href="https://unpkg.com/maplibre-gl@4.7.1/dist/maplibre-gl.css" rel="stylesheet">
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
@@ -664,6 +665,176 @@
       margin-left: 4px;
       vertical-align: middle;
     }
+
+    .map-card {
+      padding: 14px 16px;
+    }
+    .map-head {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 8px;
+      margin-bottom: 8px;
+      flex-wrap: wrap;
+    }
+    .map-head h3 {
+      margin-bottom: 0;
+      border-bottom: none;
+      padding-bottom: 0;
+    }
+    .map-controls {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      flex-wrap: wrap;
+    }
+    .map-btn {
+      padding: 6px 10px;
+      border: 1px solid #cbd5e1;
+      border-radius: 4px;
+      background: #f8fafc;
+      color: #334155;
+      font-size: 12px;
+      cursor: pointer;
+      font-weight: 600;
+    }
+    .map-btn:hover {
+      background: #e2e8f0;
+      border-color: #94a3b8;
+    }
+    .map-status {
+      font-size: 12px;
+      color: #64748b;
+      margin-bottom: 8px;
+      min-height: 18px;
+      line-height: 1.4;
+    }
+    .map-canvas {
+      width: 100%;
+      height: 320px;
+      border: 1px solid #dbe5f1;
+      border-radius: 6px;
+      overflow: hidden;
+      background: #d9ecfb;
+    }
+    .line-list {
+      margin-top: 10px;
+      border: 1px solid #dbe5f1;
+      border-radius: 6px;
+      background: #fff;
+      max-height: 180px;
+      overflow-y: auto;
+    }
+    .line-list-row {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      width: 100%;
+      border: none;
+      border-bottom: 1px solid #eef2f7;
+      background: #fff;
+      text-align: left;
+      padding: 8px 10px;
+      cursor: pointer;
+      font-size: 12px;
+      color: #334155;
+    }
+    .line-list-row:last-child {
+      border-bottom: none;
+    }
+    .line-list-row:hover {
+      background: #f8fafc;
+    }
+    .line-list-empty {
+      padding: 10px;
+      font-size: 12px;
+      color: #64748b;
+    }
+    .line-id-chip {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-width: 52px;
+      border-radius: 999px;
+      background: #e2e8f0;
+      color: #1e293b;
+      font-weight: 700;
+      padding: 2px 10px;
+      font-size: 11px;
+      flex-shrink: 0;
+    }
+    .line-freq-chip {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-width: 56px;
+      border-radius: 999px;
+      background: #e0f2fe;
+      color: #0c4a6e;
+      font-weight: 700;
+      padding: 2px 10px;
+      font-size: 11px;
+      flex-shrink: 0;
+    }
+    .line-port-text {
+      min-width: 0;
+      flex: 1;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+    .name-match {
+      margin-top: 10px;
+      border: 1px solid #dbe5f1;
+      border-radius: 6px;
+      background: #fff;
+      padding: 10px;
+      font-size: 12px;
+      color: #334155;
+      display: grid;
+      gap: 6px;
+    }
+    .name-match-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 8px;
+      font-weight: 700;
+      color: #1e293b;
+    }
+    .match-badge {
+      border-radius: 999px;
+      padding: 2px 10px;
+      font-size: 11px;
+      font-weight: 700;
+      white-space: nowrap;
+    }
+    .match-ok {
+      background: #dcfce7;
+      color: #166534;
+    }
+    .match-ng {
+      background: #fee2e2;
+      color: #991b1b;
+    }
+    .match-row {
+      display: grid;
+      grid-template-columns: 120px 1fr;
+      gap: 8px;
+    }
+    .match-row-key {
+      color: #475569;
+    }
+    .match-row-val {
+      color: #0f172a;
+      word-break: break-word;
+    }
+
+    @media (max-width: 900px) {
+      .map-canvas {
+        height: 260px;
+      }
+    }
   </style>
 </head>
 <body>
@@ -717,6 +888,7 @@
 
 <div class="toast" id="toast"></div>
 
+<script src="https://unpkg.com/maplibre-gl@4.7.1/dist/maplibre-gl.js"></script>
 <script>
   // ---- State ----
   let rootDirHandle = null;
@@ -733,7 +905,20 @@
   const HANDLE_DB_NAME = 'searoute-editor-db';
   const HANDLE_STORE_NAME = 'handles';
   const HANDLE_KEY_ROOT = 'rootDir';
+  const HANDLE_KEY_GEOJSON_DIR = 'geojsonDir';
   const UI_STATE_KEY = 'searoute-editor-ui-state';
+  const GEOJSON_FILE_BY_LAYER = {
+    seaRoute: 'seaRoute.geojson',
+    seaRoute_international: 'seaRoute_international.geojson',
+    seaRoute_KR: 'seaRoute_KR.geojson',
+    seaRoute_limited: 'seaRoute_limited.geojson'
+  };
+  const MAP_SOURCE_ALL = 'routes-all';
+  const MAP_SOURCE_MATCHED = 'routes-matched';
+  const MAP_LAYER_ALL = 'routes-all-line';
+  const MAP_LAYER_MATCHED = 'routes-matched-line';
+  const MAP_LAYER_LINE_LABELS = 'routes-line-labels-symbol';
+  const BASEMAP_STYLE_URL = 'https://tile.openstreetmap.jp/styles/maptiler-basic-ja/style.json';
 
   const LAYERS = ['seaRoute', 'seaRoute_international', 'seaRoute_KR', 'seaRoute_limited'];
 
@@ -754,6 +939,12 @@
     { key: 'bike',    label: 'バイク積載' },
     { key: 'bicycle', label: '自転車積載' },
   ];
+
+  let routeMap = null;
+  let mapReady = false;
+  let geojsonDirHandle = null;
+  let geojsonDataByLayer = {};
+  let geojsonLoadPromiseByLayer = {};
 
   // ---- Natural sort comparator ----
   function naturalCompare(a, b) {
@@ -872,6 +1063,9 @@
     document.getElementById('searchInput').value = '';
     renderFileList();
     ensureLayerSidebarMeta(currentLayer);
+    ensureGeojsonLoadedForCurrentLayer().then(() => {
+      if (isEditorOpen) updateRouteMapForCurrentFile();
+    });
     updateSidebarActionButtons();
     persistUiState();
   });
@@ -1071,6 +1265,8 @@
       isModified = false;
       renderEditor();
       setEditorOpen(true);
+      await ensureGeojsonLoadedForCurrentLayer();
+      updateRouteMapForCurrentFile();
       updateSidebarActionButtons();
       persistUiState();
     } catch (e) {
@@ -1334,9 +1530,48 @@
     }
   }
 
+  async function saveGeojsonDirectoryHandle(handle) {
+    try {
+      const db = await openHandleDb();
+      await new Promise((resolve, reject) => {
+        const tx = db.transaction(HANDLE_STORE_NAME, 'readwrite');
+        tx.objectStore(HANDLE_STORE_NAME).put(handle, HANDLE_KEY_GEOJSON_DIR);
+        tx.oncomplete = () => resolve();
+        tx.onerror = () => reject(tx.error);
+      });
+      db.close();
+    } catch {
+      // Ignore IndexedDB errors.
+    }
+  }
+
+  async function getSavedGeojsonDirectoryHandle() {
+    try {
+      const db = await openHandleDb();
+      const result = await new Promise((resolve, reject) => {
+        const tx = db.transaction(HANDLE_STORE_NAME, 'readonly');
+        const req = tx.objectStore(HANDLE_STORE_NAME).get(HANDLE_KEY_GEOJSON_DIR);
+        req.onsuccess = () => resolve(req.result || null);
+        req.onerror = () => reject(req.error);
+      });
+      db.close();
+      return result;
+    } catch {
+      return null;
+    }
+  }
+
   async function verifyDirectoryPermission(handle) {
     if (!handle) return false;
     const opts = { mode: 'readwrite' };
+    if ((await handle.queryPermission(opts)) === 'granted') return true;
+    if ((await handle.requestPermission(opts)) === 'granted') return true;
+    return false;
+  }
+
+  async function verifyGeojsonDirectoryPermission(handle) {
+    if (!handle) return false;
+    const opts = { mode: 'read' };
     if ((await handle.queryPermission(opts)) === 'granted') return true;
     if ((await handle.requestPermission(opts)) === 'granted') return true;
     return false;
@@ -1355,10 +1590,35 @@
     }
   }
 
+  async function restoreGeojsonDirectoryOnStartup() {
+    const savedHandle = await getSavedGeojsonDirectoryHandle();
+    if (!savedHandle) return;
+    try {
+      const granted = await verifyGeojsonDirectoryPermission(savedHandle);
+      if (!granted) return;
+      geojsonDirHandle = savedHandle;
+      geojsonDataByLayer = {};
+      geojsonLoadPromiseByLayer = {};
+      if (currentLayer) {
+        await ensureGeojsonLoadedForCurrentLayer();
+        if (isEditorOpen) updateRouteMapForCurrentFile();
+      }
+      showToast('前回のGeoJSONフォルダを復元しました', 'success');
+    } catch {
+      // Ignore restore errors.
+    }
+  }
+
   // ---- Render editor ----
   function renderEditor() {
     const panel = document.getElementById('editorPanel');
     const id = currentFileName.replace('.json', '');
+
+    if (routeMap) {
+      routeMap.remove();
+      routeMap = null;
+      mapReady = false;
+    }
 
     panel.innerHTML = `
       <div class="editor-header">
@@ -1370,9 +1630,14 @@
       <div class="tab-bar">
         <button class="tab-btn${activeTab==='form'?' active':''}" id="tabForm" type="button">フォームで編集</button>
         <button class="tab-btn${activeTab==='raw'?' active':''}" id="tabRaw" type="button">JSON（生）</button>
+        <button class="tab-btn${activeTab==='map'?' active':''}" id="tabMap" type="button">航路マップ</button>
       </div>
       <div class="card" id="tabContent">
-        ${activeTab === 'form' ? renderFormContent() : renderRawContent()}
+        ${activeTab === 'form'
+          ? renderFormContent()
+          : activeTab === 'raw'
+            ? renderRawContent()
+            : `<div class="map-card">${renderMapContent()}</div>`}
       </div>
       <div class="action-bar">
         <button class="btn btn-secondary" id="reloadBtn" type="button">↺ 再読み込み</button>
@@ -1384,6 +1649,7 @@
 
     document.getElementById('tabForm').addEventListener('click', () => { activeTab = 'form'; renderEditor(); });
     document.getElementById('tabRaw').addEventListener('click',  () => { activeTab = 'raw';  renderEditor(); });
+    document.getElementById('tabMap').addEventListener('click',  () => { activeTab = 'map';  renderEditor(); });
     document.getElementById('saveBtn').addEventListener('click', saveFile);
     document.getElementById('duplicateBtn').addEventListener('click', e => {
       e.preventDefault();
@@ -1392,12 +1658,436 @@
     document.getElementById('reloadBtn').addEventListener('click', () => openFile(currentFileName));
     document.getElementById('deleteBtn').addEventListener('click', deleteCurrentFile);
     document.getElementById('backToListBtn').addEventListener('click', closeEditorToList);
+    bindMapEvents();
+    ensureMapInitialized();
+    updateRouteMapForCurrentFile();
 
     if (activeTab === 'form') bindFormEvents();
     if (activeTab === 'raw')  bindRawEvents();
 
     document.querySelectorAll('.file-item').forEach(el => {
       el.classList.toggle('active', el.dataset.name === currentFileName);
+    });
+  }
+
+  function renderMapContent() {
+    const routeId = getCurrentRouteId();
+    return `
+      <div class="map-head">
+        <h3>航路マップ（MapLibre）</h3>
+        <div class="map-controls">
+          <button class="map-btn" id="openGeojsonFolderBtn" type="button">GeoJSONフォルダを開く</button>
+          <button class="map-btn" id="fitRouteBtn" type="button">選択航路にズーム</button>
+        </div>
+      </div>
+      <div class="map-status" id="mapStatus">routeId ${escHtml(routeId)} を表示します</div>
+      <div class="map-canvas" id="routeMapCanvas" aria-label="航路マップ"></div>
+      <div class="line-list" id="lineListContainer" aria-label="line 一覧">
+        <div class="line-list-empty">line 一覧はここに表示されます</div>
+      </div>
+      <div class="name-match" id="nameMatchContainer" aria-label="名前一致チェック">
+        <div class="line-list-empty">一致チェックはここに表示されます</div>
+      </div>
+    `;
+  }
+
+  function bindMapEvents() {
+    const openFolderBtn = document.getElementById('openGeojsonFolderBtn');
+    const fitBtn = document.getElementById('fitRouteBtn');
+    if (openFolderBtn) {
+      openFolderBtn.addEventListener('click', pickGeojsonFolderAndReload);
+    }
+    if (fitBtn) {
+      fitBtn.addEventListener('click', () => {
+        updateRouteMapForCurrentFile({ forceFit: true });
+      });
+    }
+  }
+
+  function ensureMapInitialized() {
+    if (routeMap || typeof maplibregl === 'undefined') return;
+    const container = document.getElementById('routeMapCanvas');
+    if (!container) return;
+
+    routeMap = new maplibregl.Map({
+      container,
+      style: BASEMAP_STYLE_URL,
+      center: [139.7, 35.7],
+      zoom: 4,
+      attributionControl: true
+    });
+    routeMap.addControl(new maplibregl.NavigationControl(), 'top-right');
+    routeMap.on('load', () => {
+      mapReady = true;
+      ensureMapSourcesAndLayers();
+      updateRouteMapForCurrentFile();
+    });
+    routeMap.on('error', () => {
+      setMapStatus('地図の描画でエラーが発生しました');
+    });
+  }
+
+  function ensureMapSourcesAndLayers() {
+    if (!routeMap || !mapReady) return;
+
+    if (!routeMap.getSource(MAP_SOURCE_ALL)) {
+      routeMap.addSource(MAP_SOURCE_ALL, {
+        type: 'geojson',
+        data: emptyFeatureCollection()
+      });
+    }
+    if (!routeMap.getSource(MAP_SOURCE_MATCHED)) {
+      routeMap.addSource(MAP_SOURCE_MATCHED, {
+        type: 'geojson',
+        data: emptyFeatureCollection()
+      });
+    }
+    if (!routeMap.getLayer(MAP_LAYER_ALL)) {
+      routeMap.addLayer({
+        id: MAP_LAYER_ALL,
+        type: 'line',
+        source: MAP_SOURCE_ALL,
+        paint: {
+          'line-color': ['coalesce', ['get', 'color'], '#60a5fa'],
+          'line-width': ['interpolate', ['linear'], ['to-number', ['get', 'freq'], 1], 1, 1.5, 2, 2.8, 3, 4.2],
+          'line-opacity': 0.25
+        }
+      });
+    }
+    if (!routeMap.getLayer(MAP_LAYER_MATCHED)) {
+      routeMap.addLayer({
+        id: MAP_LAYER_MATCHED,
+        type: 'line',
+        source: MAP_SOURCE_MATCHED,
+        paint: {
+          'line-color': ['coalesce', ['get', 'color'], '#e11d48'],
+          'line-width': ['interpolate', ['linear'], ['to-number', ['get', 'freq'], 1], 1, 2.5, 2, 4.5, 3, 7],
+          'line-opacity': 0.95
+        }
+      });
+    }
+    if (!routeMap.getLayer(MAP_LAYER_LINE_LABELS)) {
+      routeMap.addLayer({
+        id: MAP_LAYER_LINE_LABELS,
+        type: 'symbol',
+        source: MAP_SOURCE_MATCHED,
+        layout: {
+          'symbol-placement': 'line-center',
+          'text-field': ['concat', 'L', ['to-string', ['coalesce', ['get', 'lineId'], '?']]],
+          'text-size': 11,
+          'text-font': ['Noto Sans Regular', 'Open Sans Regular', 'Arial Unicode MS Regular'],
+          'text-offset': [0, 0],
+          'text-allow-overlap': false
+        },
+        paint: {
+          'text-color': '#0f172a',
+          'text-halo-color': '#ffffff',
+          'text-halo-width': 1.2
+        }
+      });
+    }
+  }
+
+  function getCurrentRouteId() {
+    return (currentFileName || '').replace(/\.json$/i, '');
+  }
+
+  async function ensureGeojsonLoadedForCurrentLayer() {
+    if (!currentLayer) return false;
+    if (geojsonDataByLayer[currentLayer]) return true;
+    if (!geojsonDirHandle) {
+      setMapStatus('GeoJSONフォルダ未設定です。「GeoJSONフォルダを開く」を押してください');
+      return false;
+    }
+    if (geojsonLoadPromiseByLayer[currentLayer]) return geojsonLoadPromiseByLayer[currentLayer];
+
+    const fileName = GEOJSON_FILE_BY_LAYER[currentLayer];
+    if (!fileName) return false;
+
+    const promise = (async () => {
+      try {
+        const fileHandle = await geojsonDirHandle.getFileHandle(fileName);
+        const file = await fileHandle.getFile();
+        const text = await file.text();
+        const data = JSON.parse(text);
+        if (!data || data.type !== 'FeatureCollection' || !Array.isArray(data.features)) {
+          throw new Error('FeatureCollection ではありません');
+        }
+        geojsonDataByLayer[currentLayer] = data;
+        setMapStatus(`${fileName} を自動読込しました（${data.features.length} feature）`);
+        return true;
+      } catch (e) {
+        setMapStatus(`GeoJSON読込失敗: ${e.message}`);
+        return false;
+      }
+    })();
+
+    geojsonLoadPromiseByLayer[currentLayer] = promise.finally(() => {
+      delete geojsonLoadPromiseByLayer[currentLayer];
+    });
+    return geojsonLoadPromiseByLayer[currentLayer];
+  }
+
+  async function pickGeojsonFolderAndReload() {
+    if (!window.showDirectoryPicker) {
+      showToast('このブラウザはフォルダ選択APIに対応していません', 'error');
+      return;
+    }
+    try {
+      const handle = await window.showDirectoryPicker({ mode: 'read' });
+      geojsonDirHandle = handle;
+      await saveGeojsonDirectoryHandle(handle);
+      geojsonDataByLayer = {};
+      geojsonLoadPromiseByLayer = {};
+      await ensureGeojsonLoadedForCurrentLayer();
+      updateRouteMapForCurrentFile({ forceFit: true });
+      showToast(`GeoJSONフォルダ「${handle.name}」を設定しました`, 'success');
+    } catch (e) {
+      if (e.name !== 'AbortError') {
+        showToast('GeoJSONフォルダ設定に失敗: ' + e.message, 'error');
+      }
+    }
+  }
+
+  function updateRouteMapForCurrentFile(options = {}) {
+    if (!routeMap || !mapReady) return;
+    ensureMapSourcesAndLayers();
+
+    const layerData = geojsonDataByLayer[currentLayer];
+    if (!layerData || !Array.isArray(layerData.features)) {
+      setSourceData(MAP_SOURCE_ALL, emptyFeatureCollection());
+      setSourceData(MAP_SOURCE_MATCHED, emptyFeatureCollection());
+      renderLineList([], getCurrentRouteId());
+      renderNameMatchCheck([], getCurrentRouteId(), 'GeoJSON未読込');
+      const routeId = getCurrentRouteId();
+      setMapStatus(`routeId ${routeId} を表示するには GeoJSONフォルダを設定してください`);
+      return;
+    }
+
+    const routeId = getCurrentRouteId();
+    const matchedFeatures = layerData.features.filter(f => {
+      const props = f && f.properties ? f.properties : {};
+      const candidate = props.routeId ?? props.route_id ?? props.id ?? props.ID ?? null;
+      return candidate !== null && String(candidate) === routeId;
+    });
+
+    setSourceData(MAP_SOURCE_ALL, layerData);
+    setSourceData(MAP_SOURCE_MATCHED, {
+      type: 'FeatureCollection',
+      features: matchedFeatures
+    });
+    renderLineList(matchedFeatures, routeId);
+    renderNameMatchCheck(matchedFeatures, routeId);
+
+    if (!matchedFeatures.length) {
+      setMapStatus(`routeId ${routeId} の feature は見つかりませんでした`);
+      return;
+    }
+
+    setMapStatus(`routeId ${routeId}: ${matchedFeatures.length} feature を表示中`);
+    if (options.forceFit || !routeMap.__hasFittedOnce) {
+      fitToFeatures(matchedFeatures);
+      routeMap.__hasFittedOnce = true;
+    }
+  }
+
+  function setSourceData(sourceName, data) {
+    const source = routeMap.getSource(sourceName);
+    if (!source || typeof source.setData !== 'function') return;
+    source.setData(data);
+  }
+
+  function fitToFeatures(features) {
+    const bounds = calculateBoundsFromFeatures(features);
+    if (!bounds) return;
+    routeMap.fitBounds(bounds, {
+      padding: 30,
+      duration: 500,
+      maxZoom: 13
+    });
+  }
+
+  function calculateBoundsFromFeatures(features) {
+    let minLng = Infinity;
+    let minLat = Infinity;
+    let maxLng = -Infinity;
+    let maxLat = -Infinity;
+    let hasPoint = false;
+
+    features.forEach(feature => {
+      const coords = collectCoordinates(feature && feature.geometry);
+      coords.forEach(pair => {
+        const lng = Number(pair[0]);
+        const lat = Number(pair[1]);
+        if (!Number.isFinite(lng) || !Number.isFinite(lat)) return;
+        hasPoint = true;
+        if (lng < minLng) minLng = lng;
+        if (lat < minLat) minLat = lat;
+        if (lng > maxLng) maxLng = lng;
+        if (lat > maxLat) maxLat = lat;
+      });
+    });
+
+    if (!hasPoint) return null;
+    return [[minLng, minLat], [maxLng, maxLat]];
+  }
+
+  function collectCoordinates(geometry) {
+    if (!geometry || !geometry.type) return [];
+    if (geometry.type === 'LineString' || geometry.type === 'MultiPoint') {
+      return Array.isArray(geometry.coordinates) ? geometry.coordinates : [];
+    }
+    if (geometry.type === 'MultiLineString' || geometry.type === 'Polygon') {
+      return (geometry.coordinates || []).flatMap(segment => Array.isArray(segment) ? segment : []);
+    }
+    if (geometry.type === 'MultiPolygon') {
+      return (geometry.coordinates || []).flatMap(poly =>
+        (poly || []).flatMap(segment => Array.isArray(segment) ? segment : [])
+      );
+    }
+    if (geometry.type === 'Point') {
+      return Array.isArray(geometry.coordinates) ? [geometry.coordinates] : [];
+    }
+    if (geometry.type === 'GeometryCollection') {
+      return (geometry.geometries || []).flatMap(g => collectCoordinates(g));
+    }
+    return [];
+  }
+
+  function emptyFeatureCollection() {
+    return { type: 'FeatureCollection', features: [] };
+  }
+
+  function setMapStatus(message) {
+    const el = document.getElementById('mapStatus');
+    if (el) el.textContent = message;
+  }
+
+  function renderNameMatchCheck(features, routeId, reason = '') {
+    const el = document.getElementById('nameMatchContainer');
+    if (!el) return;
+
+    const jsonBusiness = String(currentData?.businessName || '').trim();
+    const jsonRoute = String(currentData?.routeName || '').trim();
+    const jsonCar = normalizeBinaryValue(currentData?.car);
+    const jsonBike = normalizeBinaryValue(currentData?.bike);
+    const jsonBicycle = normalizeBinaryValue(currentData?.bicycle);
+    const geoBusinessValues = [...new Set(features.map(f => String(f?.properties?.businessName || '').trim()).filter(Boolean))];
+    const geoRouteValues = [...new Set(features.map(f => String(f?.properties?.routeName || '').trim()).filter(Boolean))];
+    const geoCarValues = [...new Set(features.map(f => normalizeBinaryValue(f?.properties?.car)).filter(v => v !== null))];
+    const geoBikeValues = [...new Set(features.map(f => normalizeBinaryValue(f?.properties?.bike)).filter(v => v !== null))];
+    const geoBicycleValues = [...new Set(features.map(f => normalizeBinaryValue(f?.properties?.bicycle)).filter(v => v !== null))];
+
+    if (!features.length) {
+      const reasonText = reason || `routeId ${routeId} の feature がありません`;
+      el.innerHTML = `
+        <div class="name-match-header">
+          <span>JSON/GeoJSON 一致チェック</span>
+          <span class="match-badge match-ng">未確認</span>
+        </div>
+        <div class="match-row">
+          <span class="match-row-key">状態</span>
+          <span class="match-row-val">${escHtml(reasonText)}</span>
+        </div>
+      `;
+      return;
+    }
+
+    const businessOk = !!jsonBusiness && geoBusinessValues.includes(jsonBusiness);
+    const routeOk = !!jsonRoute && geoRouteValues.includes(jsonRoute);
+    const carOk = jsonCar !== null && geoCarValues.includes(jsonCar);
+    const bikeOk = jsonBike !== null && geoBikeValues.includes(jsonBike);
+    const bicycleOk = jsonBicycle !== null && geoBicycleValues.includes(jsonBicycle);
+    const allOk = businessOk && routeOk && carOk && bikeOk && bicycleOk;
+
+    el.innerHTML = `
+      <div class="name-match-header">
+        <span>JSON/GeoJSON 一致チェック</span>
+        <span class="match-badge ${allOk ? 'match-ok' : 'match-ng'}">${allOk ? '一致' : '不一致'}</span>
+      </div>
+      <div class="match-row">
+        <span class="match-row-key">JSON businessName</span>
+        <span class="match-row-val">${escHtml(jsonBusiness || '(空)')}</span>
+      </div>
+      <div class="match-row">
+        <span class="match-row-key">GeoJSON businessName</span>
+        <span class="match-row-val">${escHtml(geoBusinessValues.join(' / ') || '(空)')}</span>
+      </div>
+      <div class="match-row">
+        <span class="match-row-key">JSON routeName</span>
+        <span class="match-row-val">${escHtml(jsonRoute || '(空)')}</span>
+      </div>
+      <div class="match-row">
+        <span class="match-row-key">GeoJSON routeName</span>
+        <span class="match-row-val">${escHtml(geoRouteValues.join(' / ') || '(空)')}</span>
+      </div>
+      <div class="match-row">
+        <span class="match-row-key">JSON car/bike/bicycle</span>
+        <span class="match-row-val">${escHtml(formatTriplet(jsonCar, jsonBike, jsonBicycle))}</span>
+      </div>
+      <div class="match-row">
+        <span class="match-row-key">GeoJSON car/bike/bicycle</span>
+        <span class="match-row-val">${escHtml(formatTripletSet(geoCarValues, geoBikeValues, geoBicycleValues))}</span>
+      </div>
+    `;
+  }
+
+  function normalizeBinaryValue(value) {
+    if (value === undefined || value === null || value === '') return null;
+    const n = Number(value);
+    if (!Number.isFinite(n)) return null;
+    return n > 0 ? 1 : 0;
+  }
+
+  function formatBinaryValue(value) {
+    if (value === null) return '未設定';
+    return value === 1 ? '1' : '0';
+  }
+
+  function formatTriplet(car, bike, bicycle) {
+    return `car:${formatBinaryValue(car)} / bike:${formatBinaryValue(bike)} / bicycle:${formatBinaryValue(bicycle)}`;
+  }
+
+  function formatTripletSet(carValues, bikeValues, bicycleValues) {
+    const setToText = values => values.length ? values.map(v => formatBinaryValue(v)).join('|') : '未設定';
+    return `car:${setToText(carValues)} / bike:${setToText(bikeValues)} / bicycle:${setToText(bicycleValues)}`;
+  }
+
+  function renderLineList(features, routeId) {
+    const el = document.getElementById('lineListContainer');
+    if (!el) return;
+
+    if (!features.length) {
+      el.innerHTML = `<div class="line-list-empty">routeId ${escHtml(routeId)} の line はありません</div>`;
+      return;
+    }
+
+    const rows = features.map((feature, idx) => {
+      const props = feature && feature.properties ? feature.properties : {};
+      const lineIdRaw = props.lineId ?? idx + 1;
+      const lineId = String(lineIdRaw);
+      const freq = props.freq === undefined || props.freq === null || props.freq === '' ? '未設定' : String(props.freq);
+      const portName1 = String(props.portName1 || '').trim();
+      const portName2 = String(props.portName2 || '').trim();
+      const portText = portName1 || portName2
+        ? `${portName1 || '—'} -> ${portName2 || '—'}`
+        : '港情報なし';
+      return `
+        <button class="line-list-row" type="button" data-line-index="${idx}">
+          <span class="line-id-chip">line ${escHtml(lineId)}</span>
+          <span class="line-freq-chip">freq ${escHtml(freq)}</span>
+          <span class="line-port-text">${escHtml(portText)}</span>
+        </button>
+      `;
+    }).join('');
+
+    el.innerHTML = rows;
+    el.querySelectorAll('.line-list-row').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const idx = Number(btn.dataset.lineIndex);
+        if (!Number.isInteger(idx) || idx < 0 || idx >= features.length) return;
+        fitToFeatures([features[idx]]);
+      });
     });
   }
 
@@ -1537,6 +2227,9 @@
           if (statusEl) statusEl.innerHTML = '';
         }
         markModified();
+        if ((key === 'businessName' || key === 'routeName') && routeMap && mapReady) {
+          updateRouteMapForCurrentFile();
+        }
       }));
 
     // Textarea fields
@@ -1675,6 +2368,9 @@
           });
         }
         markModified();
+        if (routeMap && mapReady) {
+          updateRouteMapForCurrentFile();
+        }
       });
     }
 
@@ -1682,6 +2378,9 @@
       .forEach(el => el.addEventListener('change', () => {
         currentData[el.dataset.key] = el.checked ? 1 : 0;
         markModified();
+        if (routeMap && mapReady) {
+          updateRouteMapForCurrentFile();
+        }
       }));
 
     const extraArea = document.getElementById('extraFields');
@@ -1716,6 +2415,9 @@
         currentData = JSON.parse(rawEl.value);
         errEl.textContent = '';
         markModified();
+        if (routeMap && mapReady) {
+          updateRouteMapForCurrentFile();
+        }
       } catch (e) {
         errEl.textContent = 'JSON構文エラー: ' + e.message;
       }
@@ -1825,7 +2527,9 @@
     }
   });
 
-  restoreHandleOnStartup();
+  restoreHandleOnStartup().finally(() => {
+    restoreGeojsonDirectoryOnStartup();
+  });
 </script>
 </body>
 </html>
