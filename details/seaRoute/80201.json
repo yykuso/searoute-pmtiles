@@ -5,8 +5,8 @@
   "info": "春・秋の数日程度",
   "note": "season",
   "freq": 1,
-  "car": 1,
-  "bike": 1,
+  "car": 0,
+  "bike": 0,
   "bicycle": 1,
   "shipName": "ホワイトアイリス"
 }

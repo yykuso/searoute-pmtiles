@@ -137,6 +137,16 @@
     .sidebar-btn:hover:not(:disabled) {
       background: var(--primary-hover);
     }
+    .sidebar-btn-dark {
+      background: #1f2937;
+      border-color: #111827;
+      color: #fff;
+    }
+    .sidebar-btn-dark:hover:not(:disabled) {
+      background: #111827;
+      border-color: #0f172a;
+      color: #fff;
+    }
     .sidebar-btn:disabled {
       opacity: 0.45;
       cursor: default;
@@ -830,6 +840,274 @@
       word-break: break-word;
     }
 
+    .modal-overlay {
+      position: fixed;
+      inset: 0;
+      background: rgba(15, 23, 42, 0.5);
+      display: none;
+      align-items: center;
+      justify-content: center;
+      z-index: 12000;
+      padding: 16px;
+    }
+    .modal-overlay.show {
+      display: flex;
+    }
+    .modal-panel {
+      width: min(1100px, 100%);
+      max-height: 90vh;
+      background: #fff;
+      border-radius: 10px;
+      box-shadow: 0 18px 56px rgba(15, 23, 42, 0.28);
+      display: flex;
+      flex-direction: column;
+      overflow: hidden;
+    }
+    .modal-panel-small {
+      width: min(520px, 100%);
+    }
+    .modal-head {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 8px;
+      padding: 14px 16px;
+      border-bottom: 1px solid #e2e8f0;
+      background: #f8fafc;
+    }
+    .modal-title {
+      font-size: 15px;
+      font-weight: 700;
+      color: #0f172a;
+    }
+    .modal-close {
+      border: 1px solid #cbd5e1;
+      border-radius: 4px;
+      background: #fff;
+      color: #334155;
+      padding: 4px 8px;
+      font-size: 12px;
+      cursor: pointer;
+    }
+    .modal-close:hover {
+      background: #f1f5f9;
+    }
+    .modal-body {
+      overflow: auto;
+      padding: 14px 16px 16px;
+      display: grid;
+      gap: 12px;
+    }
+    .integrity-controls {
+      display: flex;
+      gap: 8px;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+    .integrity-controls label {
+      font-size: 12px;
+      color: #475569;
+      font-weight: 600;
+    }
+    .integrity-controls select {
+      min-width: 220px;
+      padding: 7px 10px;
+      border: 1px solid #cbd5e1;
+      border-radius: 4px;
+      background: #fff;
+      font-size: 13px;
+    }
+    .integrity-summary {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 8px;
+    }
+    .summary-card {
+      border: 1px solid #dbe5f1;
+      border-radius: 6px;
+      padding: 10px;
+      background: #f8fbff;
+    }
+    .summary-label {
+      font-size: 11px;
+      color: #64748b;
+      margin-bottom: 4px;
+    }
+    .summary-value {
+      font-size: 18px;
+      font-weight: 700;
+      color: #0f172a;
+      line-height: 1.2;
+    }
+    .result-section {
+      border: 1px solid #dbe5f1;
+      border-radius: 6px;
+      overflow: hidden;
+      background: #fff;
+    }
+    .result-section h4 {
+      font-size: 13px;
+      color: #0f172a;
+      background: #f8fafc;
+      padding: 8px 10px;
+      border-bottom: 1px solid #e2e8f0;
+    }
+    .result-empty,
+    .result-note {
+      font-size: 12px;
+      color: #64748b;
+      padding: 10px;
+      line-height: 1.6;
+    }
+    .route-chip-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      padding: 10px;
+    }
+    .route-chip {
+      display: inline-flex;
+      align-items: center;
+      border-radius: 999px;
+      padding: 3px 10px;
+      font-size: 11px;
+      font-weight: 700;
+      background: #fee2e2;
+      color: #991b1b;
+      max-width: 100%;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+    .result-table-wrap {
+      overflow: auto;
+      max-height: 300px;
+    }
+    .result-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 12px;
+      table-layout: fixed;
+    }
+    .result-table th,
+    .result-table td {
+      border-bottom: 1px solid #e2e8f0;
+      padding: 8px;
+      text-align: left;
+      vertical-align: top;
+      word-break: break-word;
+    }
+    .result-table th {
+      position: sticky;
+      top: 0;
+      background: #f8fafc;
+      color: #334155;
+      font-weight: 700;
+      z-index: 1;
+    }
+    .mismatch-field-badge {
+      display: inline-flex;
+      align-items: center;
+      border-radius: 999px;
+      background: #fef3c7;
+      color: #92400e;
+      padding: 1px 8px;
+      font-size: 11px;
+      font-weight: 700;
+      margin-right: 4px;
+      margin-bottom: 4px;
+    }
+    .btn-inline {
+      padding: 4px 10px;
+      font-size: 12px;
+    }
+    .open-folder-actions {
+      display: grid;
+      gap: 10px;
+      padding-top: 4px;
+    }
+    .open-folder-actions .btn {
+      width: 100%;
+      justify-content: center;
+      text-align: center;
+    }
+    .open-folder-drop {
+      margin-top: 6px;
+      display: grid;
+      gap: 10px;
+      grid-template-columns: 1fr 1fr;
+    }
+    .open-folder-drop-zone {
+      border: 1px dashed #94a3b8;
+      border-radius: 6px;
+      padding: 14px 10px;
+      text-align: center;
+      font-size: 12px;
+      color: #475569;
+      line-height: 1.6;
+      background: #fff;
+      cursor: pointer;
+    }
+    .open-folder-drop-zone.active {
+      border-color: var(--primary);
+      background: #eff6ff;
+      color: #1e3a8a;
+    }
+    .open-folder-drop-zone .drop-zone-title {
+      display: block;
+      font-size: 12px;
+      font-weight: 700;
+      color: #334155;
+      margin-bottom: 4px;
+    }
+    .setup-status-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 8px;
+    }
+    .setup-status-card {
+      border: 1px solid #dbe5f1;
+      border-radius: 6px;
+      padding: 8px;
+      background: #f8fafc;
+      display: grid;
+      gap: 4px;
+    }
+    .setup-status-label {
+      font-size: 11px;
+      color: #64748b;
+      font-weight: 700;
+    }
+    .setup-status-value {
+      font-size: 12px;
+      color: #0f172a;
+      font-weight: 600;
+      word-break: break-word;
+    }
+    .setup-status-pending {
+      color: #b45309;
+    }
+    .setup-status-ready {
+      color: #166534;
+    }
+    .setup-status-note {
+      font-size: 12px;
+      color: #334155;
+      line-height: 1.6;
+    }
+
+    @media (max-width: 900px) {
+      .modal-panel {
+        max-height: 95vh;
+      }
+      .open-folder-drop {
+        grid-template-columns: 1fr;
+      }
+      .result-table {
+        min-width: 760px;
+      }
+    }
+
     @media (max-width: 900px) {
       .map-canvas {
         height: 260px;
@@ -842,6 +1120,8 @@
 <header>
   <h1>Sea Route JSON Editor</h1>
   <button id="openBtn" type="button">📂 フォルダを開く</button>
+  <button id="pageReloadBtn" type="button">↻ 再読み込み</button>
+  <button id="integrityCheckBtn" type="button" disabled>整合性チェック</button>
 </header>
 
 <div class="main" id="mainArea">
@@ -881,6 +1161,84 @@
       <div class="hint">
         📂 ボタンをクリックするか、<br>
         <strong>details フォルダをここにドラッグ＆ドロップ</strong>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="modal-overlay" id="openFolderModal" aria-hidden="true">
+  <div class="modal-panel modal-panel-small" role="dialog" aria-modal="true" aria-labelledby="openFolderModalTitle">
+    <div class="modal-head">
+      <div class="modal-title" id="openFolderModalTitle">フォルダを開く</div>
+      <button class="modal-close" id="openFolderModalCloseBtn" type="button">閉じる</button>
+    </div>
+    <div class="modal-body">
+      <div class="result-note">
+        開く対象を選択してください。
+      </div>
+      <div class="setup-status-grid" id="setupStatusGrid">
+        <div class="setup-status-card">
+          <span class="setup-status-label">details(JSON)</span>
+          <span class="setup-status-value setup-status-pending" id="setupStatusDetails">未設定</span>
+        </div>
+        <div class="setup-status-card">
+          <span class="setup-status-label">GeoJSON</span>
+          <span class="setup-status-value setup-status-pending" id="setupStatusGeojson">未設定</span>
+        </div>
+      </div>
+      <div class="setup-status-note" id="setupStatusNote">2つのフォルダ設定が完了するまで、この画面から先へ進めません。</div>
+      <div class="open-folder-drop" id="openFolderDropArea">
+        <div class="open-folder-drop-zone" id="openFolderDropZoneDetails" data-drop-target="details">
+          <span class="drop-zone-title">details(JSON) 用</span>
+          ここに details フォルダをドロップ<br>
+          またはクリックして選択（読み書き対象）
+        </div>
+        <div class="open-folder-drop-zone" id="openFolderDropZoneGeojson" data-drop-target="geojson">
+          <span class="drop-zone-title">GeoJSON 用</span>
+          ここに geojson フォルダをドロップ<br>
+          またはクリックして選択（参照対象）
+        </div>
+      </div>
+      <div class="open-folder-actions">
+        <button class="btn btn-danger" id="clearFolderSettingsBtn" type="button">設定をクリア</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="modal-overlay" id="integrityModal" aria-hidden="true">
+  <div class="modal-panel" role="dialog" aria-modal="true" aria-labelledby="integrityModalTitle">
+    <div class="modal-head">
+      <div class="modal-title" id="integrityModalTitle">航路データ整合性チェック</div>
+      <button class="modal-close" id="integrityModalCloseBtn" type="button">閉じる</button>
+    </div>
+    <div class="modal-body">
+      <div class="result-note">
+        GeoJSONのrouteId単位で、details JSONとの整合を確認します。
+      </div>
+      <div class="integrity-controls">
+        <label for="integrityLayerSelect">対象レイヤー</label>
+        <select id="integrityLayerSelect">
+          <option value="all">全レイヤー</option>
+          <option value="seaRoute">seaRoute</option>
+          <option value="seaRoute_international">seaRoute_international</option>
+          <option value="seaRoute_KR">seaRoute_KR</option>
+          <option value="seaRoute_limited">seaRoute_limited</option>
+        </select>
+        <button class="btn btn-primary" id="runIntegrityCheckBtn" type="button">チェック実行</button>
+      </div>
+      <div class="integrity-summary" id="integritySummary"></div>
+      <div class="result-section">
+        <h4>GeoJSONにあってJSONにない航路</h4>
+        <div id="geoOnlyRoutes"></div>
+      </div>
+      <div class="result-section">
+        <h4>項目不一致（businessName/routeName/note/car/bike/bicycle）</h4>
+        <div id="integrityMismatchTable"></div>
+      </div>
+      <div class="result-section">
+        <h4>読み込みエラー</h4>
+        <div id="integrityErrors"></div>
       </div>
     </div>
   </div>
@@ -945,6 +1303,10 @@
   let geojsonDirHandle = null;
   let geojsonDataByLayer = {};
   let geojsonLoadPromiseByLayer = {};
+  let isIntegrityModalOpen = false;
+  let isOpenFolderModalOpen = false;
+  let lastGeoOnlyRoutes = [];
+  let lastMismatches = [];
 
   // ---- Natural sort comparator ----
   function naturalCompare(a, b) {
@@ -953,13 +1315,24 @@
 
   // ---- Open folder (button) ----
   document.getElementById('openBtn').addEventListener('click', async () => {
-    try {
-      const handle = await window.showDirectoryPicker({ mode: 'readwrite' });
-      await initFromHandle(handle);
-    } catch (e) {
-      if (e.name !== 'AbortError') showToast('フォルダを開けませんでした: ' + e.message, 'error');
+    openOpenFolderModal();
+  });
+  document.getElementById('pageReloadBtn').addEventListener('click', () => {
+    location.reload();
+  });
+
+  document.getElementById('openFolderModalCloseBtn').addEventListener('click', () => {
+    closeOpenFolderModal();
+  });
+  document.getElementById('openFolderModal').addEventListener('click', e => {
+    if (e.target && e.target.id === 'openFolderModal') {
+      closeOpenFolderModal();
     }
   });
+  document.getElementById('clearFolderSettingsBtn').addEventListener('click', async () => {
+    await clearFolderSettings();
+  });
+  setupOpenFolderModalDrop();
 
   // ---- Drag & Drop ----
   const mainArea = document.getElementById('mainArea');
@@ -1023,9 +1396,8 @@
     rootDirHandle = handle;
     await saveRootDirectoryHandle(handle);
     await loadAllFiles();
-    document.getElementById('layerSelect').disabled = false;
-    document.getElementById('searchInput').disabled = false;
-    updateSidebarActionButtons();
+    applySetupLockState();
+    updateSetupStatusInModal();
     await restoreUiStateAfterLoad();
     if (!options.silent) showToast(`「${handle.name}」を読み込みました`, 'success');
   }
@@ -1077,6 +1449,21 @@
   document.getElementById('createBtn').addEventListener('click', e => {
     e.preventDefault();
     createOrDuplicateFile(false);
+  });
+  document.getElementById('integrityCheckBtn').addEventListener('click', () => {
+    openIntegrityModal();
+  });
+
+  document.getElementById('integrityModalCloseBtn').addEventListener('click', () => {
+    closeIntegrityModal();
+  });
+  document.getElementById('integrityModal').addEventListener('click', e => {
+    if (e.target && e.target.id === 'integrityModal') {
+      closeIntegrityModal();
+    }
+  });
+  document.getElementById('runIntegrityCheckBtn').addEventListener('click', () => {
+    runIntegrityCheck();
   });
 
   function renderFileList() {
@@ -1276,13 +1663,799 @@
 
   function updateSidebarActionButtons() {
     const createBtn = document.getElementById('createBtn');
+    const integrityBtn = document.getElementById('integrityCheckBtn');
     const duplicateBtn = document.getElementById('duplicateBtn');
     const deleteBtn = document.getElementById('deleteBtn');
     const selectedLayer = currentLayer || document.getElementById('layerSelect').value;
-    const canCreate = !!(rootDirHandle && selectedLayer);
+    const ready = isSetupComplete();
+    const canCreate = !!(ready && rootDirHandle && selectedLayer);
+    const canRunIntegrity = !!(ready && rootDirHandle);
     createBtn.disabled = !canCreate;
+    if (integrityBtn) integrityBtn.disabled = !canRunIntegrity;
     if (duplicateBtn) duplicateBtn.disabled = !(canCreate && currentFileHandle);
     if (deleteBtn) deleteBtn.disabled = !(canCreate && currentFileHandle);
+  }
+
+  function isSetupComplete() {
+    return !!(rootDirHandle && geojsonDirHandle);
+  }
+
+  function updateSetupStatusInModal() {
+    const detailsEl = document.getElementById('setupStatusDetails');
+    const geojsonEl = document.getElementById('setupStatusGeojson');
+    const noteEl = document.getElementById('setupStatusNote');
+    const closeBtn = document.getElementById('openFolderModalCloseBtn');
+    const ready = isSetupComplete();
+
+    if (detailsEl) {
+      detailsEl.textContent = rootDirHandle ? `設定済み: ${rootDirHandle.name}` : '未設定';
+      detailsEl.className = `setup-status-value ${rootDirHandle ? 'setup-status-ready' : 'setup-status-pending'}`;
+    }
+    if (geojsonEl) {
+      geojsonEl.textContent = geojsonDirHandle ? `設定済み: ${geojsonDirHandle.name}` : '未設定';
+      geojsonEl.className = `setup-status-value ${geojsonDirHandle ? 'setup-status-ready' : 'setup-status-pending'}`;
+    }
+    if (noteEl) {
+      noteEl.textContent = ready
+        ? '設定完了です。閉じるか、整合性チェックへ進めます。'
+        : '2つのフォルダ設定が完了するまで、この画面から先へ進めません。';
+    }
+    if (closeBtn) closeBtn.disabled = !ready;
+  }
+
+  function applySetupLockState() {
+    const ready = isSetupComplete();
+    const layerSelect = document.getElementById('layerSelect');
+    const searchInput = document.getElementById('searchInput');
+    if (layerSelect) layerSelect.disabled = !ready;
+    if (searchInput) searchInput.disabled = !ready;
+    updateSidebarActionButtons();
+  }
+
+  function openOpenFolderModal() {
+    const modal = document.getElementById('openFolderModal');
+    if (!modal) return;
+    isOpenFolderModalOpen = true;
+    modal.classList.add('show');
+    modal.setAttribute('aria-hidden', 'false');
+    updateSetupStatusInModal();
+  }
+
+  function closeOpenFolderModal() {
+    if (!isSetupComplete()) {
+      showToast('details(JSON) と GeoJSON の両方を設定してください', 'error');
+      return;
+    }
+    const modal = document.getElementById('openFolderModal');
+    if (!modal) return;
+    isOpenFolderModalOpen = false;
+    modal.classList.remove('show');
+    modal.setAttribute('aria-hidden', 'true');
+  }
+
+  function setupOpenFolderModalDrop() {
+    const zones = [...document.querySelectorAll('.open-folder-drop-zone[data-drop-target]')];
+    if (!zones.length) return;
+
+    zones.forEach(zone => {
+      let dragCounter = 0;
+
+      zone.addEventListener('dragenter', e => {
+        e.preventDefault();
+        e.stopPropagation();
+        dragCounter += 1;
+        zone.classList.add('active');
+      });
+
+      zone.addEventListener('dragleave', e => {
+        e.preventDefault();
+        e.stopPropagation();
+        dragCounter = Math.max(0, dragCounter - 1);
+        if (dragCounter === 0) zone.classList.remove('active');
+      });
+
+      zone.addEventListener('dragover', e => {
+        e.preventDefault();
+        e.stopPropagation();
+        zone.classList.add('active');
+      });
+
+      zone.addEventListener('drop', async e => {
+        e.preventDefault();
+        e.stopPropagation();
+        dragCounter = 0;
+        zone.classList.remove('active');
+        const target = zone.dataset.dropTarget || 'details';
+        await handleDropInOpenFolderModal(e, target);
+      });
+
+      zone.addEventListener('click', async () => {
+        const target = zone.dataset.dropTarget || 'details';
+        await pickFolderByTarget(target);
+      });
+
+      zone.addEventListener('keydown', async e => {
+        if (e.key !== 'Enter' && e.key !== ' ') return;
+        e.preventDefault();
+        const target = zone.dataset.dropTarget || 'details';
+        await pickFolderByTarget(target);
+      });
+
+      zone.setAttribute('tabindex', '0');
+      zone.setAttribute('role', 'button');
+    });
+  }
+
+  async function pickFolderByTarget(target = 'details') {
+    if (!window.showDirectoryPicker) {
+      showToast('このブラウザはフォルダ選択APIに対応していません', 'error');
+      return;
+    }
+
+    try {
+      const mode = target === 'geojson' ? 'read' : 'readwrite';
+      const handle = await window.showDirectoryPicker({ mode });
+      await applyFolderHandleByTarget(handle, target);
+      updateSetupStatusInModal();
+      applySetupLockState();
+      if (isSetupComplete()) closeOpenFolderModal();
+    } catch (e) {
+      if (e.name !== 'AbortError') {
+        showToast('フォルダ選択に失敗: ' + e.message, 'error');
+      }
+    }
+  }
+
+  async function handleDropInOpenFolderModal(e, target = 'details') {
+    const items = e?.dataTransfer?.items;
+    if (!items || !items.length) {
+      showToast('ドロップされたアイテムを取得できませんでした', 'error');
+      return;
+    }
+    const item = items[0];
+    if (typeof item.getAsFileSystemHandle !== 'function') {
+      showToast('このブラウザはフォルダのドロップ読込に対応していません', 'error');
+      return;
+    }
+
+    try {
+      const handle = await item.getAsFileSystemHandle();
+      if (!handle || handle.kind !== 'directory') {
+        showToast('フォルダをドロップしてください', 'error');
+        return;
+      }
+
+      await applyFolderHandleByTarget(handle, target);
+      updateSetupStatusInModal();
+      applySetupLockState();
+      if (isSetupComplete()) closeOpenFolderModal();
+    } catch (err) {
+      showToast('ドロップ読込に失敗: ' + err.message, 'error');
+    }
+  }
+
+  async function applyFolderHandleByTarget(handle, target = 'details') {
+    if (target === 'geojson') {
+      geojsonDirHandle = handle;
+      await saveGeojsonDirectoryHandle(handle);
+      geojsonDataByLayer = {};
+      geojsonLoadPromiseByLayer = {};
+      await ensureGeojsonLoadedForCurrentLayer();
+      if (isEditorOpen) updateRouteMapForCurrentFile({ forceFit: true });
+      showToast(`GeoJSONフォルダ「${handle.name}」を設定しました`, 'success');
+      updateSetupStatusInModal();
+      applySetupLockState();
+      return;
+    }
+
+    await initFromHandle(handle);
+    updateSetupStatusInModal();
+    applySetupLockState();
+  }
+
+  async function clearFolderSettings() {
+    const ok = confirm('details/GeoJSONの設定をクリアします。よろしいですか？');
+    if (!ok) return;
+
+    await clearStoredHandle(HANDLE_KEY_ROOT);
+    await clearStoredHandle(HANDLE_KEY_GEOJSON_DIR);
+
+    rootDirHandle = null;
+    geojsonDirHandle = null;
+    allFiles = {};
+    sidebarMetaByLayer = {};
+    sidebarMetaLoadPromise = {};
+    geojsonDataByLayer = {};
+    geojsonLoadPromiseByLayer = {};
+    currentLayer = '';
+    currentFileHandle = null;
+    currentFileName = '';
+    currentData = null;
+    isModified = false;
+
+    const layerSelect = document.getElementById('layerSelect');
+    const searchInput = document.getElementById('searchInput');
+    const fileList = document.getElementById('fileList');
+    const footer = document.getElementById('sidebarFooter');
+
+    if (layerSelect) {
+      layerSelect.value = '';
+      layerSelect.disabled = true;
+    }
+    if (searchInput) {
+      searchInput.value = '';
+      searchInput.disabled = true;
+    }
+    if (fileList) {
+      fileList.innerHTML = '<div style="padding:20px;text-align:center;color:#aaa;font-size:12px;">フォルダを開くと<br>ファイル一覧が表示されます</div>';
+    }
+    if (footer) footer.textContent = '';
+
+    renderEditorPlaceholder('左のリストからJSONファイルを選択してください');
+    setEditorOpen(false);
+    updateSetupStatusInModal();
+    applySetupLockState();
+    openOpenFolderModal();
+
+    try {
+      localStorage.removeItem(UI_STATE_KEY);
+    } catch {
+      // Ignore storage errors.
+    }
+
+    showToast('フォルダ設定をクリアしました', 'success');
+  }
+
+  function openIntegrityModal() {
+    const modal = document.getElementById('integrityModal');
+    const layerSelect = document.getElementById('integrityLayerSelect');
+    if (!modal || !layerSelect) return;
+    if (!isSetupComplete()) {
+      showToast('先に details(JSON) と GeoJSON を設定してください', 'error');
+      openOpenFolderModal();
+      return;
+    }
+    if (currentLayer && LAYERS.includes(currentLayer)) {
+      layerSelect.value = currentLayer;
+    }
+    isIntegrityModalOpen = true;
+    modal.classList.add('show');
+    modal.setAttribute('aria-hidden', 'false');
+    lastGeoOnlyRoutes = [];
+    lastMismatches = [];
+    renderIntegritySummary({ checkedRoutes: 0, geoOnlyCount: 0, mismatchCount: 0, errorCount: 0 });
+    renderGeoOnlyRoutes([]);
+    renderIntegrityMismatches([]);
+    renderIntegrityErrors([]);
+  }
+
+  function closeIntegrityModal() {
+    const modal = document.getElementById('integrityModal');
+    if (!modal) return;
+    isIntegrityModalOpen = false;
+    modal.classList.remove('show');
+    modal.setAttribute('aria-hidden', 'true');
+  }
+
+  async function runIntegrityCheck() {
+    if (!isSetupComplete()) {
+      showToast('先に details(JSON) と GeoJSON を設定してください', 'error');
+      openOpenFolderModal();
+      return;
+    }
+
+    const layerSelect = document.getElementById('integrityLayerSelect');
+    const runBtn = document.getElementById('runIntegrityCheckBtn');
+    if (!layerSelect || !runBtn) return;
+
+    const selected = layerSelect.value || 'all';
+    const targetLayers = selected === 'all' ? [...LAYERS] : [selected];
+
+    runBtn.disabled = true;
+    const originalText = runBtn.textContent;
+    runBtn.textContent = 'チェック中...';
+
+    try {
+      const geoOnlyRoutes = [];
+      const mismatches = [];
+      const errors = [];
+      let checkedRoutes = 0;
+
+      for (const layer of targetLayers) {
+        const geoOk = await ensureGeojsonLoaded(layer);
+        if (!geoOk) {
+          errors.push({ layer, message: 'GeoJSONを読み込めませんでした' });
+          continue;
+        }
+
+        const geoData = geojsonDataByLayer[layer];
+        const geoRouteMap = collectGeoRouteMap(geoData);
+        const jsonResult = await collectJsonRouteMap(layer);
+        jsonResult.errors.forEach(err => errors.push(err));
+
+        const geoRouteIds = Object.keys(geoRouteMap);
+        const jsonRouteIds = new Set(Object.keys(jsonResult.routes));
+
+        geoRouteIds.forEach(routeId => {
+          if (!jsonRouteIds.has(routeId)) {
+            geoOnlyRoutes.push({
+              layer,
+              routeId,
+              seedData: buildSeedDataFromGeoMeta(geoRouteMap[routeId])
+            });
+          }
+        });
+
+        geoRouteIds.forEach(routeId => {
+          const jsonMeta = jsonResult.routes[routeId];
+          if (!jsonMeta) return;
+          checkedRoutes += 1;
+
+          const geoMeta = geoRouteMap[routeId];
+          const issueFields = [];
+          if (!isTextMatch(jsonMeta.businessName, geoMeta.businessNames)) issueFields.push('businessName');
+          if (!isTextMatch(jsonMeta.routeName, geoMeta.routeNames)) issueFields.push('routeName');
+          if (!isTextMatch(jsonMeta.note, geoMeta.notes)) issueFields.push('note');
+          if (!isBinaryMatch(jsonMeta.car, geoMeta.carValues)) issueFields.push('car');
+          if (!isBinaryMatch(jsonMeta.bike, geoMeta.bikeValues)) issueFields.push('bike');
+          if (!isBinaryMatch(jsonMeta.bicycle, geoMeta.bicycleValues)) issueFields.push('bicycle');
+
+          if (issueFields.length) {
+            mismatches.push({
+              layer,
+              routeId,
+              fields: issueFields,
+              json: jsonMeta,
+              geo: geoMeta
+            });
+          }
+        });
+      }
+
+      geoOnlyRoutes.sort((a, b) => {
+        if (a.layer !== b.layer) return a.layer.localeCompare(b.layer);
+        return a.routeId.localeCompare(b.routeId, undefined, { numeric: true, sensitivity: 'base' });
+      });
+      mismatches.sort((a, b) => {
+        if (a.layer !== b.layer) return a.layer.localeCompare(b.layer);
+        return a.routeId.localeCompare(b.routeId, undefined, { numeric: true, sensitivity: 'base' });
+      });
+
+      renderIntegritySummary({
+        checkedRoutes,
+        geoOnlyCount: geoOnlyRoutes.length,
+        mismatchCount: mismatches.length,
+        errorCount: errors.length
+      });
+      renderGeoOnlyRoutes(geoOnlyRoutes);
+      renderIntegrityMismatches(mismatches);
+      renderIntegrityErrors(errors);
+    } finally {
+      runBtn.disabled = false;
+      runBtn.textContent = originalText;
+    }
+  }
+
+  function renderIntegritySummary(summary) {
+    const el = document.getElementById('integritySummary');
+    if (!el) return;
+    el.innerHTML = `
+      <div class="summary-card">
+        <div class="summary-label">比較した共通routeId数</div>
+        <div class="summary-value">${escHtml(String(summary.checkedRoutes || 0))}</div>
+      </div>
+      <div class="summary-card">
+        <div class="summary-label">GeoJSONのみ（JSONなし）</div>
+        <div class="summary-value">${escHtml(String(summary.geoOnlyCount || 0))}</div>
+      </div>
+      <div class="summary-card">
+        <div class="summary-label">項目不一致routeId数</div>
+        <div class="summary-value">${escHtml(String(summary.mismatchCount || 0))}</div>
+      </div>
+      <div class="summary-card">
+        <div class="summary-label">読み込みエラー件数</div>
+        <div class="summary-value">${escHtml(String(summary.errorCount || 0))}</div>
+      </div>
+    `;
+  }
+
+  function renderGeoOnlyRoutes(rows) {
+    const el = document.getElementById('geoOnlyRoutes');
+    if (!el) return;
+    lastGeoOnlyRoutes = rows;
+    if (!rows.length) {
+      el.innerHTML = '<div class="result-empty">該当なし</div>';
+      return;
+    }
+    const tableRows = rows.map((row, idx) => {
+      const seed = row.seedData || {};
+      return `
+        <tr>
+          <td>${escHtml(row.layer)}</td>
+          <td>${escHtml(row.routeId)}</td>
+          <td>${escHtml(seed.businessName || '(空)')}</td>
+          <td>${escHtml(seed.routeName || '(空)')}</td>
+          <td>${escHtml(formatTriplet(seed.car ?? null, seed.bike ?? null, seed.bicycle ?? null))}</td>
+          <td>
+            <button class="btn btn-primary btn-inline" type="button" data-create-missing-index="${idx}">新規作成</button>
+          </td>
+        </tr>
+      `;
+    }).join('');
+    el.innerHTML = `
+      <div class="result-table-wrap">
+        <table class="result-table" aria-label="不足航路一覧">
+          <thead>
+            <tr>
+              <th>レイヤー</th>
+              <th>routeId</th>
+              <th>businessName</th>
+              <th>routeName</th>
+              <th>car/bike/bicycle</th>
+              <th>操作</th>
+            </tr>
+          </thead>
+          <tbody>
+            ${tableRows}
+          </tbody>
+        </table>
+      </div>
+    `;
+
+    el.querySelectorAll('button[data-create-missing-index]').forEach(btn => {
+      btn.addEventListener('click', async () => {
+        const idx = Number(btn.dataset.createMissingIndex);
+        if (!Number.isInteger(idx) || idx < 0 || idx >= lastGeoOnlyRoutes.length) return;
+        await createFileFromMissingRoute(lastGeoOnlyRoutes[idx]);
+      });
+    });
+  }
+
+  function buildSeedDataFromGeoMeta(geoMeta) {
+    const pickFirstText = source => [...(source || [])][0] || '';
+    const pickBinary = source => {
+      const values = [...(source || [])].filter(v => v === 0 || v === 1);
+      if (!values.length) return null;
+      return values[0];
+    };
+
+    const data = {
+      businessName: pickFirstText(geoMeta?.businessNames),
+      routeName: pickFirstText(geoMeta?.routeNames),
+      note: pickFirstText(geoMeta?.notes),
+      freq: 1
+    };
+
+    const car = pickBinary(geoMeta?.carValues);
+    const bike = pickBinary(geoMeta?.bikeValues);
+    const bicycle = pickBinary(geoMeta?.bicycleValues);
+    if (car !== null) data.car = car;
+    if (bike !== null) data.bike = bike;
+    if (bicycle !== null) data.bicycle = bicycle;
+
+    return data;
+  }
+
+  async function createFileFromMissingRoute(row) {
+    if (!row || !row.layer || !row.routeId) return;
+    if (!rootDirHandle) {
+      showToast('先に details フォルダを開いてください', 'error');
+      return;
+    }
+
+    const fileId = normalizeJsonFileName(String(row.routeId));
+    if (!fileId) {
+      showToast(`routeId ${row.routeId} はファイル名として使えません`, 'error');
+      return;
+    }
+    const fileName = `${fileId}.json`;
+
+    const layerFiles = allFiles[row.layer] || (allFiles[row.layer] = []);
+    const existing = layerFiles.find(f => f.name === fileName);
+    if (existing) {
+      const openExisting = confirm(`${row.layer}/${fileName} は既に存在します。開きますか？`);
+      if (openExisting) {
+        currentLayer = row.layer;
+        document.getElementById('layerSelect').value = row.layer;
+        document.getElementById('searchInput').value = '';
+        renderFileList();
+        await openFile(fileName, { skipUnsavedCheck: true });
+        closeIntegrityModal();
+      }
+      return;
+    }
+
+    const seedData = { ...(row.seedData || {}) };
+    if (seedData.businessName === undefined) seedData.businessName = '';
+    if (seedData.routeName === undefined) seedData.routeName = '';
+    if (seedData.freq === undefined) seedData.freq = 1;
+
+    try {
+      const layerHandle = await rootDirHandle.getDirectoryHandle(row.layer);
+      const newFileHandle = await layerHandle.getFileHandle(fileName, { create: true });
+      const writable = await newFileHandle.createWritable();
+      await writable.write(JSON.stringify(seedData, null, 2));
+      await writable.close();
+
+      layerFiles.push({ name: fileName, handle: newFileHandle });
+      layerFiles.sort(naturalCompare);
+      if (!sidebarMetaByLayer[row.layer]) sidebarMetaByLayer[row.layer] = {};
+      sidebarMetaByLayer[row.layer][fileName] = extractListMeta(seedData);
+
+      currentLayer = row.layer;
+      document.getElementById('layerSelect').value = row.layer;
+      document.getElementById('searchInput').value = '';
+      currentData = seedData;
+      currentFileHandle = newFileHandle;
+      currentFileName = fileName;
+      isModified = false;
+
+      renderFileList();
+      renderEditor();
+      setEditorOpen(true);
+      updateSidebarActionButtons();
+      persistUiState();
+      closeIntegrityModal();
+      showToast(`${row.layer}/${fileName} を新規作成しました`, 'success');
+    } catch (e) {
+      showToast('ファイル作成失敗: ' + e.message, 'error');
+    }
+  }
+
+  async function switchToMismatchRoute(row) {
+    if (!row || !row.layer || !row.routeId) return;
+    const fileId = normalizeJsonFileName(String(row.routeId));
+    if (!fileId) {
+      showToast(`routeId ${row.routeId} はファイル名として使えません`, 'error');
+      return;
+    }
+    const fileName = `${fileId}.json`;
+
+    currentLayer = row.layer;
+    document.getElementById('layerSelect').value = row.layer;
+    document.getElementById('searchInput').value = '';
+    renderFileList();
+
+    const fileEntry = (allFiles[row.layer] || []).find(f => f.name === fileName);
+    if (!fileEntry) {
+      showToast(`${row.layer}/${fileName} が見つかりません`, 'error');
+      return;
+    }
+
+    await openFile(fileName);
+    closeIntegrityModal();
+  }
+
+  function renderIntegrityMismatches(rows) {
+    const el = document.getElementById('integrityMismatchTable');
+    if (!el) return;
+    lastMismatches = rows;
+    if (!rows.length) {
+      el.innerHTML = '<div class="result-empty">該当なし</div>';
+      return;
+    }
+
+    const bodyHtml = rows.map((row, idx) => {
+      const fieldBadges = row.fields.map(name => `<span class="mismatch-field-badge">${escHtml(name)}</span>`).join('');
+      return `
+        <tr>
+          <td>${escHtml(row.layer)}</td>
+          <td>${escHtml(row.routeId)}</td>
+          <td>${fieldBadges}</td>
+          <td>
+            businessName: ${escHtml(row.json.businessName || '(空)')}<br>
+            routeName: ${escHtml(row.json.routeName || '(空)')}<br>
+            note: ${escHtml(row.json.note || '(空)')}<br>
+            car/bike/bicycle: ${escHtml(formatTriplet(row.json.car, row.json.bike, row.json.bicycle))}
+          </td>
+          <td>
+            businessName: ${escHtml(setToDisplayText(row.geo.businessNames) || '(空)')}<br>
+            routeName: ${escHtml(setToDisplayText(row.geo.routeNames) || '(空)')}<br>
+            note: ${escHtml(setToDisplayText(row.geo.notes) || '(空)')}<br>
+            car/bike/bicycle: ${escHtml(formatTripletSet([...row.geo.carValues], [...row.geo.bikeValues], [...row.geo.bicycleValues]))}
+          </td>
+          <td>
+            <button class="btn btn-danger btn-inline" type="button" data-fix-mismatch-index="${idx}">そのrouteIdを表示</button>
+          </td>
+        </tr>
+      `;
+    }).join('');
+
+    el.innerHTML = `
+      <div class="result-table-wrap">
+        <table class="result-table" aria-label="不一致一覧">
+          <thead>
+            <tr>
+              <th>レイヤー</th>
+              <th>routeId</th>
+              <th>不一致項目</th>
+              <th>JSON側</th>
+              <th>GeoJSON側</th>
+              <th>操作</th>
+            </tr>
+          </thead>
+          <tbody>
+            ${bodyHtml}
+          </tbody>
+        </table>
+      </div>
+    `;
+
+    el.querySelectorAll('button[data-fix-mismatch-index]').forEach(btn => {
+      btn.addEventListener('click', async () => {
+        const idx = Number(btn.dataset.fixMismatchIndex);
+        if (!Number.isInteger(idx) || idx < 0 || idx >= lastMismatches.length) return;
+        await switchToMismatchRoute(lastMismatches[idx]);
+      });
+    });
+  }
+
+  function renderIntegrityErrors(errors) {
+    const el = document.getElementById('integrityErrors');
+    if (!el) return;
+    if (!errors.length) {
+      el.innerHTML = '<div class="result-empty">エラーなし</div>';
+      return;
+    }
+    const listHtml = errors.map(err =>
+      `<div class="result-note">${escHtml(err.layer)}: ${escHtml(err.message)}</div>`
+    ).join('');
+    el.innerHTML = listHtml;
+  }
+
+  async function ensureGeojsonLoaded(layer) {
+    if (geojsonDataByLayer[layer]) return true;
+
+    if (!geojsonDirHandle) {
+      try {
+        const saved = await getSavedGeojsonDirectoryHandle();
+        if (saved && await verifyGeojsonDirectoryPermission(saved)) {
+          geojsonDirHandle = saved;
+        }
+      } catch {
+        // Ignore restore errors.
+      }
+    }
+
+    if (!geojsonDirHandle) {
+      showToast('GeoJSONフォルダを先に設定してください', 'error');
+      return false;
+    }
+
+    const fileName = GEOJSON_FILE_BY_LAYER[layer];
+    if (!fileName) return false;
+
+    if (geojsonLoadPromiseByLayer[layer]) {
+      return geojsonLoadPromiseByLayer[layer];
+    }
+
+    const promise = (async () => {
+      try {
+        const fileHandle = await geojsonDirHandle.getFileHandle(fileName);
+        const file = await fileHandle.getFile();
+        const text = await file.text();
+        const data = JSON.parse(text);
+        if (!data || data.type !== 'FeatureCollection' || !Array.isArray(data.features)) {
+          throw new Error('FeatureCollection 形式ではありません');
+        }
+        geojsonDataByLayer[layer] = data;
+        return true;
+      } catch {
+        return false;
+      }
+    })();
+
+    geojsonLoadPromiseByLayer[layer] = promise.finally(() => {
+      delete geojsonLoadPromiseByLayer[layer];
+    });
+    return geojsonLoadPromiseByLayer[layer];
+  }
+
+  async function collectJsonRouteMap(layer) {
+    const routes = {};
+    const errors = [];
+    const files = allFiles[layer] || [];
+
+    for (const fileEntry of files) {
+      const routeId = String(fileEntry.name || '').replace(/\.json$/i, '');
+      try {
+        const file = await fileEntry.handle.getFile();
+        const text = await file.text();
+        const data = JSON.parse(text);
+        routes[routeId] = {
+          businessName: pickText(data, ['businessName', 'businessname']),
+          routeName: pickText(data, ['routeName', 'routename']),
+          note: pickText(data, ['note']),
+          car: normalizeBinaryValue(data?.car),
+          bike: normalizeBinaryValue(data?.bike),
+          bicycle: normalizeBinaryValue(data?.bicycle)
+        };
+      } catch (e) {
+        errors.push({
+          layer,
+          message: `${fileEntry.name}: ${e.message || 'JSON読込失敗'}`
+        });
+      }
+    }
+
+    return { routes, errors };
+  }
+
+  function collectGeoRouteMap(geoData) {
+    const routeMap = {};
+    const features = Array.isArray(geoData?.features) ? geoData.features : [];
+    for (const feature of features) {
+      const props = feature && feature.properties ? feature.properties : {};
+      const routeId = pickRouteId(props);
+      if (!routeId) continue;
+
+      if (!routeMap[routeId]) {
+        routeMap[routeId] = {
+          businessNames: new Set(),
+          routeNames: new Set(),
+          notes: new Set(),
+          carValues: new Set(),
+          bikeValues: new Set(),
+          bicycleValues: new Set()
+        };
+      }
+
+      const rec = routeMap[routeId];
+      addSetIfPresent(rec.businessNames, pickText(props, ['businessName', 'businessname']));
+      addSetIfPresent(rec.routeNames, pickText(props, ['routeName', 'routename']));
+      addSetIfPresent(rec.notes, pickText(props, ['note']));
+      addBinaryIfPresent(rec.carValues, props.car);
+      addBinaryIfPresent(rec.bikeValues, props.bike);
+      addBinaryIfPresent(rec.bicycleValues, props.bicycle);
+    }
+    return routeMap;
+  }
+
+  function pickRouteId(obj) {
+    const raw = obj?.routeId ?? obj?.route_id ?? obj?.routeid ?? obj?.id ?? null;
+    if (raw === null || raw === undefined || raw === '') return '';
+    return String(raw).trim();
+  }
+
+  function pickText(obj, keys) {
+    for (const key of keys) {
+      const value = obj?.[key];
+      if (value === undefined || value === null) continue;
+      const str = String(value).trim();
+      if (str) return str;
+    }
+    return '';
+  }
+
+  function addSetIfPresent(targetSet, value) {
+    const text = String(value || '').trim();
+    if (text) targetSet.add(text);
+  }
+
+  function addBinaryIfPresent(targetSet, value) {
+    const normalized = normalizeBinaryValue(value);
+    if (normalized === null) return;
+    targetSet.add(normalized);
+  }
+
+  function isTextMatch(jsonText, geoSet) {
+    const left = String(jsonText || '').trim();
+    const right = [...(geoSet || [])].map(v => String(v || '').trim()).filter(Boolean);
+    if (!left && !right.length) return true;
+    if (!left && right.length) return false;
+    return right.includes(left);
+  }
+
+  function isBinaryMatch(jsonValue, geoSet) {
+    const left = normalizeBinaryValue(jsonValue);
+    const right = [...(geoSet || [])].filter(v => v === 0 || v === 1);
+    if (left === null && !right.length) return true;
+    if (left === null && right.length) return false;
+    return right.includes(left);
+  }
+
+  function setToDisplayText(sourceSet) {
+    return [...(sourceSet || [])].map(v => String(v)).join(' / ');
   }
 
   async function createOrDuplicateFile(isDuplicate) {
@@ -1333,7 +2506,7 @@
       const layerHandle = await rootDirHandle.getDirectoryHandle(targetLayer);
       const newFileHandle = await layerHandle.getFileHandle(fileName, { create: true });
       const writable = await newFileHandle.createWritable();
-      await writable.write(JSON.stringify(newData, null, 2) + '\n');
+      await writable.write(JSON.stringify(newData, null, 2));
       await writable.close();
 
       layerFiles.push({ name: fileName, handle: newFileHandle });
@@ -1561,6 +2734,21 @@
     }
   }
 
+  async function clearStoredHandle(key) {
+    try {
+      const db = await openHandleDb();
+      await new Promise((resolve, reject) => {
+        const tx = db.transaction(HANDLE_STORE_NAME, 'readwrite');
+        tx.objectStore(HANDLE_STORE_NAME).delete(key);
+        tx.oncomplete = () => resolve();
+        tx.onerror = () => reject(tx.error);
+      });
+      db.close();
+    } catch {
+      // Ignore IndexedDB errors.
+    }
+  }
+
   async function verifyDirectoryPermission(handle) {
     if (!handle) return false;
     const opts = { mode: 'readwrite' };
@@ -1584,6 +2772,7 @@
       const granted = await verifyDirectoryPermission(savedHandle);
       if (!granted) return;
       await initFromHandle(savedHandle, { silent: true });
+      applySetupLockState();
       showToast('前回のフォルダを復元しました', 'success');
     } catch {
       // Ignore restore errors.
@@ -1603,6 +2792,8 @@
         await ensureGeojsonLoadedForCurrentLayer();
         if (isEditorOpen) updateRouteMapForCurrentFile();
       }
+      applySetupLockState();
+      updateSetupStatusInModal();
       showToast('前回のGeoJSONフォルダを復元しました', 'success');
     } catch {
       // Ignore restore errors.
@@ -1676,7 +2867,6 @@
       <div class="map-head">
         <h3>航路マップ（MapLibre）</h3>
         <div class="map-controls">
-          <button class="map-btn" id="openGeojsonFolderBtn" type="button">GeoJSONフォルダを開く</button>
           <button class="map-btn" id="fitRouteBtn" type="button">選択航路にズーム</button>
         </div>
       </div>
@@ -1692,11 +2882,7 @@
   }
 
   function bindMapEvents() {
-    const openFolderBtn = document.getElementById('openGeojsonFolderBtn');
     const fitBtn = document.getElementById('fitRouteBtn');
-    if (openFolderBtn) {
-      openFolderBtn.addEventListener('click', pickGeojsonFolderAndReload);
-    }
     if (fitBtn) {
       fitBtn.addEventListener('click', () => {
         updateRouteMapForCurrentFile({ forceFit: true });
@@ -1796,7 +2982,7 @@
     if (!currentLayer) return false;
     if (geojsonDataByLayer[currentLayer]) return true;
     if (!geojsonDirHandle) {
-      setMapStatus('GeoJSONフォルダ未設定です。「GeoJSONフォルダを開く」を押してください');
+      setMapStatus('GeoJSONフォルダ未設定です。ヘッダーの「フォルダを開く」から設定してください');
       return false;
     }
     if (geojsonLoadPromiseByLayer[currentLayer]) return geojsonLoadPromiseByLayer[currentLayer];
@@ -1969,11 +3155,13 @@
 
     const jsonBusiness = String(currentData?.businessName || '').trim();
     const jsonRoute = String(currentData?.routeName || '').trim();
+    const jsonNote = String(currentData?.note || '').trim();
     const jsonCar = normalizeBinaryValue(currentData?.car);
     const jsonBike = normalizeBinaryValue(currentData?.bike);
     const jsonBicycle = normalizeBinaryValue(currentData?.bicycle);
     const geoBusinessValues = [...new Set(features.map(f => String(f?.properties?.businessName || '').trim()).filter(Boolean))];
     const geoRouteValues = [...new Set(features.map(f => String(f?.properties?.routeName || '').trim()).filter(Boolean))];
+    const geoNoteValues = [...new Set(features.map(f => String(f?.properties?.note || '').trim()).filter(Boolean))];
     const geoCarValues = [...new Set(features.map(f => normalizeBinaryValue(f?.properties?.car)).filter(v => v !== null))];
     const geoBikeValues = [...new Set(features.map(f => normalizeBinaryValue(f?.properties?.bike)).filter(v => v !== null))];
     const geoBicycleValues = [...new Set(features.map(f => normalizeBinaryValue(f?.properties?.bicycle)).filter(v => v !== null))];
@@ -1993,12 +3181,13 @@
       return;
     }
 
-    const businessOk = !!jsonBusiness && geoBusinessValues.includes(jsonBusiness);
-    const routeOk = !!jsonRoute && geoRouteValues.includes(jsonRoute);
-    const carOk = jsonCar !== null && geoCarValues.includes(jsonCar);
-    const bikeOk = jsonBike !== null && geoBikeValues.includes(jsonBike);
-    const bicycleOk = jsonBicycle !== null && geoBicycleValues.includes(jsonBicycle);
-    const allOk = businessOk && routeOk && carOk && bikeOk && bicycleOk;
+    const businessOk = isTextMatch(jsonBusiness, geoBusinessValues);
+    const routeOk = isTextMatch(jsonRoute, geoRouteValues);
+    const noteOk = isTextMatch(jsonNote, geoNoteValues);
+    const carOk = isBinaryMatch(jsonCar, geoCarValues);
+    const bikeOk = isBinaryMatch(jsonBike, geoBikeValues);
+    const bicycleOk = isBinaryMatch(jsonBicycle, geoBicycleValues);
+    const allOk = businessOk && routeOk && noteOk && carOk && bikeOk && bicycleOk;
 
     el.innerHTML = `
       <div class="name-match-header">
@@ -2020,6 +3209,14 @@
       <div class="match-row">
         <span class="match-row-key">GeoJSON routeName</span>
         <span class="match-row-val">${escHtml(geoRouteValues.join(' / ') || '(空)')}</span>
+      </div>
+      <div class="match-row">
+        <span class="match-row-key">JSON note</span>
+        <span class="match-row-val">${escHtml(jsonNote || '(空)')}</span>
+      </div>
+      <div class="match-row">
+        <span class="match-row-key">GeoJSON note</span>
+        <span class="match-row-val">${escHtml(geoNoteValues.join(' / ') || '(空)')}</span>
       </div>
       <div class="match-row">
         <span class="match-row-key">JSON car/bike/bicycle</span>
@@ -2439,7 +3636,7 @@
     }
     try {
       const writable = await currentFileHandle.createWritable();
-      await writable.write(JSON.stringify(currentData, null, 2) + '\n');
+      await writable.write(JSON.stringify(currentData, null, 2));
       await writable.close();
       if (!sidebarMetaByLayer[currentLayer]) sidebarMetaByLayer[currentLayer] = {};
       sidebarMetaByLayer[currentLayer][currentFileName] = extractListMeta(currentData);
@@ -2515,6 +3712,18 @@
 
   // Ctrl+S で保存
   document.addEventListener('keydown', e => {
+    if (e.key === 'Escape' && isOpenFolderModalOpen) {
+      e.preventDefault();
+      if (isSetupComplete()) closeOpenFolderModal();
+      return;
+    }
+
+    if (e.key === 'Escape' && isIntegrityModalOpen) {
+      e.preventDefault();
+      closeIntegrityModal();
+      return;
+    }
+
     if ((e.ctrlKey || e.metaKey) && e.key === 's') {
       e.preventDefault();
       if (currentFileHandle) saveFile();
@@ -2528,7 +3737,11 @@
   });
 
   restoreHandleOnStartup().finally(() => {
-    restoreGeojsonDirectoryOnStartup();
+    restoreGeojsonDirectoryOnStartup().finally(() => {
+      applySetupLockState();
+      updateSetupStatusInModal();
+      if (!isSetupComplete()) openOpenFolderModal();
+    });
   });
 </script>
 </body>
