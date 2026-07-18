@@ -7,10 +7,22 @@
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
+    :root {
+      --primary: #3DA5E5;
+      --primary-dark: #2B89C2;
+      --primary-soft: #BFD6F2;
+      --primary-bg: #F2F8FE;
+      --primary-hover: #E6F2FC;
+      --border-soft: #D5E3F2;
+      --focus-ring: rgba(61, 165, 229, 0.2);
+      --text-on-primary: #FFFFFF;
+      --text-primary: #1F4F73;
+    }
+
     body {
       font-family: 'Segoe UI', 'Meiryo', sans-serif;
       font-size: 14px;
-      background: #f0f2f5;
+      background: #eef5fb;
       color: #1a1a2e;
       height: 100vh;
       display: flex;
@@ -18,8 +30,8 @@
     }
 
     header {
-      background: #1a237e;
-      color: #fff;
+      background: var(--primary);
+      color: var(--text-on-primary);
       padding: 10px 16px;
       display: flex;
       align-items: center;
@@ -28,8 +40,8 @@
     }
     header h1 { font-size: 16px; font-weight: 600; flex: 1; }
     header button {
-      background: #fff;
-      color: #1a237e;
+      background: var(--text-on-primary);
+      color: var(--text-primary);
       border: none;
       border-radius: 4px;
       padding: 6px 14px;
@@ -37,7 +49,7 @@
       font-weight: 600;
       cursor: pointer;
     }
-    header button:hover { background: #e8eaf6; }
+    header button:hover { background: var(--primary-hover); }
 
     .main {
       display: flex;
@@ -51,8 +63,8 @@
       display: none;
       position: absolute;
       inset: 0;
-      background: rgba(63, 81, 181, 0.12);
-      border: 3px dashed #3f51b5;
+      background: rgba(61, 165, 229, 0.14);
+      border: 3px dashed var(--primary);
       z-index: 100;
       align-items: center;
       justify-content: center;
@@ -62,18 +74,25 @@
     }
     #dropOverlay.active { display: flex; }
     #dropOverlay .drop-icon { font-size: 52px; }
-    #dropOverlay .drop-text { font-size: 18px; font-weight: 700; color: #1a237e; }
-    #dropOverlay .drop-sub  { font-size: 13px; color: #3f51b5; }
+    #dropOverlay .drop-text { font-size: 18px; font-weight: 700; color: var(--text-primary); }
+    #dropOverlay .drop-sub  { font-size: 13px; color: var(--primary-dark); }
 
     /* ---- Sidebar ---- */
     .sidebar {
-      width: 250px;
-      min-width: 200px;
+      width: 100%;
+      min-width: 0;
       background: #fff;
-      border-right: 1px solid #dde;
+      border-right: none;
       display: flex;
       flex-direction: column;
       flex-shrink: 0;
+    }
+
+    .main.editor-open .sidebar {
+      width: 420px;
+      min-width: 300px;
+      max-width: 45%;
+      border-right: 1px solid var(--border-soft);
     }
 
     .sidebar-controls {
@@ -94,25 +113,28 @@
     .sidebar-controls input:focus,
     .sidebar-controls select:focus {
       outline: none;
-      border-color: #3f51b5;
+      border-color: var(--primary);
     }
-    .sidebar-actions {
+    .search-row {
       display: flex;
       gap: 6px;
     }
-    .sidebar-btn {
+    .search-row input {
       flex: 1;
+      min-width: 0;
+    }
+    .sidebar-btn {
       padding: 6px 8px;
-      border: 1px solid #c5cae9;
+      border: 1px solid var(--primary-soft);
       border-radius: 4px;
-      background: #f5f7ff;
-      color: #303f9f;
+      background: var(--primary-bg);
+      color: var(--primary-dark);
       font-size: 12px;
       font-weight: 600;
       cursor: pointer;
     }
     .sidebar-btn:hover:not(:disabled) {
-      background: #e8eaf6;
+      background: var(--primary-hover);
     }
     .sidebar-btn:disabled {
       opacity: 0.45;
@@ -122,24 +144,64 @@
     .file-list {
       flex: 1;
       overflow-y: auto;
-      padding: 4px 0;
+      padding: 0;
       outline: none;
     }
+    .route-table {
+      width: 100%;
+      border-collapse: collapse;
+      table-layout: fixed;
+      font-size: 12px;
+    }
+    .route-table thead th {
+      position: sticky;
+      top: 0;
+      z-index: 1;
+      background: #f7f8fc;
+      color: #4f5a80;
+      font-weight: 700;
+      text-align: left;
+      padding: 6px 10px;
+      border-bottom: 1px solid var(--border-soft);
+    }
+    .route-table thead th:nth-child(1) { width: 28%; }
+    .route-table thead th:nth-child(2) { width: 36%; }
+    .route-table thead th:nth-child(3) { width: 36%; }
+    .route-table.expanded thead th:nth-child(1) { width: 14%; }
+    .route-table.expanded thead th:nth-child(2) { width: 20%; }
+    .route-table.expanded thead th:nth-child(3) { width: 20%; }
+    .route-table.expanded thead th:nth-child(4) { width: 10%; }
+    .route-table.expanded thead th:nth-child(5) { width: 18%; }
+    .route-table.expanded thead th:nth-child(6) { width: 18%; }
     .file-item {
-      padding: 8px 14px;
+      padding: 0;
       cursor: pointer;
       border-left: 3px solid transparent;
       transition: background 0.1s;
-      font-size: 13px;
+      font-size: 12px;
       overflow: hidden;
       outline: none;
     }
-    .file-item:hover { background: #e8eaf6; }
-    .file-item.focused { background: #dde2f5; }
+    .file-item td {
+      padding: 7px 10px;
+      border-bottom: 1px solid #eef1fb;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      vertical-align: middle;
+    }
+    .file-item:hover { background: var(--primary-hover); }
+    .file-item.focused { background: #d9ecfb; }
     .file-item.active {
-      background: #e8eaf6;
-      border-left-color: #3f51b5;
+      background: var(--primary-soft);
+      border-left-color: var(--primary);
       font-weight: 600;
+    }
+    .file-item.note-season:not(.active) {
+      background: #e8f4ff;
+    }
+    .file-item.note-suspend:not(.active) {
+      background: #ffebee;
     }
     .file-item .file-id {
       color: #1a1a2e;
@@ -153,13 +215,20 @@
       color: #555;
       font-size: 12px;
       line-height: 1.3;
-      margin-top: 2px;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+    .file-item .file-route {
+      color: #374151;
+      font-size: 12px;
+      line-height: 1.3;
       white-space: nowrap;
       overflow: hidden;
       text-overflow: ellipsis;
     }
     .file-item .file-business.empty { color: #9aa0b6; }
-
+    .file-item .file-route.empty { color: #9aa0b6; }
     .sidebar-footer {
       padding: 8px 10px;
       font-size: 12px;
@@ -172,10 +241,11 @@
       flex: 1;
       overflow-y: auto;
       padding: 20px;
-      display: flex;
+      display: none;
       flex-direction: column;
       gap: 16px;
     }
+    .main.editor-open .editor-panel { display: flex; }
 
     .placeholder {
       margin: auto;
@@ -187,9 +257,9 @@
     .placeholder .hint {
       margin-top: 20px;
       padding: 16px 24px;
-      border: 2px dashed #c5cae9;
+      border: 2px dashed var(--primary-soft);
       border-radius: 8px;
-      color: #7986cb;
+      color: var(--primary-dark);
       font-size: 13px;
       line-height: 1.7;
     }
@@ -210,13 +280,25 @@
 
     .badge {
       display: inline-block;
-      background: #3f51b5;
-      color: #fff;
+      background: var(--primary);
+      color: var(--text-on-primary);
       border-radius: 10px;
       padding: 2px 10px;
       font-size: 11px;
       white-space: nowrap;
     }
+
+    .back-btn {
+      border: 1px solid var(--primary-soft);
+      border-radius: 4px;
+      background: var(--primary-bg);
+      color: var(--primary-dark);
+      padding: 5px 10px;
+      font-size: 12px;
+      font-weight: 600;
+      cursor: pointer;
+    }
+    .back-btn:hover { background: var(--primary-hover); }
 
     .card {
       background: #fff;
@@ -227,10 +309,10 @@
     .card h3 {
       font-size: 13px;
       font-weight: 600;
-      color: #3f51b5;
+      color: var(--primary);
       margin-bottom: 12px;
       padding-bottom: 6px;
-      border-bottom: 1px solid #e8eaf6;
+      border-bottom: 1px solid var(--primary-hover);
     }
 
     .form-grid {
@@ -260,8 +342,8 @@
     }
     .field select:focus {
       outline: none;
-      border-color: #3f51b5;
-      box-shadow: 0 0 0 2px rgba(63,81,181,0.15);
+      border-color: var(--primary);
+      box-shadow: 0 0 0 2px var(--focus-ring);
     }
     .field input[type="text"],
     .field input[type="number"],
@@ -281,8 +363,8 @@
     .field textarea:focus,
     .field select:focus {
       outline: none;
-      border-color: #3f51b5;
-      box-shadow: 0 0 0 2px rgba(63,81,181,0.15);
+      border-color: var(--primary);
+      box-shadow: 0 0 0 2px var(--focus-ring);
     }
     .field textarea { resize: none; min-height: 60px; overflow: hidden; }
     .field textarea[data-format="comma"] { min-height: 0; }
@@ -313,8 +395,8 @@
       display: inline-flex;
       align-items: center;
       gap: 6px;
-      background: #e8eaf6;
-      color: #1a237e;
+      background: var(--primary-soft);
+      color: var(--text-primary);
       border-radius: 999px;
       padding: 3px 8px;
       font-size: 12px;
@@ -329,7 +411,7 @@
     .tag-chip-remove {
       border: none;
       background: transparent;
-      color: #3949ab;
+      color: var(--primary-dark);
       cursor: pointer;
       font-size: 13px;
       line-height: 1;
@@ -347,8 +429,8 @@
       transition: border-color 0.15s, box-shadow 0.15s;
     }
     .tags-editor:focus {
-      border-color: #3f51b5;
-      box-shadow: 0 0 0 2px rgba(63,81,181,0.15);
+      border-color: var(--primary);
+      box-shadow: 0 0 0 2px var(--focus-ring);
     }
     .tags-input-row {
       display: flex;
@@ -368,9 +450,9 @@
       flex-shrink: 0;
     }
     .btn-tag-add:hover {
-      background: #e8eaf6;
-      border-color: #3f51b5;
-      color: #1a237e;
+      background: var(--primary-hover);
+      border-color: var(--primary);
+      color: var(--text-primary);
     }
     .tags-subhint {
       margin-top: 4px;
@@ -389,7 +471,7 @@
     }
     .checkbox-label input[type="checkbox"] {
       width: 16px; height: 16px;
-      accent-color: #3f51b5;
+      accent-color: var(--primary);
       cursor: pointer;
     }
 
@@ -412,7 +494,7 @@
       resize: vertical;
       color: #1a1a2e;
     }
-    .raw-editor:focus { outline: none; border-color: #3f51b5; }
+    .raw-editor:focus { outline: none; border-color: var(--primary); }
 
     .url-row {
       display: flex;
@@ -430,7 +512,7 @@
       white-space: nowrap;
       flex-shrink: 0;
     }
-    .btn-url-check:hover { background: #e8eaf6; border-color: #3f51b5; }
+    .btn-url-check:hover { background: var(--primary-hover); border-color: var(--primary); }
     .url-open-link {
       font-size: 16px;
       text-decoration: none;
@@ -474,8 +556,8 @@
       width: 15px;
       height: 15px;
       border-radius: 50%;
-      background: #9fa8da;
-      color: #fff;
+      background: var(--primary);
+      color: var(--text-on-primary);
       font-size: 10px;
       font-weight: 700;
       cursor: default;
@@ -526,7 +608,7 @@
     }
     .tab-btn.active {
       background: #fff;
-      color: #3f51b5;
+      color: var(--primary);
       font-weight: 600;
       border-color: #dde;
     }
@@ -542,10 +624,17 @@
       transition: opacity 0.15s;
     }
     .btn:disabled { opacity: 0.4; cursor: default; }
-    .btn-primary { background: #3f51b5; color: #fff; }
-    .btn-primary:not(:disabled):hover { background: #303f9f; }
-    .btn-secondary { background: #e8eaf6; color: #3f51b5; }
-    .btn-secondary:not(:disabled):hover { background: #c5cae9; }
+    .btn-primary { background: var(--primary); color: var(--text-on-primary); }
+    .btn-primary:not(:disabled):hover { background: var(--primary-dark); }
+    .btn-secondary { background: var(--primary-soft); color: var(--text-primary); }
+    .btn-secondary:not(:disabled):hover { background: #a9c7eb; }
+    .btn-neutral {
+      background: #374151;
+      color: #fff;
+    }
+    .btn-neutral:not(:disabled):hover {
+      background: #1f2937;
+    }
     .btn-danger { background: #ef5350; color: #fff; }
     .btn-danger:not(:disabled):hover { background: #d32f2f; }
 
@@ -601,10 +690,9 @@
         <option value="seaRoute_KR">seaRoute_KR</option>
         <option value="seaRoute_limited">seaRoute_limited</option>
       </select>
-      <input type="text" id="searchInput" placeholder="ルートID・名前を検索…" disabled>
-      <div class="sidebar-actions">
+      <div class="search-row">
+        <input type="text" id="searchInput" placeholder="ルートID・名前を検索…" disabled>
         <button class="sidebar-btn" id="createBtn" type="button" disabled>＋ 新規作成</button>
-        <button class="sidebar-btn" id="duplicateBtn" type="button" disabled>複製</button>
       </div>
     </div>
     <div class="file-list" id="fileList" tabindex="0">
@@ -638,6 +726,7 @@
   let currentFileName = '';
   let currentData = null;
   let isModified = false;
+  let isEditorOpen = false;
   let activeTab = 'form';
   let sidebarMetaByLayer = {};
   let sidebarMetaLoadPromise = {};
@@ -684,6 +773,19 @@
   // ---- Drag & Drop ----
   const mainArea = document.getElementById('mainArea');
   const dropOverlay = document.getElementById('dropOverlay');
+
+  function setEditorOpen(open) {
+    isEditorOpen = !!open;
+    mainArea.classList.toggle('editor-open', isEditorOpen);
+    if (currentLayer) renderFileList();
+  }
+
+  function closeEditorToList() {
+    setEditorOpen(false);
+    persistUiState();
+  }
+
+  setEditorOpen(false);
 
   // dragenter/dragleave でオーバーレイ表示切り替え
   let dragCounter = 0;
@@ -782,10 +884,6 @@
     e.preventDefault();
     createOrDuplicateFile(false);
   });
-  document.getElementById('duplicateBtn').addEventListener('click', e => {
-    e.preventDefault();
-    createOrDuplicateFile(true);
-  });
 
   function renderFileList() {
     const list = document.getElementById('fileList');
@@ -796,6 +894,9 @@
       || f.name.toLowerCase().includes(query)
       || (layerMeta[f.name]?.businessName || '').toLowerCase().includes(query)
       || (layerMeta[f.name]?.routeName || '').toLowerCase().includes(query)
+      || (layerMeta[f.name]?.note || '').toLowerCase().includes(query)
+      || String(layerMeta[f.name]?.freq ?? '').toLowerCase().includes(query)
+      || (layerMeta[f.name]?.shipName || '').toLowerCase().includes(query)
     );
 
     if (!files.length) {
@@ -804,15 +905,67 @@
       return;
     }
 
-    list.innerHTML = files.map(f => {
+    const rowsHtml = files.map(f => {
       const id = f.name.replace('.json', '');
-      const businessName = layerMeta[f.name]?.businessName || '';
-      return `<div class="file-item${f.name === currentFileName ? ' active' : ''}"
-        data-name="${f.name}" title="${escHtml(id)}${businessName ? ' - ' + escHtml(businessName) : ''}" tabindex="-1">
-        <div class="file-id">${escHtml(id)}</div>
-        <div class="file-business${businessName ? '' : ' empty'}">${businessName ? escHtml(businessName) : '事業者名未設定'}</div>
-      </div>`;
+      const meta = layerMeta[f.name] || {};
+      const businessName = meta.businessName || '';
+      const routeName = meta.routeName || '';
+      const note = meta.note || '';
+      const freq = meta.freq ?? '';
+      const freqInfo = meta.freqInfo || '';
+      const info = meta.info || '';
+      const titleText = [id, businessName, routeName].filter(Boolean).join(' / ');
+      const noteClass = note === 'season' ? ' note-season' : note === 'suspend' ? ' note-suspend' : '';
+      if (isEditorOpen) {
+        return `<tr class="file-item${f.name === currentFileName ? ' active' : ''}${noteClass}"
+          data-name="${f.name}" title="${escHtml(titleText)}" tabindex="-1">
+          <td class="file-id">${escHtml(id)}</td>
+          <td class="file-business${businessName ? '' : ' empty'}">${businessName ? escHtml(businessName) : '事業者名未設定'}</td>
+          <td class="file-route${routeName ? '' : ' empty'}">${routeName ? escHtml(routeName) : '航路名未設定'}</td>
+        </tr>`;
+      }
+
+      return `<tr class="file-item${f.name === currentFileName ? ' active' : ''}${noteClass}"
+        data-name="${f.name}" title="${escHtml(titleText)}" tabindex="-1">
+        <td class="file-id">${escHtml(id)}</td>
+        <td class="file-business${businessName ? '' : ' empty'}">${businessName ? escHtml(businessName) : '-'}</td>
+        <td class="file-route${routeName ? '' : ' empty'}">${routeName ? escHtml(routeName) : '-'}</td>
+        <td>${freq === '' ? '<span class="file-route empty">-</span>' : escHtml(String(freq))}</td>
+        <td class="file-route${freqInfo ? '' : ' empty'}">${freqInfo ? escHtml(freqInfo) : '-'}</td>
+        <td class="file-route${info ? '' : ' empty'}">${info ? escHtml(info) : '-'}</td>
+      </tr>`;
     }).join('');
+
+    const tableClass = isEditorOpen ? 'route-table compact' : 'route-table expanded';
+    const headHtml = isEditorOpen
+      ? `
+          <tr>
+            <th>ID</th>
+            <th>事業者名</th>
+            <th>航路名</th>
+          </tr>
+        `
+      : `
+          <tr>
+            <th>ID</th>
+            <th>事業者名</th>
+            <th>航路名</th>
+            <th>運行頻度</th>
+            <th>運行頻度テキスト</th>
+            <th>備考</th>
+          </tr>
+        `;
+
+    list.innerHTML = `
+      <table class="${tableClass}" aria-label="航路一覧">
+        <thead>
+          ${headHtml}
+        </thead>
+        <tbody>
+          ${rowsHtml}
+        </tbody>
+      </table>
+    `;
 
     document.getElementById('sidebarFooter').textContent = `${files.length} 件`;
 
@@ -836,12 +989,16 @@
         e.preventDefault();
         const next = items[Math.min(idx + 1, items.length - 1)];
         setFocusedItem(next);
-        openFile(next.dataset.name);
+        if (isEditorOpen && next?.dataset?.name) openFile(next.dataset.name);
       } else if (e.key === 'ArrowUp') {
         e.preventDefault();
         const prev = items[Math.max(idx - 1, 0)];
         setFocusedItem(prev);
-        openFile(prev.dataset.name);
+        if (isEditorOpen && prev?.dataset?.name) openFile(prev.dataset.name);
+      } else if (e.key === 'Enter') {
+        e.preventDefault();
+        const target = focused || items[idx];
+        if (target?.dataset?.name) openFile(target.dataset.name);
       }
     };
   }
@@ -862,12 +1019,9 @@
           const file = await f.handle.getFile();
           const text = await file.text();
           const data = JSON.parse(text);
-          meta[f.name] = {
-            businessName: typeof data.businessName === 'string' ? data.businessName.trim() : '',
-            routeName: typeof data.routeName === 'string' ? data.routeName.trim() : '',
-          };
+          meta[f.name] = extractListMeta(data);
         } catch {
-          meta[f.name] = { businessName: '', routeName: '' };
+          meta[f.name] = extractListMeta({});
         }
       }
     })().finally(() => {
@@ -887,6 +1041,18 @@
     el.scrollIntoView({ block: 'nearest' });
   }
 
+  function extractListMeta(data) {
+    return {
+      businessName: typeof data.businessName === 'string' ? data.businessName.trim() : '',
+      routeName: typeof data.routeName === 'string' ? data.routeName.trim() : '',
+      note: typeof data.note === 'string' ? data.note.trim() : '',
+      freq: data.freq ?? '',
+      freqInfo: typeof data.freqInfo === 'string' ? data.freqInfo.trim() : '',
+      shipName: typeof data.shipName === 'string' ? data.shipName.trim() : '',
+      info: typeof data.info === 'string' ? data.info.trim() : '',
+    };
+  }
+
   async function openFile(name, options = {}) {
     if (isModified && !options.skipUnsavedCheck) {
       if (!confirm('保存されていない変更があります。破棄しますか？')) return;
@@ -899,14 +1065,12 @@
       const text = await file.text();
       currentData = JSON.parse(text);
       if (!sidebarMetaByLayer[currentLayer]) sidebarMetaByLayer[currentLayer] = {};
-      sidebarMetaByLayer[currentLayer][name] = {
-        businessName: typeof currentData.businessName === 'string' ? currentData.businessName.trim() : '',
-        routeName: typeof currentData.routeName === 'string' ? currentData.routeName.trim() : '',
-      };
+      sidebarMetaByLayer[currentLayer][name] = extractListMeta(currentData);
       currentFileHandle = fileEntry.handle;
       currentFileName = name;
       isModified = false;
       renderEditor();
+      setEditorOpen(true);
       updateSidebarActionButtons();
       persistUiState();
     } catch (e) {
@@ -921,7 +1085,7 @@
     const selectedLayer = currentLayer || document.getElementById('layerSelect').value;
     const canCreate = !!(rootDirHandle && selectedLayer);
     createBtn.disabled = !canCreate;
-    duplicateBtn.disabled = !(canCreate && currentFileHandle);
+    if (duplicateBtn) duplicateBtn.disabled = !(canCreate && currentFileHandle);
     if (deleteBtn) deleteBtn.disabled = !(canCreate && currentFileHandle);
   }
 
@@ -979,10 +1143,7 @@
       layerFiles.push({ name: fileName, handle: newFileHandle });
       layerFiles.sort(naturalCompare);
       if (!sidebarMetaByLayer[targetLayer]) sidebarMetaByLayer[targetLayer] = {};
-      sidebarMetaByLayer[targetLayer][fileName] = {
-        businessName: typeof newData.businessName === 'string' ? newData.businessName.trim() : '',
-        routeName: typeof newData.routeName === 'string' ? newData.routeName.trim() : '',
-      };
+      sidebarMetaByLayer[targetLayer][fileName] = extractListMeta(newData);
 
       currentLayer = targetLayer;
       document.getElementById('layerSelect').value = targetLayer;
@@ -993,6 +1154,7 @@
       isModified = false;
       renderFileList();
       renderEditor();
+      setEditorOpen(true);
       updateSidebarActionButtons();
       persistUiState();
       showToast(
@@ -1048,6 +1210,7 @@
         await openFile(nextFile.name, { skipUnsavedCheck: true });
       } else {
         renderEditorPlaceholder('このレイヤーにはJSONファイルがありません');
+        setEditorOpen(false);
         updateSidebarActionButtons();
         persistUiState();
       }
@@ -1092,8 +1255,16 @@
     ensureLayerSidebarMeta(currentLayer);
 
     if (state.fileName && (allFiles[currentLayer] || []).some(f => f.name === state.fileName)) {
-      await openFile(state.fileName, { skipUnsavedCheck: true });
+      if (state.editorOpen) {
+        await openFile(state.fileName, { skipUnsavedCheck: true });
+      } else {
+        currentFileName = state.fileName;
+        renderFileList();
+        updateSidebarActionButtons();
+      }
     }
+
+    setEditorOpen(Boolean(state.editorOpen));
   }
 
   function persistUiState() {
@@ -1101,7 +1272,8 @@
       localStorage.setItem(UI_STATE_KEY, JSON.stringify({
         layer: currentLayer || document.getElementById('layerSelect').value || '',
         fileName: currentFileName || '',
-        search: document.getElementById('searchInput').value || ''
+        search: document.getElementById('searchInput').value || '',
+        editorOpen: isEditorOpen
       }));
     } catch {
       // Ignore storage errors.
@@ -1192,6 +1364,7 @@
       <div class="editor-header">
         <h2>${escHtml(id)}</h2>
         <span class="badge">${escHtml(currentLayer)}</span>
+        <button class="back-btn" id="backToListBtn" type="button">← 一覧に戻る</button>
         <span id="unsavedMark" style="display:none"><span class="unsaved-dot"></span> 未保存</span>
       </div>
       <div class="tab-bar">
@@ -1202,8 +1375,9 @@
         ${activeTab === 'form' ? renderFormContent() : renderRawContent()}
       </div>
       <div class="action-bar">
-        <button class="btn btn-primary" id="saveBtn" type="button">💾 保存</button>
         <button class="btn btn-secondary" id="reloadBtn" type="button">↺ 再読み込み</button>
+        <button class="btn btn-primary" id="saveBtn" type="button">💾 保存</button>
+        <button class="btn btn-neutral" id="duplicateBtn" type="button">📄 複製</button>
         <button class="btn btn-danger" id="deleteBtn" type="button">🗑 削除</button>
       </div>
     `;
@@ -1211,8 +1385,13 @@
     document.getElementById('tabForm').addEventListener('click', () => { activeTab = 'form'; renderEditor(); });
     document.getElementById('tabRaw').addEventListener('click',  () => { activeTab = 'raw';  renderEditor(); });
     document.getElementById('saveBtn').addEventListener('click', saveFile);
+    document.getElementById('duplicateBtn').addEventListener('click', e => {
+      e.preventDefault();
+      createOrDuplicateFile(true);
+    });
     document.getElementById('reloadBtn').addEventListener('click', () => openFile(currentFileName));
     document.getElementById('deleteBtn').addEventListener('click', deleteCurrentFile);
+    document.getElementById('backToListBtn').addEventListener('click', closeEditorToList);
 
     if (activeTab === 'form') bindFormEvents();
     if (activeTab === 'raw')  bindRawEvents();
@@ -1561,10 +1740,7 @@
       await writable.write(JSON.stringify(currentData, null, 2) + '\n');
       await writable.close();
       if (!sidebarMetaByLayer[currentLayer]) sidebarMetaByLayer[currentLayer] = {};
-      sidebarMetaByLayer[currentLayer][currentFileName] = {
-        businessName: typeof currentData.businessName === 'string' ? currentData.businessName.trim() : '',
-        routeName: typeof currentData.routeName === 'string' ? currentData.routeName.trim() : '',
-      };
+      sidebarMetaByLayer[currentLayer][currentFileName] = extractListMeta(currentData);
       isModified = false;
       const mark = document.getElementById('unsavedMark');
       if (mark) mark.style.display = 'none';
@@ -1640,6 +1816,12 @@
     if ((e.ctrlKey || e.metaKey) && e.key === 's') {
       e.preventDefault();
       if (currentFileHandle) saveFile();
+      return;
+    }
+
+    if (e.key === 'Escape' && isEditorOpen) {
+      e.preventDefault();
+      closeEditorToList();
     }
   });
 
