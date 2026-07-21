@@ -18,15 +18,23 @@ jobs:
         with:
           fetch-depth: 0
 
-      - name: Detect geojson changes
+      - name: Detect changes
         id: changes
         run: |
           if [ -z "${{ github.event.before }}" ]; then
             echo "geojson=true" >> "$GITHUB_OUTPUT"
-          elif git diff --name-only "${{ github.event.before }}" "${{ github.sha }}" | grep -q '^geojson/'; then
-            echo "geojson=true" >> "$GITHUB_OUTPUT"
+            echo "details=true" >> "$GITHUB_OUTPUT"
           else
-            echo "geojson=false" >> "$GITHUB_OUTPUT"
+            if git diff --name-only "${{ github.event.before }}" "${{ github.sha }}" | grep -q '^geojson/'; then
+              echo "geojson=true" >> "$GITHUB_OUTPUT"
+            else
+              echo "geojson=false" >> "$GITHUB_OUTPUT"
+            fi
+            if git diff --name-only "${{ github.event.before }}" "${{ github.sha }}" | grep -q '^details/'; then
+              echo "details=true" >> "$GITHUB_OUTPUT"
+            else
+              echo "details=false" >> "$GITHUB_OUTPUT"
+            fi
           fi
 
       - name: Install tippecanoe 2.79.0
@@ -72,7 +80,7 @@ jobs:
             exit 1
           fi
 
-      - name: Upload data files to R2
+      - name: Upload PMTiles/GeoJSON/lightweight to R2
         if: steps.changes.outputs.geojson == 'true'
         env:
           R2_BUCKET_NAME: ${{ secrets.R2_BUCKET_NAME }}
@@ -85,12 +93,22 @@ jobs:
             --endpoint-url "$R2_ENDPOINT" \
             --exclude "*" \
             --include "searoute.pmtiles"
-          aws s3 sync details s3://$R2_BUCKET_NAME/details \
-            --endpoint-url "$R2_ENDPOINT" \
-            --delete
           aws s3 sync geojson s3://$R2_BUCKET_NAME/geojson \
             --endpoint-url "$R2_ENDPOINT" \
             --delete
           aws s3 sync lightweight s3://$R2_BUCKET_NAME/lightweight \
+            --endpoint-url "$R2_ENDPOINT" \
+            --delete
+
+      - name: Upload details to R2
+        if: steps.changes.outputs.geojson == 'true' || steps.changes.outputs.details == 'true'
+        env:
+          R2_BUCKET_NAME: ${{ secrets.R2_BUCKET_NAME }}
+          R2_ENDPOINT: ${{ secrets.R2_ENDPOINT }}
+          AWS_ACCESS_KEY_ID: ${{ secrets.R2_ACCESS_KEY_ID }}
+          AWS_SECRET_ACCESS_KEY: ${{ secrets.R2_SECRET_ACCESS_KEY }}
+          AWS_DEFAULT_REGION: auto
+        run: |
+          aws s3 sync details s3://$R2_BUCKET_NAME/details \
             --endpoint-url "$R2_ENDPOINT" \
             --delete
