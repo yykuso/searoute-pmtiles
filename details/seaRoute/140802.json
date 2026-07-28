@@ -1,0 +1,13 @@
+{
+  "businessName": "箱根遊船",
+  "routeName": "九頭龍神社参拝船",
+  "note": "season",
+  "freq": 1,
+  "url": "https://www.hakone-yuransen.jp/hakonejinja/",
+  "info": "毎月13日運航",
+  "car": 0,
+  "bike": 0,
+  "bicycle": 0,
+  "shipName": "SORAKAZE, 大茶会",
+  "freqInfo": "1日1往復"
+}

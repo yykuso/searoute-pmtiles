@@ -3,5 +3,9 @@
   "routeName": "桃源台～箱根町～元箱根",
   "url": "https://www.hakonenavi.jp/hakone-kankosen/",
   "freq": 3,
-  "shipName": "クイーン芦ノ湖, ロワイヤルⅡ, ビクトリー"
+  "shipName": "クイーン芦ノ湖, ロワイヤルⅡ, ビクトリー",
+  "car": 0,
+  "bike": 0,
+  "bicycle": 1,
+  "freqInfo": "1日11～15便"
 }

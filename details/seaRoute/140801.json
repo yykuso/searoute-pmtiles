@@ -1,7 +1,11 @@
 {
   "businessName": "箱根遊船",
-  "routeName": "箱根関所跡～元箱根～箱根園",
+  "routeName": "箱根関所跡～元箱根～箱根園～湖尻",
   "url": "https://www.hakone-yuransen.jp/timetable/",
   "freq": 3,
-  "shipName": "SORAKAZE"
+  "shipName": "SORAKAZE, 大茶会",
+  "car": 0,
+  "bike": 0,
+  "bicycle": 0,
+  "freqInfo": "毎時1～2便"
 }
