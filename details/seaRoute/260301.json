@@ -1,0 +1,13 @@
+{
+  "businessName": "びわ湖疏水船",
+  "routeName": "大津～山科～蹴上",
+  "note": "season",
+  "freq": 1,
+  "car": 0,
+  "bike": 0,
+  "bicycle": 0,
+  "shipName": "めいじ号, へいせい号, れいわ号, へいわ号",
+  "url": "https://biwakososui.kyoto.travel/information/",
+  "info": "10～12月運航",
+  "freqInfo": "上り6便、下り3便"
+}
