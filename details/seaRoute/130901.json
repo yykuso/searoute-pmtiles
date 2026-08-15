@@ -1,7 +1,12 @@
 {
   "businessName": "観光汽船興業",
-  "routeName": "舟旅通勤（日本橋～豊洲）",
-  "url": "https://www.suitown.jp/cruise/234/",
+  "routeName": "Have Fun Nihonbashi e-LINER",
+  "url": "https://www.suitown.jp/cruise/274/",
   "info": "火・水・木・金曜日",
-  "freq": 2
+  "freq": 2,
+  "car": 0,
+  "bike": 0,
+  "bicycle": 1,
+  "freqInfo": "1日10～15便",
+  "shipName": "Nihonbashi e-LINER"
 }

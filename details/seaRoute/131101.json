@@ -4,5 +4,9 @@
   "url": "https://www.suitown.jp/cruise/262/",
   "info": "月～金曜日",
   "freq": 2,
-  "shipName": "カノン, ルーク, 月乃舟"
+  "shipName": "カノン, ルーク, 月乃舟",
+  "freqInfo": "1日5便",
+  "car": 0,
+  "bike": 0,
+  "bicycle": 1
 }
