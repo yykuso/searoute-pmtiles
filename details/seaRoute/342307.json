@@ -1,0 +1,12 @@
+{
+  "businessName": "瀬戸内シーライン",
+  "routeName": "SEA SPICA しまなみコース",
+  "note": "金土日月祝運航",
+  "freq": 1,
+  "car": 0,
+  "bike": 0,
+  "bicycle": 0,
+  "url": "https://setonaikaikisen.co.jp/simatabi/plan/",
+  "freqInfo": "金土日月祝運航, 1日1便",
+  "shipName": "SEA SPICA"
+}
