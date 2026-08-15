@@ -3,5 +3,11 @@
   "routeName": "的矢～三ヶ所～渡鹿野島",
   "url": "https://www.city.shima.mie.jp/kakuka/kensetsubu/kensetsuseibika/shiunkosen.html",
   "info": "運航日注意、県道船",
-  "freq": 1
+  "freq": 1,
+  "bbox": [
+    136.86480833549945,
+    34.35859800656761,
+    136.87311523026523,
+    34.36799853738385
+  ]
 }

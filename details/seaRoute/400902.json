@@ -2,5 +2,11 @@
   "businessName": "福岡市",
   "routeName": "博多～玄界島",
   "url": "https://www.city.fukuoka.lg.jp/kowan/kyakusen/hakata-port/hyo.html",
-  "freq": 3
+  "freq": 3,
+  "bbox": [
+    130.23474182818003,
+    33.60423849509982,
+    130.3999044985522,
+    33.68224846840314
+  ]
 }

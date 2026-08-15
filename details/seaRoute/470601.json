@@ -2,5 +2,11 @@
   "businessName": "粟国村",
   "routeName": "泊～粟国島",
   "url": "https://www.vill.aguni.okinawa.jp/index.html",
-  "freq": 2
+  "freq": 2,
+  "bbox": [
+    127.23307943981649,
+    26.222004623757567,
+    127.68300253865853,
+    26.578693011043825
+  ]
 }

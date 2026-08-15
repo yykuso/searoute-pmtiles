@@ -4,5 +4,11 @@
   "url": "https://www.jhferry.com/guide/?guide=01",
   "freq": 2,
   "freqInfo": "1日1往復",
-  "shipName": "ULLEUNG SUNFLOWER CRUISE\t"
+  "shipName": "ULLEUNG SUNFLOWER CRUISE\t",
+  "bbox": [
+    129.45148354363243,
+    36.66798991850742,
+    130.89255836235114,
+    37.46601989281516
+  ]
 }

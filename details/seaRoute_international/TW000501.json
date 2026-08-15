@@ -4,5 +4,11 @@
   "url": "https://jinan.com.tw/#",
   "freq": 2,
   "freqInfo": "1日1～2往復",
-  "shipName": "JIN XING NO6（金星6號）"
+  "shipName": "JIN XING NO6（金星6號）",
+  "bbox": [
+    118.19029874068984,
+    24.417007510403835,
+    118.28734017054767,
+    24.53369582262064
+  ]
 }

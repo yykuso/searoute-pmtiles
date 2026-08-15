@@ -3,5 +3,11 @@
   "routeName": "岡崎～土佐泊",
   "url": "https://www.city.naruto.tokushima.jp/kurashi/sumai/kotsu/tosen/okazaki.html",
   "info": "岡崎渡船",
-  "freq": 3
+  "freq": 3,
+  "bbox": [
+    134.61720973396731,
+    34.18529135636733,
+    134.62078757372956,
+    34.18816140968889
+  ]
 }

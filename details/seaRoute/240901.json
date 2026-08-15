@@ -3,5 +3,11 @@
   "routeName": "三瀬の渡し",
   "url": "https://web-odai.info/history/kumanokodo_iseji/history/kumanokodo_iseji-4773.html",
   "info": "土日運航",
-  "freq": 1
+  "freq": 1,
+  "bbox": [
+    136.4317743400363,
+    34.395429343727855,
+    136.43198962961804,
+    34.395936812027394
+  ]
 }

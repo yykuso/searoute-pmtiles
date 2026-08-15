@@ -2,5 +2,11 @@
   "businessName": "木口汽船",
   "routeName": "福江島～久賀島",
   "url": "https://www.kiguchi-kisen.jp/contents/timetable/",
-  "freq": 2
+  "freq": 2,
+  "bbox": [
+    128.82567291033752,
+    32.6968584928169,
+    128.8615070804337,
+    32.781923552708136
+  ]
 }

@@ -3,5 +3,11 @@
   "routeName": "淡路島（土生）～沼島",
   "url": "https://www.city.minamiawaji.hyogo.jp/soshiki/kyoudou/nusima1.html",
   "freq": 3,
-  "shipName": "しまかぜ , しまちどり"
+  "shipName": "しまかぜ , しまちどり",
+  "bbox": [
+    134.80208146884473,
+    34.1700312041944,
+    134.8187379180091,
+    34.201585302028704
+  ]
 }

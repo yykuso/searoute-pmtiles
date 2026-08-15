@@ -4,5 +4,11 @@
   "url": "http://www.slferry.co.kr/ko/10",
   "freq": 2,
   "freqInfo": "1日1往復",
-  "shipName": "송림블루오션（SONGLIM BLUE OCEAN）"
+  "shipName": "송림블루오션（SONGLIM BLUE OCEAN）",
+  "bbox": [
+    126.32819177470648,
+    33.520280541290205,
+    126.79934023241266,
+    34.32122358636147
+  ]
 }

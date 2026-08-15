@@ -7,5 +7,11 @@
   "bike": 0,
   "bicycle": 1,
   "freqInfo": "週3往復",
-  "shipName": "PANSTAR MIRACLE"
+  "shipName": "PANSTAR MIRACLE",
+  "bbox": [
+    129.05313908101917,
+    33.698516385077106,
+    135.42147406865908,
+    35.11550677865185
+  ]
 }

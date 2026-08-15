@@ -4,5 +4,11 @@
   "url": "https://www.tokyo-park.or.jp/water/waterbus/#a02",
   "info": "休止中, 不定期運航",
   "note": "suspend",
-  "freq": 1
+  "freq": 1,
+  "bbox": [
+    139.69768819325185,
+    35.61738403863141,
+    139.86014850254045,
+    35.788943171435285
+  ]
 }

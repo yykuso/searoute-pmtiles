@@ -2,5 +2,11 @@
   "businessName": "平郡航路",
   "routeName": "柳井～平郡島",
   "url": "https://www.city-yanai.jp/soshiki/15/heigunferry.html",
-  "freq": 3
+  "freq": 3,
+  "bbox": [
+    132.13329537669378,
+    33.76185664058567,
+    132.2797346285509,
+    33.95640283246035
+  ]
 }

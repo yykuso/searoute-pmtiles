@@ -4,5 +4,11 @@
   "url": "https://www.city.toride.ibaraki.jp/mizutomidori/bunkakatsudo/kanko/kankomesho/ohorinowatashi.html",
   "info": "小堀の渡し",
   "freq": 3,
-  "shipName": "とりで号"
+  "shipName": "とりで号",
+  "bbox": [
+    140.06002302330754,
+    35.882949787098525,
+    140.07556549647242,
+    35.889656428697066
+  ]
 }

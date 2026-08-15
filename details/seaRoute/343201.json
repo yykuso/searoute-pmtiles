@@ -2,5 +2,11 @@
   "businessName": "JR西日本宮島フェリー",
   "routeName": "宮島口～宮島",
   "url": "https://jr-miyajimaferry.co.jp/timetable/",
-  "freq": 3
+  "freq": 3,
+  "bbox": [
+    132.3061438406698,
+    34.29915675234005,
+    132.32100055207195,
+    34.31070125772895
+  ]
 }

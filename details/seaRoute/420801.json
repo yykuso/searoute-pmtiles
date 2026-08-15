@@ -2,5 +2,11 @@
   "businessName": "竹山運輸",
   "routeName": "平戸～度島",
   "url": "https://www.city.hirado.nagasaki.jp/kurashi/life/sumai/koutu/ferry/fe02.html",
-  "freq": 3
+  "freq": 3,
+  "bbox": [
+    129.51675205090797,
+    33.37106910936456,
+    129.56625437862164,
+    33.44081193200991
+  ]
 }

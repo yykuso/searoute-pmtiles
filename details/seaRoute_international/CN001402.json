@@ -4,5 +4,11 @@
   "url": "https://ticket.wujiangferry.com.tw/TKQuery/TimeSchedule",
   "freq": 2,
   "freqInfo": "1日1往復",
-  "shipName": "BA FANG（八方輪）"
+  "shipName": "BA FANG（八方輪）",
+  "bbox": [
+    118.27828151759267,
+    24.417149101413262,
+    118.48393030558945,
+    24.63374752266312
+  ]
 }

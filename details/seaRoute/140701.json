@@ -4,5 +4,11 @@
   "url": "https://www.fujisawa-kanko.jp/access/bentenmaru.html",
   "info": "べんてん丸",
   "freq": 3,
-  "shipName": "べんてん丸"
+  "shipName": "べんてん丸",
+  "bbox": [
+    139.47460254848863,
+    35.29995793876116,
+    139.48267506238344,
+    35.30624855995681
+  ]
 }

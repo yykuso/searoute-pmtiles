@@ -2,5 +2,11 @@
   "businessName": "新喜峰",
   "routeName": "北条～安居島",
   "url": "https://www.pref.ehime.jp/chu99914/navi/shima/aijima/index.html",
-  "freq": 3
+  "freq": 3,
+  "bbox": [
+    132.7053526421579,
+    33.97535993368854,
+    132.771637088844,
+    34.06859423983005
+  ]
 }

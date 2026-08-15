@@ -2,5 +2,11 @@
   "businessName": "北九州市",
   "routeName": "小倉～馬島～藍島",
   "url": "https://www.city.kitakyushu.lg.jp/san-kei/file_0043.html",
-  "freq": 3
+  "freq": 3,
+  "bbox": [
+    130.8183390626958,
+    33.88842772459097,
+    130.89839968351342,
+    33.98831694710572
+  ]
 }

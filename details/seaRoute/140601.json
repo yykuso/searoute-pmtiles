@@ -3,5 +3,11 @@
   "routeName": "みなとみらい～羽田",
   "url": "https://reservedcruise.com/yokohama-cruise/teikibin/",
   "freq": 1,
-  "shipName": "Jet sailor"
+  "shipName": "Jet sailor",
+  "bbox": [
+    139.63846181768582,
+    35.45788329255554,
+    139.83071151365127,
+    35.629957839778015
+  ]
 }

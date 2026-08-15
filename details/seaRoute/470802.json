@@ -4,5 +4,11 @@
   "url": "https://www.vill.zamami.okinawa.jp/info/m/2013/03/trans.php",
   "freq": 3,
   "freqInfo": "1日4往復",
-  "shipName": "みつしま"
+  "shipName": "みつしま",
+  "bbox": [
+    127.28538736124062,
+    26.189662428093232,
+    127.30117231964215,
+    26.226529089421565
+  ]
 }

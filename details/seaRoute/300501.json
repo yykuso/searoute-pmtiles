@@ -4,5 +4,11 @@
   "url": "https://urashimaresortsandspa.jp/wakayama-hotelurashima/access/",
   "freq": 3,
   "freqInfo": "15分間隔随時",
-  "shipName": "浦島丸"
+  "shipName": "浦島丸",
+  "bbox": [
+    135.94578246223935,
+    33.62421868165083,
+    135.95050945913337,
+    33.62752276123847
+  ]
 }

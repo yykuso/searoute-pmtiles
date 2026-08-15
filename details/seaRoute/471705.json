@@ -2,5 +2,11 @@
   "businessName": "安栄観光",
   "routeName": "石垣島～小浜島",
   "url": "https://aneikankou.co.jp/timetable",
-  "freq": 2
+  "freq": 2,
+  "bbox": [
+    123.99220522971322,
+    24.308052238938636,
+    124.1554029168394,
+    24.34671168736952
+  ]
 }

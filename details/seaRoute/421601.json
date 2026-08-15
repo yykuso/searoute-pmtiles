@@ -2,5 +2,11 @@
   "businessName": "西海市",
   "routeName": "瀬戸～松島（釜浦）",
   "url": "https://www.city.saikai.nagasaki.jp/soshiki/shimanokurashi/1/1/2/1199.html",
-  "freq": 3
+  "freq": 3,
+  "bbox": [
+    129.61561399542208,
+    32.93653479599214,
+    129.638983759583,
+    32.94044263742792
+  ]
 }

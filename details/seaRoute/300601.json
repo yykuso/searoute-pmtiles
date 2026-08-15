@@ -7,5 +7,11 @@
   "bike": 0,
   "bicycle": 0,
   "url": "http://kinomatsushima.com/navigation.html",
-  "freqInfo": "1日6便, 水曜定休"
+  "freqInfo": "1日6便, 水曜定休",
+  "bbox": [
+    135.93948985437248,
+    33.60276680061464,
+    135.9580194864321,
+    33.62753887600681
+  ]
 }

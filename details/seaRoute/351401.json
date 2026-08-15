@@ -2,5 +2,11 @@
   "businessName": "下関市",
   "routeName": "下関～六連島",
   "url": "https://www.city.shimonoseki.lg.jp/soshiki/78/6518.html",
-  "freq": 3
+  "freq": 3,
+  "bbox": [
+    130.8676420557594,
+    33.9517103649823,
+    130.91982128719835,
+    33.97546418111147
+  ]
 }

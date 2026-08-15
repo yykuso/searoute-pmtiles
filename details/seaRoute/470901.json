@@ -2,5 +2,11 @@
   "businessName": "渡嘉敷村",
   "routeName": "泊～渡嘉敷島",
   "url": "https://tokashiki-ferry.jp/Senpaku/portal",
-  "freq": 3
+  "freq": 3,
+  "bbox": [
+    127.3681127068729,
+    26.185265217268284,
+    127.6834809324162,
+    26.227970251443118
+  ]
 }

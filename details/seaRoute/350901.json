@@ -2,5 +2,11 @@
   "businessName": "熊南総合事務組合",
   "routeName": "佐賀～佐合島～馬島～麻里府",
   "url": "https://www.town.tabuse.lg.jp/www/contents/1511922392457/index.html",
-  "freq": 3
+  "freq": 3,
+  "bbox": [
+    132.04333764167185,
+    33.87526788366411,
+    132.07954561322202,
+    33.91336035870347
+  ]
 }

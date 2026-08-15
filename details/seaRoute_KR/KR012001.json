@@ -4,5 +4,11 @@
   "url": "http://www.saryang-suhyup.co.kr/ferry/timetable.php",
   "freq": 3,
   "freqInfo": "1日6～11往復",
-  "shipName": "사량호, 그랜드페리호"
+  "shipName": "사량호, 그랜드페리호",
+  "bbox": [
+    128.2236901441332,
+    34.84060099353952,
+    128.31451192962498,
+    34.91051125716635
+  ]
 }

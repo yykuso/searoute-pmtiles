@@ -4,5 +4,11 @@
   "url": "https://ticket.wujiangferry.com.tw/TKQuery/TimeSchedule",
   "freq": 2,
   "freqInfo": "1日1～2往復",
-  "shipName": "Heping Xinxing（和平新星）"
+  "shipName": "Heping Xinxing（和平新星）",
+  "bbox": [
+    118.18906042589538,
+    24.4171408333294,
+    118.28826748785919,
+    24.53468397281449
+  ]
 }

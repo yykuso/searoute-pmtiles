@@ -7,5 +7,11 @@
   "bicycle": 0,
   "url": "https://setonaikaikisen.co.jp/simatabi/plan/",
   "freqInfo": "金土日月祝運航, 1日1便",
-  "shipName": "SEA SPICA"
+  "shipName": "SEA SPICA",
+  "bbox": [
+    132.45557957922105,
+    34.19048248318873,
+    133.19280411736568,
+    34.40285711086368
+  ]
 }

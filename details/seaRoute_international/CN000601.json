@@ -4,5 +4,11 @@
   "url": "https://en.pdpt.or.kr/76",
   "freq": 1,
   "freqInfo": "週3往復",
-  "shipName": "NEW GRAND PEACE（新永安号）"
+  "shipName": "NEW GRAND PEACE（新永安号）",
+  "bbox": [
+    122.17576606080576,
+    36.95398770242941,
+    126.84395572579302,
+    37.527019855226584
+  ]
 }

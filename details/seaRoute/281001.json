@@ -4,5 +4,11 @@
   "url": "http://www.nakamurasou.shop/detail/liner.html",
   "info": "暫定連絡船・日曜運休",
   "freq": 3,
-  "shipName": "いえしま"
+  "shipName": "いえしま",
+  "bbox": [
+    134.5319876771794,
+    34.67335487568531,
+    134.56973774385267,
+    34.68528525333287
+  ]
 }

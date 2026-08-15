@@ -2,5 +2,11 @@
   "businessName": "唐津汽船",
   "routeName": "湊～神集島",
   "url": "http://web.people-i.ne.jp/~karatsu-maru/",
-  "freq": 3
+  "freq": 3,
+  "bbox": [
+    129.95657610482058,
+    33.52416385295942,
+    129.970714,
+    33.5402258483
+  ]
 }

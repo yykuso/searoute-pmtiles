@@ -2,5 +2,11 @@
   "businessName": "須崎市",
   "routeName": "埋立～坂内",
   "url": "https://www.city.susaki.lg.jp/life/detail.php?hdnKey=3548",
-  "freq": 3
+  "freq": 3,
+  "bbox": [
+    133.35937577065985,
+    33.40891931382546,
+    133.4300900857541,
+    33.44394447287964
+  ]
 }

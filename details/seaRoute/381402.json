@@ -2,5 +2,11 @@
   "businessName": "松山市",
   "routeName": "北条～鹿島",
   "url": "https://www.city.matsuyama.ehime.jp/kanko/kankoguide/shitestukoen/kashima/tosen.html",
-  "freq": 3
+  "freq": 3,
+  "bbox": [
+    132.7669538801445,
+    33.974063193667696,
+    132.76962628123644,
+    33.975029136946425
+  ]
 }

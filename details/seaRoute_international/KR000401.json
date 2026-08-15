@@ -7,5 +7,11 @@
   "bike": 1,
   "bicycle": 1,
   "freqInfo": "週1往復",
-  "shipName": "EASTERN DREAM"
+  "shipName": "EASTERN DREAM",
+  "bbox": [
+    129.1262166796893,
+    35.54765697899889,
+    133.33715942689096,
+    43.11176331336952
+  ]
 }

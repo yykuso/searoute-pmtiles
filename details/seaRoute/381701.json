@@ -2,5 +2,11 @@
   "businessName": "ごごしま",
   "routeName": "高浜～興居島（由良）",
   "url": "http://gogoshima-ferry.com/timetable_faretable/",
-  "freq": 3
+  "freq": 3,
+  "bbox": [
+    132.68179512481612,
+    33.883433456943656,
+    132.70071377833423,
+    33.9023710233842
+  ]
 }

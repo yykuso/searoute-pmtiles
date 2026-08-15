@@ -2,5 +2,11 @@
   "businessName": "上村汽船",
   "routeName": "広島～江田島（切串）",
   "url": "http://kamimurakisen.com/jikokuhyou.html",
-  "freq": 3
+  "freq": 3,
+  "bbox": [
+    132.45315691899714,
+    34.28488407661525,
+    132.47511492773125,
+    34.35189883671963
+  ]
 }

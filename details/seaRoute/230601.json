@@ -3,5 +3,11 @@
   "routeName": "伊良湖～神島",
   "url": "http://www.tees.ne.jp/~hirota-1/suhedule.html",
   "freq": 3,
-  "shipName": "かみしま"
+  "shipName": "かみしま",
+  "bbox": [
+    136.97576681745824,
+    34.54939866846387,
+    137.0211911920738,
+    34.589606205866595
+  ]
 }

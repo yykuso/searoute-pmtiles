@@ -2,5 +2,11 @@
   "businessName": "小値賀町",
   "routeName": "小値賀島（笛吹）～大島",
   "url": "http://ojika.net/tourism/transportation/hamayu/",
-  "freq": 3
+  "freq": 3,
+  "bbox": [
+    129.02476001493525,
+    33.174547770775455,
+    129.05926798639155,
+    33.18651892355395
+  ]
 }

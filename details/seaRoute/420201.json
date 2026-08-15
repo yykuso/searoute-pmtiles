@@ -2,5 +2,11 @@
   "businessName": "安田産業汽船",
   "routeName": "時津～長崎空港",
   "url": "https://yasuda-gp.net/omura/togitsu",
-  "freq": 3
+  "freq": 3,
+  "bbox": [
+    129.84544595925283,
+    32.833267712769455,
+    129.9328346482236,
+    32.911774535047584
+  ]
 }

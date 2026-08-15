@@ -8,5 +8,11 @@
   "bicycle": 0,
   "url": "https://hayamamarina.com/sea-taxi/",
   "freqInfo": "1日3便",
-  "shipName": "FALCON"
+  "shipName": "FALCON",
+  "bbox": [
+    139.48662753805277,
+    35.281803132978965,
+    139.56883775194444,
+    35.29951548276021
+  ]
 }

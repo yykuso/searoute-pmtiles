@@ -4,5 +4,11 @@
   "url": "https://www.icpa.or.kr/icferry/eng/content/view.do?menuKey=1093&contentKey=21",
   "freq": 1,
   "freqInfo": "週3往復",
-  "shipName": "NEW GOLDEN BRIDGE VII"
+  "shipName": "NEW GOLDEN BRIDGE VII",
+  "bbox": [
+    122.1749248715915,
+    36.97757145626845,
+    126.60075086875281,
+    37.52867043995413
+  ]
 }

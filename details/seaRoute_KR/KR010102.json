@@ -4,5 +4,11 @@
   "url": "https://www.rome2rio.com/map/Mukho-dong/Ulleungdo",
   "freq": 2,
   "freqInfo": "1日1往復",
-  "shipName": "씨스타1호"
+  "shipName": "씨스타1호",
+  "bbox": [
+    129.11287936822782,
+    37.44913137276514,
+    130.9118873780451,
+    37.55020834388469
+  ]
 }

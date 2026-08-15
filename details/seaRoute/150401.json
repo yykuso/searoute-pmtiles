@@ -3,5 +3,11 @@
   "routeName": "シャトル便",
   "url": "https://www.watershuttle.co.jp/common/cgi/dia/cal.cgi",
   "freq": 1,
-  "shipName": "アナスタシア号, ベアトリス号"
+  "shipName": "アナスタシア号, ベアトリス号",
+  "bbox": [
+    139.01232713642676,
+    37.86643726193367,
+    139.05903300907715,
+    37.93049878050726
+  ]
 }

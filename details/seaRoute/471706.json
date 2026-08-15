@@ -2,5 +2,11 @@
   "businessName": "安栄観光",
   "routeName": "石垣島～波照間島",
   "url": "https://aneikankou.co.jp/timetable",
-  "freq": 2
+  "freq": 2,
+  "bbox": [
+    123.76549819281833,
+    24.067071752470675,
+    124.15543781776861,
+    24.33641002876597
+  ]
 }

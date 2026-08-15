@@ -3,5 +3,11 @@
   "routeName": "堂浦～島田",
   "url": "https://www.city.naruto.tokushima.jp/kurashi/sumai/kotsu/tosen/shimada.html",
   "info": "島田渡船",
-  "freq": 3
+  "freq": 3,
+  "bbox": [
+    134.59048934714488,
+    34.22409916273819,
+    134.59301916628266,
+    34.225470447228275
+  ]
 }

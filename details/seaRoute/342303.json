@@ -2,5 +2,11 @@
   "businessName": "瀬戸内シーライン",
   "routeName": "広島～江田島（高田・中町）",
   "url": "https://setonaikaikisen.co.jp/kouro/highspeedship4/",
-  "freq": 3
+  "freq": 3,
+  "bbox": [
+    132.42678108333754,
+    34.224569777947266,
+    132.4549993198004,
+    34.3509938414
+  ]
 }

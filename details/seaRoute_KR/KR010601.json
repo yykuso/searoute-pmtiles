@@ -4,5 +4,11 @@
   "url": "https://www.ulleung.go.kr/geo/en/page.do?mnu_uid=1077",
   "info": "不定期運航、VPN必須",
   "note": "season",
-  "freq": 1
+  "freq": 1,
+  "bbox": [
+    130.90996082530032,
+    37.48010579666,
+    130.93710873432764,
+    37.527069618360365
+  ]
 }

@@ -4,5 +4,11 @@
   "url": "https://www.rome2rio.com/map/Gangneung-Ferry-Terminal/Ulleungdo",
   "freq": 2,
   "freqInfo": "1日1往復",
-  "shipName": "씨스타5호"
+  "shipName": "씨스타5호",
+  "bbox": [
+    128.95282215333182,
+    37.496383753556174,
+    130.93199143302252,
+    37.77267515628583
+  ]
 }

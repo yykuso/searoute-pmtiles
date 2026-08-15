@@ -4,5 +4,11 @@
   "url": "https://www.keihinferry.co.jp/teiki/seabus/",
   "info": "運休中",
   "note": "suspend",
-  "freq": 1
+  "freq": 1,
+  "bbox": [
+    139.6278457296855,
+    35.44510651648418,
+    139.6486950196516,
+    35.46002679984291
+  ]
 }

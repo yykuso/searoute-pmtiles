@@ -4,5 +4,11 @@
   "url": "https://www.darong.com.tw/calendar.aspx",
   "freq": 2,
   "freqInfo": "1日1～2往復",
-  "shipName": "MARCOPOLO 1（馬可波羅1號）"
+  "shipName": "MARCOPOLO 1（馬可波羅1號）",
+  "bbox": [
+    118.18973803719906,
+    24.41701267796171,
+    118.287605766938,
+    24.5342079683108
+  ]
 }

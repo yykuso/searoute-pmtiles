@@ -8,5 +8,11 @@
   "bicycle": 0,
   "freqInfo": "1日1便",
   "url": "https://www.ipponmatsu.co.jp/cruise/naniwa.html",
-  "shipName": "きらり号, ほたる号"
+  "shipName": "きらり号, ほたる号",
+  "bbox": [
+    135.43875281519757,
+    34.66510300891453,
+    135.51341963540605,
+    34.69469034394176
+  ]
 }

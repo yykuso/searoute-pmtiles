@@ -3,5 +3,11 @@
   "routeName": "一日市場～鏡島",
   "url": "https://www.gifucvb.or.jp/sightseeing/detail_kankou.php?eid=00026",
   "info": "小紅の渡し",
-  "freq": 3
+  "freq": 3,
+  "bbox": [
+    136.71533287956456,
+    35.41678113014681,
+    136.71584418721926,
+    35.417682845124084
+  ]
 }

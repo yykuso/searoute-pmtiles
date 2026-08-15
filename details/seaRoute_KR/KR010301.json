@@ -4,5 +4,11 @@
   "url": "https://www.ulcruise.co.kr/www/flight/timetable?category_1=start&Array",
   "freq": 2,
   "freqInfo": "1日1往復",
-  "shipName": "뉴씨다오펄호"
+  "shipName": "뉴씨다오펄호",
+  "bbox": [
+    129.43985813998395,
+    36.08536842970506,
+    130.89321180864692,
+    37.46641595148149
+  ]
 }

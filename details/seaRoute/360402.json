@@ -3,5 +3,11 @@
   "routeName": "黒崎～高島",
   "url": "https://www.city.naruto.tokushima.jp/kurashi/sumai/kotsu/tosen/kurosaki.html",
   "info": "黒崎渡船",
-  "freq": 3
+  "freq": 3,
+  "bbox": [
+    134.5971706855811,
+    34.194814188321324,
+    134.59770131845656,
+    34.197291440863786
+  ]
 }

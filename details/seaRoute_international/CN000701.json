@@ -4,5 +4,11 @@
   "url": "https://www.huadong.co.kr/info/passenger.html",
   "freq": 1,
   "freqInfo": "週3往復",
-  "shipName": "HUADONG PEARL VIII（華東明珠8号）"
+  "shipName": "HUADONG PEARL VIII（華東明珠8号）",
+  "bbox": [
+    122.44445230248162,
+    36.842656896788604,
+    126.5948495361688,
+    37.427824984998594
+  ]
 }

@@ -3,5 +3,11 @@
   "routeName": "賢島～間崎島～和具",
   "url": "https://shima-marineleisure.com/cruise/bayliner/",
   "freq": 3,
-  "shipName": "おくしま, おおさき"
+  "shipName": "おくしま, おおさき",
+  "bbox": [
+    136.80415118130205,
+    34.26325235817371,
+    136.81896027472345,
+    34.307194750914334
+  ]
 }

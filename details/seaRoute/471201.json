@@ -2,5 +2,11 @@
   "businessName": "神谷観光",
   "routeName": "平敷屋～津堅島",
   "url": "http://tsuken.shimatabi.jp/diagram.html",
-  "freq": 3
+  "freq": 3,
+  "bbox": [
+    127.92299203932689,
+    26.24422187342466,
+    127.93571843042271,
+    26.30902056433599
+  ]
 }

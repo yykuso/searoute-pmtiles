@@ -4,5 +4,11 @@
   "url": "http://rizhaoferry.co.kr/ch/sailing/sail02.php",
   "freq": 1,
   "freqInfo": "週3往復",
-  "shipName": "RIZHAO ORIENT（日照東方）"
+  "shipName": "RIZHAO ORIENT（日照東方）",
+  "bbox": [
+    119.53499850047955,
+    35.19891829863529,
+    126.84572482476044,
+    37.13093081322167
+  ]
 }

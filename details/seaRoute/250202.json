@@ -4,5 +4,11 @@
   "url": "https://www.ohmitetudo.co.jp/marine/time-price/takeshima/",
   "info": "冬季運休",
   "note": "season",
-  "freq": 2
+  "freq": 2,
+  "bbox": [
+    136.17836924931112,
+    35.28277093565747,
+    136.24728850365514,
+    35.29621095799776
+  ]
 }

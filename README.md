@@ -60,6 +60,34 @@ node scripts/generate-lightweight-json.mjs
 - `lightweight/seaRoute_international.json`
 - `lightweight/seaRoute_KR.json`
 
+## 詳細 JSON への bbox 付与
+
+以下のコマンドで、GeoJSON の各レイヤーから `routeId` 単位に座標の bounding box（矩形範囲）を算出し、
+`details/<layer>/<routeId>.json` に `bbox: [minLon, minLat, maxLon, maxLat]` として追記・更新します。
+
+```
+node scripts/add-bbox-to-details.mjs
+```
+
+GeoJSON 側に対応する `routeId` が存在しない details ファイルは更新されず、実行ログに件数が表示されます。
+
+## 詳細 JSON の URL 健全性チェック
+
+以下のコマンドで、全 `details/**/*.json` の `url` フィールドに HTTP リクエスト（HEAD、失敗時は GET にフォールバック）を送り、
+到達可否をまとめてチェックします。
+
+```
+node scripts/check-details-urls.mjs
+```
+
+結果はコンソールに一覧表示されるほか、`url-health-report.json` に詳細（layer, routeId, url, status, error）を出力します。
+1件でも失敗があれば終了コードが非0になります。
+既定では進捗ログも NG のみ表示します。OK も含めて表示したい場合は `--verbose` を付けてください。
+
+```
+node scripts/check-details-urls.mjs --verbose
+```
+
 ## デプロイ
 
 GitHub Actions で `main` ブランチへの push 時に以下を Cloudflare R2 へ同期します。

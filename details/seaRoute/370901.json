@@ -2,5 +2,11 @@
   "businessName": "土庄町",
   "routeName": "小豆島（小江）～沖之島",
   "url": "https://www.town.tonosho.kagawa.jp/gyosei/soshiki/kensetsu/4/1/464.html",
-  "freq": 3
+  "freq": 3,
+  "bbox": [
+    134.1636287393422,
+    34.51858893952624,
+    134.16520033314833,
+    34.519215144061604
+  ]
 }

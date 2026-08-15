@@ -3,5 +3,11 @@
   "routeName": "大島（幸）～津島",
   "url": "https://www.city.imabari.ehime.jp/chiiki/tosen/sazanami.html",
   "info": "さざなみ渡船",
-  "freq": 3
+  "freq": 3,
+  "bbox": [
+    133.00596978488494,
+    34.15027610883268,
+    133.03979692971666,
+    34.16120173585969
+  ]
 }

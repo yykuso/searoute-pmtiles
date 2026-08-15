@@ -2,5 +2,11 @@
   "businessName": "周防灘フェリー",
   "routeName": "徳山～竹田津",
   "url": "https://www.suonada.co.jp/c_timetable.html",
-  "freq": 3
+  "freq": 3,
+  "bbox": [
+    131.56569592366853,
+    33.67827430203604,
+    131.79880839727062,
+    34.04970998700191
+  ]
 }

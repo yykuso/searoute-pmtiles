@@ -2,5 +2,11 @@
   "businessName": "オーミマリン",
   "routeName": "彦根～竹生島",
   "url": "https://www.ohmitetudo.co.jp/marine/time-price/chikubushima/",
-  "freq": 3
+  "freq": 3,
+  "bbox": [
+    136.14366992668704,
+    35.28330805482989,
+    136.24710785819363,
+    35.41980709413954
+  ]
 }

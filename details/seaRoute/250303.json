@@ -4,5 +4,11 @@
   "url": "https://www.biwakokisen.co.jp/cruise/gurutto/",
   "info": "5～11月 土日運航",
   "note": "season",
-  "freq": 1
+  "freq": 1,
+  "bbox": [
+    135.86770436704842,
+    35.012215543695795,
+    136.1820771855974,
+    35.419714090907306
+  ]
 }

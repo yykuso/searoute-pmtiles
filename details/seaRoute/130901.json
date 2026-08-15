@@ -8,5 +8,11 @@
   "bike": 0,
   "bicycle": 1,
   "freqInfo": "1日10～15便",
-  "shipName": "Nihonbashi e-LINER"
+  "shipName": "Nihonbashi e-LINER",
+  "bbox": [
+    139.7748032438945,
+    35.6548066815284,
+    139.79129354944277,
+    35.68439318653589
+  ]
 }

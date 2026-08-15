@@ -4,5 +4,11 @@
   "url": "https://fugan-suijo-line.jp/?tid=100024",
   "info": "富岩水上ライン",
   "freq": 3,
-  "shipName": "fugan, sora, kansui, もみじ"
+  "shipName": "fugan, sora, kansui, もみじ",
+  "bbox": [
+    137.2117120141091,
+    36.709734738453875,
+    137.234245566724,
+    36.761743762640855
+  ]
 }

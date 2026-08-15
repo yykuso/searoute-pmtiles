@@ -2,5 +2,11 @@
   "businessName": "青島海運",
   "routeName": "長浜～青島",
   "url": "https://www.city.ozu.ehime.jp/soshiki/nagahamash/0375.html",
-  "freq": 2
+  "freq": 2,
+  "bbox": [
+    132.48554203410882,
+    33.61586030925043,
+    132.4931301277951,
+    33.736436493409244
+  ]
 }

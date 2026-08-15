@@ -2,5 +2,11 @@
   "businessName": "安田産業汽船",
   "routeName": "ももち～海の中道",
   "url": "https://yasuda-gp.net/hakata/momochi_hakata",
-  "freq": 3
+  "freq": 3,
+  "bbox": [
+    130.34899795357552,
+    33.59595254772656,
+    130.3686163386364,
+    33.660907837505626
+  ]
 }

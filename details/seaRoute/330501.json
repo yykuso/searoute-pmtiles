@@ -2,5 +2,11 @@
   "businessName": "牛窓町緑の村公社",
   "routeName": "牛窓～前島",
   "url": "https://www.maejima-island.info/schedules.html",
-  "freq": 3
+  "freq": 3,
+  "bbox": [
+    134.16391084998855,
+    34.60743062182621,
+    134.1651817961038,
+    34.6147017775412
+  ]
 }

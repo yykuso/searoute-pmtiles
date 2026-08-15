@@ -2,5 +2,11 @@
   "businessName": "鳥羽市",
   "routeName": "鳥羽～答志島（桃取）",
   "url": "https://www.city.toba.mie.jp/soshiki/t_kanri/gyomu/doro_kotsu/kokyo_kotsu/3151.html",
-  "freq": 3
+  "freq": 3,
+  "bbox": [
+    136.84300904373546,
+    34.49026483386613,
+    136.85212590258195,
+    34.514440384412424
+  ]
 }

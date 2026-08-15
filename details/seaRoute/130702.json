@@ -3,5 +3,11 @@
   "routeName": "HIMIKO(豊洲経由)",
   "url": "https://www.suijobus.co.jp/price/",
   "freq": 1,
-  "shipName": "ヒミコ"
+  "shipName": "ヒミコ",
+  "bbox": [
+    139.77056764774238,
+    35.62956409147726,
+    139.79905594527418,
+    35.71082757694743
+  ]
 }

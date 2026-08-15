@@ -2,5 +2,11 @@
   "businessName": "牛島海運",
   "routeName": "室積～牛島",
   "url": "http://www.kvision.ne.jp/~ushima-kaiun/unkoudaiya.html",
-  "freq": 3
+  "freq": 3,
+  "bbox": [
+    131.97309147527022,
+    33.85936815297269,
+    132.00875346034582,
+    33.927267899992096
+  ]
 }

@@ -2,5 +2,11 @@
   "businessName": "似島汽船",
   "routeName": "広島～似島",
   "url": "https://ninoshimakisen.jp/time_price",
-  "freq": 3
+  "freq": 3,
+  "bbox": [
+    132.42996644196052,
+    34.31325786068155,
+    132.45470094379706,
+    34.35183840996507
+  ]
 }

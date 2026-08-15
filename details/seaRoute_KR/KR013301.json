@@ -4,5 +4,11 @@
   "url": "https://www.yeondaedo.co.kr/cruiseinfo/course/",
   "freq": 3,
   "freqInfo": "1日4周",
-  "shipName": "섬나들이호"
+  "shipName": "섬나들이호",
+  "bbox": [
+    128.38972266657376,
+    34.73744491238998,
+    128.41027240471053,
+    34.768093445554356
+  ]
 }

@@ -6,5 +6,11 @@
   "bike": 0,
   "bicycle": 0,
   "url": "https://www.geibikei.co.jp/funakudari/charge/",
-  "freqInfo": "1日7～9便"
+  "freqInfo": "1日7～9便",
+  "bbox": [
+    141.25557724100383,
+    38.98782014694782,
+    141.26347575698756,
+    38.98938171759841
+  ]
 }

@@ -7,5 +7,11 @@
   "bike": 0,
   "bicycle": 0,
   "url": "https://www.hozugawakudari.jp/service/timetable",
-  "freqInfo": "1日4～7便、土休祝は臨時便あり"
+  "freqInfo": "1日4～7便、土休祝は臨時便あり",
+  "bbox": [
+    135.58733599039076,
+    35.01282982370627,
+    135.6747701708211,
+    35.030532493496395
+  ]
 }

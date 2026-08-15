@@ -3,5 +3,11 @@
   "routeName": "新島～式根島",
   "url": "https://www.niijima.com/shoukai/access/nishiki/unkou.html",
   "freq": 3,
-  "shipName": "にしき"
+  "shipName": "にしき",
+  "bbox": [
+    139.2149860521469,
+    34.33378137530762,
+    139.24686110357257,
+    34.37264294879605
+  ]
 }

@@ -2,5 +2,11 @@
   "businessName": "安栄観光",
   "routeName": "石垣島～西表島（大原）",
   "url": "https://aneikankou.co.jp/timetable",
-  "freq": 3
+  "freq": 3,
+  "bbox": [
+    123.88376999718969,
+    24.25406303489922,
+    124.1554669018763,
+    24.350922425373334
+  ]
 }

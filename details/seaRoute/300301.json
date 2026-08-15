@@ -3,5 +3,11 @@
   "routeName": "安居の渡し",
   "url": "https://www.town.shirahama.wakayama.jp/kanko/taiken/1452760025050.html",
   "info": "土曜・日曜・祝日運航",
-  "freq": 3
+  "freq": 3,
+  "bbox": [
+    135.48470470599037,
+    33.60389259236123,
+    135.4849876580119,
+    33.604227828995455
+  ]
 }

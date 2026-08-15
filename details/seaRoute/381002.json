@@ -3,5 +3,11 @@
   "routeName": "今治～宗方～大下～小大下～岡村",
   "url": "https://www.city.imabari.ehime.jp/chiiki/tosen/sekizen.html",
   "info": "せきぜん渡船",
-  "freq": 3
+  "freq": 3,
+  "bbox": [
+    132.8844084524342,
+    34.070504453269095,
+    133.00568326495747,
+    34.20649674082026
+  ]
 }

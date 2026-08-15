@@ -2,5 +2,11 @@
   "businessName": "東京都観光汽船",
   "routeName": "TOKYO CRUISE",
   "url": "https://www.suijobus.co.jp/price/",
-  "freq": 3
+  "freq": 3,
+  "bbox": [
+    139.76273114264418,
+    35.629564091470996,
+    139.79905594527418,
+    35.71082757694743
+  ]
 }

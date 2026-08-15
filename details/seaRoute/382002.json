@@ -2,5 +2,11 @@
   "businessName": "盛運汽船",
   "routeName": "宇和島～日振島",
   "url": "http://www.seiunkisen.co.jp/unkouannai.html",
-  "freq": 3
+  "freq": 3,
+  "bbox": [
+    132.26789770740368,
+    33.1522797328,
+    132.5572647684281,
+    33.22867509346644
+  ]
 }

@@ -4,5 +4,11 @@
   "url": "https://www.matsu.idv.tw/topicdetail.php?f=222&t=143131",
   "freq": 2,
   "freqInfo": "1日1往復",
-  "shipName": "JI SHUN NO10（吉順10號）"
+  "shipName": "JI SHUN NO10（吉順10號）",
+  "bbox": [
+    119.56870201065854,
+    26.093794722775275,
+    119.94327237297661,
+    26.178996774704945
+  ]
 }

@@ -3,5 +3,11 @@
   "routeName": "佐伯～大入島",
   "url": "http://www.oitasima.net/ohnyujima/access.html",
   "info": "マリンバス1",
-  "freq": 3
+  "freq": 3,
+  "bbox": [
+    131.903097078748,
+    32.97879976544692,
+    131.92480542546585,
+    33.005338170372056
+  ]
 }

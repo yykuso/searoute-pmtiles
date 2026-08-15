@@ -3,5 +3,11 @@
   "routeName": "横須賀～猿島",
   "url": "https://sarushima.jp/information/#timetable",
   "freq": 3,
-  "shipName": "NEW KUROFUNE, Sea Friend 8, Sea Friend ZERO"
+  "shipName": "NEW KUROFUNE, Sea Friend 8, Sea Friend ZERO",
+  "bbox": [
+    139.67457537275916,
+    35.284485359659335,
+    139.69244489349546,
+    35.28593961110628
+  ]
 }

@@ -4,5 +4,11 @@
   "url": "https://www.matsu.idv.tw/topicdetail.php?f=222&t=143131",
   "freq": 2,
   "freqInfo": "1日1往復",
-  "shipName": "AN QI 6 HAO（安麒6號）"
+  "shipName": "AN QI 6 HAO（安麒6號）",
+  "bbox": [
+    119.56824118956743,
+    26.094821193547343,
+    119.94284106259882,
+    26.179500978823853
+  ]
 }

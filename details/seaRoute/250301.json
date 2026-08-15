@@ -3,5 +3,11 @@
   "routeName": "ミシガンクルーズ",
   "url": "https://www.biwakokisen.co.jp/cruise/michigan/",
   "freq": 3,
-  "shipName": "ミシガン"
+  "shipName": "ミシガン",
+  "bbox": [
+    135.86771015713276,
+    35.0065832390027,
+    135.90775438149433,
+    35.05492031188228
+  ]
 }

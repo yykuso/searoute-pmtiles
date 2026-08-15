@@ -4,5 +4,11 @@
   "url": "https://habushosen.jp/timetable/timetable08",
   "info": "運休中",
   "note": "suspend",
-  "freq": 2
+  "freq": 2,
+  "bbox": [
+    132.99555720413946,
+    34.30385283603696,
+    133.09817305346945,
+    34.39760377824882
+  ]
 }

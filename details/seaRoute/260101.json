@@ -4,5 +4,11 @@
   "url": "https://www.amano-hashidate.com/sightseeingboat/",
   "freq": 3,
   "freqInfo": "1日14～21往復",
-  "shipName": "KAMOME 7, かもめ12号, かもめ11号, かもめ3号"
+  "shipName": "KAMOME 7, かもめ12号, かもめ11号, かもめ3号",
+  "bbox": [
+    135.18365786400096,
+    35.540212747467905,
+    135.19572067030933,
+    35.58053597636594
+  ]
 }

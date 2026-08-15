@@ -2,5 +2,11 @@
   "businessName": "日南市",
   "routeName": "目井津～大島",
   "url": "https://www.city.nichinan.lg.jp/soshikikarasagasu/nangochochiikishinkocenter/2/1312.html",
-  "freq": 3
+  "freq": 3,
+  "bbox": [
+    131.38337726941853,
+    31.52756791470829,
+    131.4092517656335,
+    31.544787129312102
+  ]
 }

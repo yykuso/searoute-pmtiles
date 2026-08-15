@@ -4,5 +4,11 @@
   "url": "https://heartlandferry.jp/timetable/",
   "info": "運航休止",
   "note": "suspend",
-  "freq": 1
+  "freq": 1,
+  "bbox": [
+    139.51724555846243,
+    42.175223361763656,
+    139.8459121023061,
+    42.45278163543556
+  ]
 }

@@ -2,5 +2,11 @@
   "businessName": "周防大島松山フェリー",
   "routeName": "柳井～周防大島（伊保田）～三津浜",
   "url": "https://www.suo-oshima-matsuyamaferry.com/service",
-  "freq": 3
+  "freq": 3,
+  "bbox": [
+    132.13239276719523,
+    33.86474917052242,
+    132.70920162313672,
+    33.98136999705956
+  ]
 }

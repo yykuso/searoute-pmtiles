@@ -5,5 +5,11 @@
   "info": "VPN必須",
   "freq": 2,
   "freqInfo": "週6往復",
-  "shipName": "OCEAN VISTA JEJU"
+  "shipName": "OCEAN VISTA JEJU",
+  "bbox": [
+    126.54080418362163,
+    33.52585279730895,
+    128.09888361297917,
+    34.9261102091088
+  ]
 }

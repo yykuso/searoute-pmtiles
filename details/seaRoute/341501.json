@@ -2,5 +2,11 @@
   "businessName": "休暇村大久野島",
   "routeName": "忠海～大久野島",
   "url": "https://www.qkamura.or.jp/ohkuno/access/",
-  "freq": 3
+  "freq": 3,
+  "bbox": [
+    132.99358754800548,
+    34.30865651742088,
+    132.9993749022547,
+    34.33682542724569
+  ]
 }

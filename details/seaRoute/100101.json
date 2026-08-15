@@ -4,5 +4,11 @@
   "url": "https://www.town.chiyoda.gunma.jp/kankyo/doboku/doboku002.html",
   "info": "赤岩渡船",
   "freq": 3,
-  "shipName": "千代田丸, 新千代田丸"
+  "shipName": "千代田丸, 新千代田丸",
+  "bbox": [
+    139.42922928559966,
+    36.20499726262259,
+    139.43452546644613,
+    36.20611282939108
+  ]
 }

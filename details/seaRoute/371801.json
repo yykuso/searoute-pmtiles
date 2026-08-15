@@ -7,5 +7,11 @@
   "bike": 0,
   "bicycle": 0,
   "info": "まるがめ本場ナイター開催日1往復",
-  "url": "https://www.marugameboat.jp/sp/access.htm"
+  "url": "https://www.marugameboat.jp/sp/access.htm",
+  "bbox": [
+    133.73786103195255,
+    34.30113064998243,
+    133.8063601407883,
+    34.52376801261225
+  ]
 }

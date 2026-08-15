@@ -4,5 +4,11 @@
   "url": "http://jangsadoship.com/course/01_course.html",
   "freq": 3,
   "freqInfo": "1日2～3往復",
-  "shipName": "까멜리아"
+  "shipName": "까멜리아",
+  "bbox": [
+    128.56025362113238,
+    34.71497587415831,
+    128.58589797734092,
+    34.72011773517315
+  ]
 }

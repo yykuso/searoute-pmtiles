@@ -2,5 +2,11 @@
   "businessName": "座間味村",
   "routeName": "泊～阿嘉島～座間味島",
   "url": "https://www.vill.zamami.okinawa.jp/ship/",
-  "freq": 2
+  "freq": 2,
+  "bbox": [
+    127.285217159,
+    26.129966553494956,
+    127.68368504022996,
+    26.227853111306487
+  ]
 }

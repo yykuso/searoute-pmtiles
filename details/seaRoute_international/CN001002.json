@@ -4,5 +4,11 @@
   "url": "https://ticket.wujiangferry.com.tw/TKQuery/TimeSchedule",
   "freq": 2,
   "freqInfo": "1日1～2往復",
-  "shipName": "XIN WU YUAN（新五緣）"
+  "shipName": "XIN WU YUAN（新五緣）",
+  "bbox": [
+    118.1889037921267,
+    24.41714806790273,
+    118.2883367245251,
+    24.534814073514426
+  ]
 }

@@ -4,5 +4,11 @@
   "url": "https://dalongferry.co.kr/shipInfo/flightSchedule",
   "info": "2025年4月～休止中",
   "note": "suspend",
-  "freq": 1
+  "freq": 1,
+  "bbox": [
+    122.63882048876624,
+    36.955521526768045,
+    126.84363341446071,
+    37.472672312039464
+  ]
 }

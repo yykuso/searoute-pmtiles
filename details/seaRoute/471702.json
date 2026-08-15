@@ -2,5 +2,11 @@
   "businessName": "安栄観光",
   "routeName": "石垣島～黒島",
   "url": "https://aneikankou.co.jp/timetable",
-  "freq": 3
+  "freq": 3,
+  "bbox": [
+    124.0001587363344,
+    24.25406303489939,
+    124.00684735348061,
+    24.276516642375867
+  ]
 }

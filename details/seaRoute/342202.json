@@ -4,5 +4,11 @@
   "url": "https://setonaikaikisen.co.jp/kouro/highspeedship5/",
   "info": "季節運航",
   "note": "season",
-  "freq": 2
+  "freq": 2,
+  "bbox": [
+    132.32263338157333,
+    34.236584582880305,
+    132.55490751514236,
+    34.31688269971178
+  ]
 }

@@ -2,5 +2,11 @@
   "businessName": "久高海運",
   "routeName": "安座真～久高島",
   "url": "https://kudakakaiun.jimdofree.com/",
-  "freq": 3
+  "freq": 3,
+  "bbox": [
+    127.82518071895059,
+    26.154018266390576,
+    127.88585096141054,
+    26.187222360131333
+  ]
 }

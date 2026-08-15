@@ -3,5 +3,11 @@
   "routeName": "賢島～横山島",
   "url": "http://losmen.info/losmen_gili_isihyamaso_puti-cruise.html",
   "info": "営業日注意",
-  "freq": 1
+  "freq": 1,
+  "bbox": [
+    136.81784047412054,
+    34.30251161232644,
+    136.81875356600145,
+    34.306724650303494
+  ]
 }

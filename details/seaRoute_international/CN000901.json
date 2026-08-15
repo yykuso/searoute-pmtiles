@@ -4,5 +4,11 @@
   "url": "https://www.lygferry.com/index.html",
   "freq": 1,
   "freqInfo": "週2往復",
-  "shipName": "HARMONY YUNGANG（和諧雲港）"
+  "shipName": "HARMONY YUNGANG（和諧雲港）",
+  "bbox": [
+    119.37150716160895,
+    34.73593569433233,
+    126.60178139780702,
+    37.42948120541061
+  ]
 }

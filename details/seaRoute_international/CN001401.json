@@ -4,5 +4,11 @@
   "url": "https://ticket.wujiangferry.com.tw/TKQuery/TimeSchedule",
   "freq": 2,
   "freqInfo": "1日2～4往復",
-  "shipName": "XUN AN（迅安輪）, XIN JIE AN（新捷安）"
+  "shipName": "XUN AN（迅安輪）, XIN JIE AN（新捷安）",
+  "bbox": [
+    118.18921705966406,
+    24.417140833329427,
+    118.28819711616609,
+    24.534542513963927
+  ]
 }

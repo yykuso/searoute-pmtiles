@@ -4,5 +4,11 @@
   "url": "https://www.yeondaedo.co.kr/cruiseinfo/course/",
   "freq": 3,
   "freqInfo": "1日4～9周",
-  "shipName": "16진영호"
+  "shipName": "16진영호",
+  "bbox": [
+    128.39595307117827,
+    34.737467561941756,
+    128.40698304000384,
+    34.76773509001267
+  ]
 }

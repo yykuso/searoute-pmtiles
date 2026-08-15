@@ -2,5 +2,11 @@
   "businessName": "津久見市",
   "routeName": "津久見～無垢島",
   "url": "https://www.city.tsukumi.oita.jp/soshiki/10/21231.html",
-  "freq": 2
+  "freq": 2,
+  "bbox": [
+    131.86313858301725,
+    33.0771879369547,
+    131.97819543057952,
+    33.159765456932796
+  ]
 }

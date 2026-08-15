@@ -2,5 +2,11 @@
   "businessName": "大入島観光フェリー",
   "routeName": "佐伯～大入島",
   "url": "http://www.oitasima.net/ohnyujima/access.html",
-  "freq": 3
+  "freq": 3,
+  "bbox": [
+    131.90329771946392,
+    32.97822475851737,
+    131.91497239916458,
+    32.98236480840982
+  ]
 }

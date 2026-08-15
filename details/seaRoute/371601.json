@@ -4,5 +4,11 @@
   "url": "https://www.city.mitoyo.lg.jp/kakuka/seisaku/sangyo/1_2/805.html",
   "info": "つたじま渡船・4～8月運航",
   "note": "season",
-  "freq": 2
+  "freq": 2,
+  "bbox": [
+    133.63040883024118,
+    34.200152435825856,
+    133.63721339162691,
+    34.20404011897902
+  ]
 }

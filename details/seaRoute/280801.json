@@ -3,5 +3,11 @@
   "routeName": "坊勢島～西島",
   "url": "https://www.shizen-ieshima.com/access.html?selectcatno=004",
   "info": "いえしま自然体験センター",
-  "freq": 3
+  "freq": 3,
+  "bbox": [
+    134.49425437112328,
+    34.65303262753173,
+    134.51026462822531,
+    34.65600183530321
+  ]
 }

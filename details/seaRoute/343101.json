@@ -2,5 +2,11 @@
   "businessName": "宮島松大汽船",
   "routeName": "宮島口～宮島",
   "url": "https://miyajima-matsudai.co.jp/schedule.html",
-  "freq": 3
+  "freq": 3,
+  "bbox": [
+    132.30637024462519,
+    34.30299723424897,
+    132.32170072726714,
+    34.31101990033275
+  ]
 }

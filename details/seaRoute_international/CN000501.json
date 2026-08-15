@@ -4,5 +4,11 @@
   "url": "https://yantaiferry.com/?page_id=117",
   "freq": 1,
   "freqInfo": "週3往復",
-  "shipName": "OCEAN BLUE WHALE（海藍鯨）"
+  "shipName": "OCEAN BLUE WHALE（海藍鯨）",
+  "bbox": [
+    121.38183375762334,
+    36.94955237391522,
+    126.84652265370661,
+    37.651041890691644
+  ]
 }

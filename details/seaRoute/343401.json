@@ -7,5 +7,11 @@
   "bike": 0,
   "bicycle": 0,
   "url": "https://www.hiroshima-water-taxi.com/course-b/",
-  "freqInfo": "不定期航路"
+  "freqInfo": "不定期航路",
+  "bbox": [
+    132.4510725054906,
+    34.3937664598844,
+    132.47373984446037,
+    34.414811346401
+  ]
 }

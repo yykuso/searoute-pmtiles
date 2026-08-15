@@ -2,5 +2,11 @@
   "businessName": "アクアネット広島",
   "routeName": "平和公園～宮島",
   "url": "https://www.aqua-net-h.co.jp/heritage/schedule.html",
-  "freq": 3
+  "freq": 3,
+  "bbox": [
+    132.3221168493518,
+    34.3037346193535,
+    132.45415228196774,
+    34.39618343658345
+  ]
 }

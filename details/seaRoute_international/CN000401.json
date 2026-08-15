@@ -4,5 +4,11 @@
   "url": "https://www.hanjoongferry.co.kr/",
   "freq": 1,
   "freqInfo": "週3往復",
-  "shipName": "XIN XIANG XUE LAN（香雪蘭）"
+  "shipName": "XIN XIANG XUE LAN（香雪蘭）",
+  "bbox": [
+    121.37988399086989,
+    36.981838893757015,
+    126.59654925870596,
+    37.6565414026915
+  ]
 }

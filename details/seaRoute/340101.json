@@ -2,5 +2,11 @@
   "businessName": "福山市",
   "routeName": "鞆～仙酔島",
   "url": "https://www.city.fukuyama.hiroshima.jp/soshiki/kanko/91534.html",
-  "freq": 3
+  "freq": 3,
+  "bbox": [
+    133.38399804219634,
+    34.38271726165483,
+    133.38997757586176,
+    34.38566376819577
+  ]
 }

@@ -3,5 +3,11 @@
   "routeName": "阿賀～情島",
   "url": "https://www.city.kure.lg.jp/soshiki/28/kouro-nasake.html",
   "info": "平日・土曜運航",
-  "freq": 2
+  "freq": 2,
+  "bbox": [
+    132.56766865867897,
+    34.15895909848429,
+    132.59889823632744,
+    34.23027816487102
+  ]
 }

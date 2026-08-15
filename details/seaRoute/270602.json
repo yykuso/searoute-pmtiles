@@ -7,5 +7,11 @@
   "bike": 0,
   "bicycle": 0,
   "url": "https://suijo-bus.osaka/cruiselist/aqualiner/",
-  "freqInfo": "1日7便"
+  "freqInfo": "1日7便",
+  "bbox": [
+    135.50205344036075,
+    34.68980200807246,
+    135.53298384509864,
+    34.70073683642339
+  ]
 }

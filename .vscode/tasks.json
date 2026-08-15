@@ -1,0 +1,26 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "Add bbox to details JSON",
+      "type": "shell",
+      "command": "node scripts/add-bbox-to-details.mjs",
+      "group": "build",
+      "problemMatcher": []
+    },
+    {
+      "label": "Generate lightweight JSON",
+      "type": "shell",
+      "command": "node scripts/generate-lightweight-json.mjs",
+      "group": "build",
+      "problemMatcher": []
+    },
+    {
+      "label": "Check details URLs",
+      "type": "shell",
+      "command": "node scripts/check-details-urls.mjs",
+      "group": "test",
+      "problemMatcher": []
+    }
+  ]
+}

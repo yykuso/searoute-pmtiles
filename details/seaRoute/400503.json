@@ -4,5 +4,11 @@
   "note": "",
   "freq": 2,
   "url": "https://www.kanmon-kisen.co.jp/route/ganryujima.html",
-  "freqInfo": "休日のみ"
+  "freqInfo": "休日のみ",
+  "bbox": [
+    130.92835074867412,
+    33.93581484858438,
+    130.96019074195914,
+    33.94718491465157
+  ]
 }

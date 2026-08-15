@@ -4,5 +4,11 @@
   "url": "https://pyferry.com/theme/f044/index/online_03.php",
   "freq": 3,
   "freqInfo": "1日9～11往復",
-  "shipName": "풍양호"
+  "shipName": "풍양호",
+  "bbox": [
+    128.17410229372277,
+    34.85602195189846,
+    128.18022901431914,
+    34.90154047927587
+  ]
 }

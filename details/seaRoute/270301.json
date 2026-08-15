@@ -2,5 +2,11 @@
   "businessName": "キャプテンライン",
   "routeName": "海遊館西はとば～ユニバーサルシティポート",
   "url": "https://www.mmjp.or.jp/Capt-Line/capt/timetable/timetable2311.html",
-  "freq": 3
+  "freq": 3,
+  "bbox": [
+    135.42729592799918,
+    34.6536375945374,
+    135.43898166505755,
+    34.66498142309766
+  ]
 }

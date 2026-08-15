@@ -4,5 +4,11 @@
   "url": "http://www.kingxia.com.tw/?menuid=11140&lgid=1&siteid=100527",
   "freq": 2,
   "freqInfo": "1日2～4往復",
-  "shipName": "XIN KING XIANG LOONG（新金祥龍）, KING RUEI LOONG（金瑞龍）"
+  "shipName": "XIN KING XIANG LOONG（新金祥龍）, KING RUEI LOONG（金瑞龍）",
+  "bbox": [
+    118.18993326189627,
+    24.417009577427013,
+    118.28751723480788,
+    24.534038630047704
+  ]
 }

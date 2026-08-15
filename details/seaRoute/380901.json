@@ -2,5 +2,11 @@
   "businessName": "津島渡船",
   "routeName": "今治～津島",
   "url": "https://www.city.imabari.ehime.jp/kanko/access/imabari-tsusima.pdf",
-  "freq": 2
+  "freq": 2,
+  "bbox": [
+    133.0052619984443,
+    34.07010277139465,
+    133.0137025620429,
+    34.155376016565064
+  ]
 }

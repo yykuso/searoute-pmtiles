@@ -2,5 +2,11 @@
   "businessName": "鷹島汽船",
   "routeName": "御厨～青島～鷹島～黒島～鷹島",
   "url": "https://www.city-matsuura.jp/top/soshikikarasagasu/sangyoushinkou/shokoshinkogakari/2/1014.html",
-  "freq": 3
+  "freq": 3,
+  "bbox": [
+    129.66996586988864,
+    33.364674777451235,
+    129.7759967815559,
+    33.45564624959839
+  ]
 }

@@ -4,5 +4,11 @@
   "url": "https://www.lygferry.com/index.html",
   "freq": 1,
   "freqInfo": "週2往復",
-  "shipName": "TEN JUPITER（天木星）"
+  "shipName": "TEN JUPITER（天木星）",
+  "bbox": [
+    119.43609228199327,
+    34.73610673206488,
+    126.84808506872513,
+    37.13369169990984
+  ]
 }

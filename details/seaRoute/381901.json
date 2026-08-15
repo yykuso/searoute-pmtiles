@@ -2,5 +2,11 @@
   "businessName": "田中輸送",
   "routeName": "八幡浜～大島",
   "url": "https://tanakayuso.co.jp/timetable-fares/",
-  "freq": 3
+  "freq": 3,
+  "bbox": [
+    132.34107925888674,
+    33.385949524062056,
+    132.41788649910367,
+    33.460428182356985
+  ]
 }

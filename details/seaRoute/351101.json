@@ -2,5 +2,11 @@
   "businessName": "大津島巡航",
   "routeName": "徳山～大津島",
   "url": "http://www.ccsnet.ne.jp/~jyunkou/link/jikoku/jikoku.html",
-  "freq": 3
+  "freq": 3,
+  "bbox": [
+    131.70192323084672,
+    33.9905739926417,
+    131.7997322680804,
+    34.04889819486439
+  ]
 }

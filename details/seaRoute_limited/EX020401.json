@@ -2,5 +2,11 @@
   "businessName": "にじ観光\t",
   "routeName": "本島～高見島～粟島",
   "url": "https://setouchi-artfest.jp/access/island/",
-  "freq": 3
+  "freq": 3,
+  "bbox": [
+    133.63415428668102,
+    34.26377743684497,
+    133.78534495437492,
+    34.382356642196605
+  ]
 }
