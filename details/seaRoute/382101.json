@@ -2,5 +2,7 @@
   "businessName": "西海観光船",
   "routeName": "船越～鹿島",
   "url": "https://nishiumi.info/kashima-kouro-ehime-ainan.html",
-  "freq": 3
+  "freq": 3,
+  "note": "season",
+  "info": "夏季運航"
 }
