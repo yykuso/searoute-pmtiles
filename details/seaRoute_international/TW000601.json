@@ -4,6 +4,7 @@
   "url": "https://yaimaline.com/map.html",
   "info": "Yaima Line",
   "freq": 1,
+  "note": "suspend",
   "car": 0,
   "bike": 0,
   "bicycle": 1,
