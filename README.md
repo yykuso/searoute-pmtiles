@@ -98,3 +98,13 @@ GitHub Actions で `main` ブランチへの push 時に以下を Cloudflare R2 
 - `lightweight/`
 
 認証には GitHub Secrets に登録した R2 のアクセス情報を使用します。
+### Cloudflare Pages の再ビルド
+
+R2 への同期後（`geojson/` または `details/` に変更があった場合）、Cloudflare Pages の Deploy Hook を呼び出してサイトを再ビルドします。
+サイトはビルド時に `lightweight/*.json` を取得するため、この再ビルドで新しいデータが反映されます。
+
+1. Cloudflare ダッシュボードで対象の Pages プロジェクトを開く
+2. Settings > Builds & deployments > Deploy hooks で「Add deploy hook」を選び、ブランチに `main`（本番ブランチ）を指定して発行する
+3. 発行された URL を、このリポジトリの GitHub Actions Secret `CF_PAGES_DEPLOY_HOOK` に登録する（Settings > Secrets and variables > Actions）
+
+Secret が未設定の場合は警告を出して再ビルドをスキップします（ワークフローは失敗しません）。
