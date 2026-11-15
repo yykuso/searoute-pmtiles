@@ -122,6 +122,7 @@ jobs:
           aws s3 sync details s3://$R2_BUCKET_NAME/details \
             --endpoint-url "$R2_ENDPOINT" \
             --delete
+
       - name: Trigger Cloudflare Pages rebuild
         if: steps.changes.outputs.geojson == 'true' || steps.changes.outputs.details == 'true'
         env:
@@ -131,4 +132,4 @@ jobs:
             echo "::warning::CF_PAGES_DEPLOY_HOOK is not set; skipping Cloudflare Pages rebuild"
             exit 0
           fi
-          curl -fsS -X POST "$CF_PAGES_DEPLOY_HOOK"
+          curl -fsS --retry 3 --max-time 30 -X POST "$CF_PAGES_DEPLOY_HOOK"

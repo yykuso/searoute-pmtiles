@@ -98,6 +98,7 @@ GitHub Actions で `main` ブランチへの push 時に以下を Cloudflare R2 
 - `lightweight/`
 
 認証には GitHub Secrets に登録した R2 のアクセス情報を使用します。
+
 ### Cloudflare Pages の再ビルド
 
 R2 への同期後（`geojson/` または `details/` に変更があった場合）、Cloudflare Pages の Deploy Hook を呼び出してサイトを再ビルドします。
