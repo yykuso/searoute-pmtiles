@@ -1,7 +1,7 @@
 {
   "businessName": "九州商船",
   "routeName": "長崎～中通島（有川）",
-  "url": "https://kyusho.co.jp/publics/index/111/",
+  "url": "https://kyusho.co.jp/schedule",
   "info": "高速船、運休中",
   "note": "suspend",
   "freq": 2,
@@ -12,5 +12,6 @@
     32.71089183111144,
     129.86817849089584,
     33.01526306730705
-  ]
+  ],
+  "lastChecked": "2026-11-25"
 }

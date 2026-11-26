@@ -1,7 +1,7 @@
 {
   "businessName": "神島観光汽船",
   "routeName": "伊良湖～神島",
-  "url": "http://www.tees.ne.jp/~hirota-1/suhedule.html",
+  "url": "https://irago.main.jp/kamishima.html",
   "freq": 3,
   "shipName": "かみしま",
   "bbox": [
@@ -9,5 +9,6 @@
     34.54939866846387,
     137.0211911920738,
     34.589606205866595
-  ]
+  ],
+  "lastChecked": "2026-11-25"
 }

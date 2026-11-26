@@ -2,13 +2,14 @@
   "businessName": "深日洲本ライナー",
   "routeName": "深日～淡路島（洲本）",
   "url": "https://fuke-sumotoliner.com/fare-time/",
-  "info": "期間限定（2022～2024年）",
-  "note": "suspend",
+  "info": "期間限定",
+  "note": "season",
   "freq": 3,
   "bbox": [
     134.8997412567653,
     34.31842818496418,
     135.14169657224315,
     34.34741796906261
-  ]
+  ],
+  "lastChecked": "2026-11-25"
 }

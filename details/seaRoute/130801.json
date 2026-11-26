@@ -3,12 +3,12 @@
   "routeName": "東京水辺ライン 浅草・お台場クルーズ",
   "url": "https://www.tokyo-park.or.jp/water/waterbus/#a02",
   "freq": 1,
-  "note": "suspend",
-  "info": "休止中",
+  "info": "水～日曜日",
   "bbox": [
     139.76286770935636,
     35.6296199100247,
     139.80134964533391,
     35.71325762704671
-  ]
+  ],
+  "lastChecked": "2026-11-25"
 }

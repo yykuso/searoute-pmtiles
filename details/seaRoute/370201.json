@@ -1,7 +1,7 @@
 {
   "businessName": "小豆島フェリー",
   "routeName": "姫路～小豆島（福田）",
-  "url": "https://www.shikokuferry.com/timetable/himeji-fukuda",
+  "url": "https://www.shikokuferry.com/route1/",
   "freq": 3,
   "car": 1,
   "bike": 1,
@@ -11,5 +11,6 @@
     34.54274402839271,
     134.6627417414724,
     34.78387905914723
-  ]
+  ],
+  "lastChecked": "2026-11-25"
 }

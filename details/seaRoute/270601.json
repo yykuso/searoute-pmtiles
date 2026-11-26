@@ -1,7 +1,7 @@
 {
   "businessName": "大阪水上バス",
   "routeName": "大阪城港～湊町船着場",
-  "url": "https://suijo-bus.osaka/intro/aquamini/",
+  "url": "https://suijo-bus.osaka/cruiselist/aquamini/",
   "info": "期間限定",
   "note": "season",
   "freq": 1,
@@ -10,5 +10,6 @@
     34.66889596744639,
     135.53285438173228,
     34.69183826318667
-  ]
+  ],
+  "lastChecked": "2026-11-25"
 }

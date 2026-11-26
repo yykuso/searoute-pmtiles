@@ -1,7 +1,7 @@
 {
   "businessName": "四国汽船",
   "routeName": "宇野～直島（風戸）",
-  "url": "https://www.shikokukisen.com/instant/#route05",
+  "url": "https://shikokukisen.com/routes/",
   "info": "徒歩乗船不可",
   "freq": 3,
   "car": 1,
@@ -12,5 +12,6 @@
     34.476939244848595,
     133.97957911779562,
     34.492478249620504
-  ]
+  ],
+  "lastChecked": "2026-11-25"
 }

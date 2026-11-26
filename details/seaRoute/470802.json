@@ -1,7 +1,7 @@
 {
   "businessName": "座間味村",
   "routeName": "座間味島～阿嘉島",
-  "url": "https://www.vill.zamami.okinawa.jp/info/m/2013/03/trans.php",
+  "url": "https://www.vill.zamami.okinawa.jp/ship/",
   "freq": 3,
   "freqInfo": "1日4往復",
   "shipName": "みつしま",
@@ -10,5 +10,6 @@
     26.189662428093232,
     127.30117231964215,
     26.226529089421565
-  ]
+  ],
+  "lastChecked": "2026-11-25"
 }

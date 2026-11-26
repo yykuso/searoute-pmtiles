@@ -1,7 +1,7 @@
 {
   "businessName": "宗像市",
   "routeName": "神湊～地島",
-  "url": "https://www.city.munakata.lg.jp/w050/040/040/050/050/jinosima/index.html",
+  "url": "https://www.city.munakata.lg.jp/kiji0034191/index.html",
   "info": "地島渡船",
   "freq": 3,
   "bbox": [
@@ -9,5 +9,6 @@
     33.85337107376633,
     130.50468923729383,
     33.90464412209349
-  ]
+  ],
+  "lastChecked": "2026-11-25"
 }

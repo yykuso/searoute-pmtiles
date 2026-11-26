@@ -1,7 +1,7 @@
 {
   "businessName": "岬の分教場保存会",
   "routeName": "二十四の瞳映画村渡し船",
-  "url": "https://www.24hitomi.or.jp/watashibune/watashibune.html",
+  "url": "https://www.24hitomi.or.jp/watashibune/watashibune",
   "info": "季節運行",
   "note": "season",
   "freq": 2,
@@ -14,5 +14,6 @@
     34.4461201018031,
     134.31663788118098,
     34.46864492803172
-  ]
+  ],
+  "lastChecked": "2026-11-25"
 }

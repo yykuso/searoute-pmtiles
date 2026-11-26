@@ -1,7 +1,7 @@
 {
   "businessName": "沖島通船",
   "routeName": "堀切～沖島",
-  "url": "http://www.biwako-okishima.com/sin-access.html",
+  "url": "https://montekite.com/ferry/",
   "freq": 3,
   "shipName": "おきしま",
   "bbox": [
@@ -9,5 +9,6 @@
     35.193615720187964,
     136.09286949750359,
     35.200971574444104
-  ]
+  ],
+  "lastChecked": "2026-11-25"
 }

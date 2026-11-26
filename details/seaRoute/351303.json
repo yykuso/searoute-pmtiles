@@ -1,7 +1,7 @@
 {
   "businessName": "萩海運",
   "routeName": "萩～大島",
-  "url": "http://hagikaiun.co.jp/oshima/time-table.html",
+  "url": "https://hagikaiun.co.jp/oshima/time-table.html",
   "freq": 3,
   "car": 1,
   "bike": 1,
@@ -11,5 +11,6 @@
     34.42367630393297,
     131.41304395784798,
     34.491397028684965
-  ]
+  ],
+  "lastChecked": "2026-11-25"
 }

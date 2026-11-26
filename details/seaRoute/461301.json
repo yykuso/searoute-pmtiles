@@ -1,7 +1,7 @@
 {
   "businessName": "三島村",
   "routeName": "鹿児島～竹島～硫黄島～黒島",
-  "url": "http://mishimamura.com/ferry/",
+  "url": "https://mishimamura.com/ferry/",
   "freq": 1,
   "car": 1,
   "bike": 1,
@@ -11,5 +11,6 @@
     30.76655328916544,
     130.6873112852854,
     31.59306556806358
-  ]
+  ],
+  "lastChecked": "2026-11-25"
 }

@@ -1,7 +1,7 @@
 {
   "businessName": "有明海自動車航送船組合",
   "routeName": "長洲～多比良",
-  "url": "http://www.ariake-ferry.com/timetable/",
+  "url": "https://www.ariake-ferry.com/route/",
   "info": "有明フェリー",
   "freq": 3,
   "car": 1,
@@ -12,5 +12,6 @@
     32.8763412816258,
     130.4427172936018,
     32.92664604767473
-  ]
+  ],
+  "lastChecked": "2026-11-25"
 }

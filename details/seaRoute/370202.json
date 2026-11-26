@@ -1,7 +1,7 @@
 {
   "businessName": "小豆島フェリー",
   "routeName": "高松～小豆島（土庄）",
-  "url": "https://www.shikokuferry.com/timetable",
+  "url": "https://www.shikokuferry.com/route2/",
   "freq": 3,
   "car": 1,
   "bike": 1,
@@ -11,5 +11,6 @@
     34.354142646650544,
     134.17285533130948,
     34.498785772621034
-  ]
+  ],
+  "lastChecked": "2026-11-25"
 }

@@ -1,7 +1,7 @@
 {
   "businessName": "今治市",
   "routeName": "大島（幸）～津島",
-  "url": "https://www.city.imabari.ehime.jp/chiiki/tosen/sazanami.html",
+  "url": "https://www.city.imabari.ehime.jp/kotsus/tosen/sazanami/",
   "info": "さざなみ渡船",
   "freq": 3,
   "bbox": [
@@ -9,5 +9,6 @@
     34.15027610883268,
     133.03979692971666,
     34.16120173585969
-  ]
+  ],
+  "lastChecked": "2026-11-25"
 }

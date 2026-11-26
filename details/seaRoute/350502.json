@@ -1,7 +1,7 @@
 {
   "businessName": "周防大島町",
   "routeName": "周防大島（久賀）～前島",
-  "url": "https://www.town.suo-oshima.lg.jp/soshiki/7/1629.html",
+  "url": "https://www.town.suo-oshima.lg.jp/soshiki/38/11883.html#toc9",
   "info": "町営渡船",
   "freq": 3,
   "bbox": [
@@ -9,5 +9,6 @@
     33.948773223191196,
     132.26560632523262,
     33.99997030944636
-  ]
+  ],
+  "lastChecked": "2026-11-25"
 }

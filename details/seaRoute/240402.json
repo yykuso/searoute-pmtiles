@@ -1,7 +1,7 @@
 {
   "businessName": "志摩マリンレジャー",
   "routeName": "賢島～間崎島～和具",
-  "url": "https://shima-marineleisure.com/cruise/bayliner/",
+  "url": "https://shima-marineleisure.com/ago",
   "freq": 3,
   "shipName": "おくしま, おおさき",
   "bbox": [
@@ -9,5 +9,6 @@
     34.26325235817371,
     136.81896027472345,
     34.307194750914334
-  ]
+  ],
+  "lastChecked": "2026-11-25"
 }

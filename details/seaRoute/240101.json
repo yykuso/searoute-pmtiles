@@ -1,7 +1,7 @@
 {
   "businessName": "伊勢湾フェリー",
   "routeName": "鳥羽～伊良湖",
-  "url": "https://www.isewanferry.co.jp/publics/index/21/",
+  "url": "https://www.isewanferry.co.jp/",
   "freq": 3,
   "car": 1,
   "bike": 1,
@@ -12,5 +12,6 @@
     34.481090771242656,
     137.02132717449854,
     34.59157893343205
-  ]
+  ],
+  "lastChecked": "2026-11-25"
 }

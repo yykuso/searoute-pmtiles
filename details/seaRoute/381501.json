@@ -1,7 +1,7 @@
 {
   "businessName": "石崎汽船",
   "routeName": "松山～呉～広島",
-  "url": "http://www.ishizakikisen.co.jp/contents/timetable.shtml",
+  "url": "https://www.ishizakikisen.co.jp/contents/timetable.shtml",
   "freq": 3,
   "car": 1,
   "bike": 1,
@@ -11,5 +11,6 @@
     33.88954323911278,
     132.70853877251918,
     34.3510202134527
-  ]
+  ],
+  "lastChecked": "2026-11-25"
 }

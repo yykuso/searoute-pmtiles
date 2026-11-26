@@ -1,7 +1,7 @@
 {
   "businessName": "九州商船",
   "routeName": "長崎～中通島（奈良尾）～奈留島～福江島",
-  "url": "https://kyusho.co.jp/publics/index/111/",
+  "url": "https://kyusho.co.jp/schedule",
   "info": "フェリー",
   "freq": 3,
   "freqInfo": "1日2～4周",
@@ -14,5 +14,6 @@
     32.696603506323804,
     129.86770031384643,
     32.848733543852255
-  ]
+  ],
+  "lastChecked": "2026-11-25"
 }

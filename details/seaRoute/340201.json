@@ -1,7 +1,7 @@
 {
   "businessName": "走島汽船",
   "routeName": "鞆～走島",
-  "url": "https://www.tomotetsu.co.jp/?page_id=162",
+  "url": "https://tomotetsu.co.jp/business/ferry/",
   "freq": 3,
   "car": 1,
   "bike": 1,
@@ -11,5 +11,6 @@
     34.3490030742517,
     133.43267308051074,
     34.38136177251203
-  ]
+  ],
+  "lastChecked": "2026-11-25"
 }

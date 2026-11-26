@@ -1,6 +1,6 @@
 {
   "businessName": "カメリアライン",
-  "routeName": "博多〜釜山",
+  "routeName": "博多～釜山",
   "url": "https://www.camellia-line.co.jp/dia/",
   "freq": 2,
   "car": 1,
@@ -13,5 +13,6 @@
     33.60776356000875,
     130.39925976817906,
     35.115718210272824
-  ]
+  ],
+  "lastChecked": "2026-11-25"
 }

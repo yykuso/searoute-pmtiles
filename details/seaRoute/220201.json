@@ -1,7 +1,7 @@
 {
   "businessName": "富士山清水港クルーズ",
   "routeName": "清水～土肥",
-  "url": "https://www.223-ferry.or.jp/timetable.html",
+  "url": "https://www.223-ferry.or.jp/timetable",
   "info": "駿河湾フェリー",
   "freq": 3,
   "car": 1,
@@ -13,5 +13,6 @@
     34.90593515283075,
     138.78523031427093,
     35.02576924794808
-  ]
+  ],
+  "lastChecked": "2026-11-25"
 }

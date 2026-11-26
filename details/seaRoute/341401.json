@@ -1,7 +1,7 @@
 {
   "businessName": "大三島フェリー",
   "routeName": "忠海～大久野島～大三島（盛）",
-  "url": "http://sanyo-shosen.jp/omishima/time.html",
+  "url": "https://sanyo-shosen.jp/omishima/time.html",
   "freq": 3,
   "car": 1,
   "bike": 1,
@@ -11,5 +11,6 @@
     34.29403999133071,
     133.0303807020251,
     34.336830365261264
-  ]
+  ],
+  "lastChecked": "2026-11-25"
 }

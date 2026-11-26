@@ -1,7 +1,7 @@
 {
   "businessName": "今治市",
   "routeName": "今治～宗方～大下～小大下～岡村",
-  "url": "https://www.city.imabari.ehime.jp/chiiki/tosen/sekizen.html",
+  "url": "https://www.city.imabari.ehime.jp/kotsus/tosen/sekizen/",
   "info": "せきぜん渡船",
   "freq": 3,
   "bbox": [
@@ -9,5 +9,6 @@
     34.070504453269095,
     133.00568326495747,
     34.20649674082026
-  ]
+  ],
+  "lastChecked": "2026-11-25"
 }

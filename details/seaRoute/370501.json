@@ -1,7 +1,7 @@
 {
   "businessName": "四国汽船",
   "routeName": "高松～直島（宮浦）",
-  "url": "https://www.shikokukisen.com/instant/#route01",
+  "url": "https://shikokukisen.com/routes/",
   "freq": 3,
   "car": 1,
   "bike": 1,
@@ -11,5 +11,6 @@
     34.353991883451194,
     134.0522428861288,
     34.45673131233763
-  ]
+  ],
+  "lastChecked": "2026-11-25"
 }

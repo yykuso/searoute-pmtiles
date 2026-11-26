@@ -2,7 +2,7 @@
   "businessName": "Xiamen COSCO Shipping（廈門閩台輪渡）",
   "routeName": "台中～廈門～大麥嶼",
   "url": "http://www.coscotw.com.tw/cht/asp/star-sch.asp",
-  "info": "2020年1月〜旅客休止中",
+  "info": "2020年1月～旅客休止中",
   "note": "suspend",
   "freq": 1,
   "freqInfo": "週1往復",
@@ -12,5 +12,6 @@
     24.260801191960255,
     121.75491320760526,
     28.085430114328563
-  ]
+  ],
+  "lastChecked": "2026-11-25"
 }

@@ -1,7 +1,7 @@
 {
   "businessName": "鴨池･垂水フェリー",
   "routeName": "鴨池～垂水",
-  "url": "https://www.iwasaki-corp.com/marinetp/tarumizuferry/t-timetable/",
+  "url": "https://www.iwasaki-corp.com/kagoshima_kotsu/tarumizuferry/t-timetable/",
   "freq": 3,
   "car": 1,
   "bike": 1,
@@ -11,5 +11,6 @@
     31.483758502333558,
     130.69101023477836,
     31.553286871125835
-  ]
+  ],
+  "lastChecked": "2026-11-25"
 }

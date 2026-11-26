@@ -1,7 +1,7 @@
 {
   "businessName": "九州商船",
   "routeName": "佐世保～中通島（有川）～小値賀島～宇久島",
-  "url": "https://kyusho.co.jp/publics/index/111/",
+  "url": "https://kyusho.co.jp/schedule",
   "info": "高速船",
   "freq": 3,
   "freqInfo": "1日2～3周",
@@ -14,5 +14,6 @@
     32.98587653657373,
     129.72424453835632,
     33.26014175257137
-  ]
+  ],
+  "lastChecked": "2026-11-25"
 }

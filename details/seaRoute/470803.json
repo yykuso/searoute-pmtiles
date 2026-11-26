@@ -1,7 +1,7 @@
 {
   "businessName": "座間味村",
   "routeName": "座間味島～渡嘉敷島",
-  "url": "https://www.vill.zamami.okinawa.jp/info/m/2013/03/trans.php",
+  "url": "https://www.vill.zamami.okinawa.jp/ship/",
   "info": "予約制",
   "freq": 2,
   "freqInfo": "1日2往復",
@@ -11,5 +11,6 @@
     26.166035698847264,
     127.34800626480715,
     26.190669695605802
-  ]
+  ],
+  "lastChecked": "2026-11-25"
 }

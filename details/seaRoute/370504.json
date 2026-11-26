@@ -1,7 +1,7 @@
 {
   "businessName": "四国汽船",
   "routeName": "直島（宮浦）～豊島（家浦）～犬島",
-  "url": "https://www.shikokukisen.com/instant/#route04",
+  "url": "https://shikokukisen.com/routes/",
   "freq": 3,
   "car": 0,
   "bike": 0,
@@ -11,5 +11,6 @@
     34.457165176307626,
     134.1046098732862,
     34.57057990972661
-  ]
+  ],
+  "lastChecked": "2026-11-25"
 }

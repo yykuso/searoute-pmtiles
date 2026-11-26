@@ -1,7 +1,7 @@
 {
   "businessName": "DuWon Shipping（ドゥウォン商船）",
-  "routeName": "境港〜東海〜ウラジオストク",
-  "url": "https://www.dwship.co.kr/ja/routes/vladivostok-sakaiminato",
+  "routeName": "境港～東海～ウラジオストク",
+  "url": "https://dwship.co.kr/ja/routes/vladivostok-sakaiminato",
   "freq": 1,
   "car": 1,
   "bike": 1,
@@ -13,5 +13,6 @@
     35.54765697899889,
     133.33715942689096,
     43.11176331336952
-  ]
+  ],
+  "lastChecked": "2026-11-25"
 }

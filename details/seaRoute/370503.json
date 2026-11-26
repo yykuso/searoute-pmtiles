@@ -1,7 +1,7 @@
 {
   "businessName": "四国汽船",
   "routeName": "宇野～直島（本村）",
-  "url": "https://www.shikokukisen.com/instant/#route03",
+  "url": "https://shikokukisen.com/routes/",
   "freq": 3,
   "car": 0,
   "bike": 0,
@@ -11,5 +11,6 @@
     34.46196856841244,
     133.99787678517782,
     34.49221099032652
-  ]
+  ],
+  "lastChecked": "2026-11-25"
 }

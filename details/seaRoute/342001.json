@@ -1,7 +1,7 @@
 {
   "businessName": "安芸津フェリー",
   "routeName": "安芸津～大崎上島（大西）",
-  "url": "http://sanyo-shosen.jp/akitsu/time.html",
+  "url": "https://sanyo-shosen.jp/akitsu/time.html",
   "freq": 3,
   "car": 1,
   "bike": 1,
@@ -11,5 +11,6 @@
     34.249331185307696,
     132.87711060975013,
     34.31645328035728
-  ]
+  ],
+  "lastChecked": "2026-11-25"
 }

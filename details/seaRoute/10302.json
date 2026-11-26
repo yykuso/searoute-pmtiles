@@ -1,7 +1,7 @@
 {
   "businessName": "津軽海峡フェリー",
   "routeName": "函館～青森",
-  "url": "https://www.tsugarukaikyo.co.jp/timetable/",
+  "url": "https://www.tsugarukaikyo.co.jp/service/timetable/",
   "freq": 3,
   "freqInfo": "1日6～7往復",
   "car": 1,
@@ -13,5 +13,6 @@
     40.846007580683825,
     140.75367763697605,
     41.80717727935763
-  ]
+  ],
+  "lastChecked": "2026-11-25"
 }

@@ -1,8 +1,8 @@
 {
   "businessName": "中日国際輪渡（日中国際フェリー）",
-  "routeName": "上海〜神戸",
+  "routeName": "上海～神戸",
   "url": "https://www.shinganjin.com/schedule/",
-  "info": "2025年12月〜旅客休止中",
+  "info": "2025年12月～旅客休止中",
   "note": "suspend",
   "freq": 1,
   "freqInfo": "隔週運航",
@@ -12,5 +12,6 @@
     31.11429185787698,
     135.2014154131206,
     34.68145247772223
-  ]
+  ],
+  "lastChecked": "2026-11-25"
 }

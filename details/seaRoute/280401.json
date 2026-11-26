@@ -1,7 +1,7 @@
 {
   "businessName": "沼島汽船",
   "routeName": "淡路島（土生）～沼島",
-  "url": "https://www.city.minamiawaji.hyogo.jp/soshiki/kyoudou/nusima1.html",
+  "url": "https://www.city.minamiawaji.hyogo.jp/soshiki/koutsuu/nusima1.html",
   "freq": 3,
   "shipName": "しまかぜ , しまちどり",
   "bbox": [
@@ -9,5 +9,6 @@
     34.1700312041944,
     134.8187379180091,
     34.201585302028704
-  ]
+  ],
+  "lastChecked": "2026-11-25"
 }

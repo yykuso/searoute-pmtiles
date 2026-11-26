@@ -1,7 +1,7 @@
 {
   "businessName": "외도와현유람선（Wahyeon Cruise）",
   "routeName": "巨済～外島",
-  "url": "http://www.wahyeon.com/",
+  "url": "https://www.wahyeon.com/",
   "freq": 3,
   "freqInfo": "1日2～5便",
   "bbox": [
@@ -9,5 +9,6 @@
     34.72867651766041,
     128.70953671042395,
     34.8110936969351
-  ]
+  ],
+  "lastChecked": "2026-11-25"
 }

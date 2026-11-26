@@ -1,7 +1,7 @@
 {
   "businessName": "九州商船",
   "routeName": "佐世保～宇久島～小値賀島",
-  "url": "https://kyusho.co.jp/publics/index/111/",
+  "url": "https://kyusho.co.jp/schedule",
   "info": "フェリー",
   "freq": 3,
   "freqInfo": "1日1～2往復",
@@ -14,5 +14,6 @@
     33.09775807420758,
     129.7226730903915,
     33.26043499086503
-  ]
+  ],
+  "lastChecked": "2026-11-25"
 }
