@@ -1,7 +1,7 @@
 {
   "businessName": "とかしき",
   "routeName": "三重城～ナガンヌ島",
-  "url": "https://www.nagannu.com/?men=6",
+  "url": "https://nagannu.com/timetable/",
   "info": "予約制",
   "freq": 2,
   "freqInfo": "1日1～3往復",
@@ -10,5 +10,6 @@
     26.217647891311664,
     127.66245263028637,
     26.26466836494439
-  ]
+  ],
+  "lastChecked": "2026-11-25"
 }

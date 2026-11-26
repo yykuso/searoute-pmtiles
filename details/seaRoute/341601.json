@@ -1,7 +1,7 @@
 {
   "businessName": "山陽商船",
   "routeName": "竹原～大崎上島",
-  "url": "http://sanyo-shosen.jp/time.html",
+  "url": "https://sanyo-shosen.jp/time.html",
   "freq": 3,
   "car": 1,
   "bike": 1,
@@ -11,5 +11,6 @@
     34.26989665486508,
     132.92861444349884,
     34.33174624581533
-  ]
+  ],
+  "lastChecked": "2026-11-25"
 }

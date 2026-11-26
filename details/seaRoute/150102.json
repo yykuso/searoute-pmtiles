@@ -1,7 +1,7 @@
 {
   "businessName": "佐渡汽船",
   "routeName": "直江津～佐渡島（小木）",
-  "url": "https://www.sadokisen.co.jp/timetables/",
+  "url": "https://www.sadokisen.co.jp/reservation/timetables/?route=1",
   "info": "3月～11月",
   "note": "season",
   "freq": 2,
@@ -14,5 +14,6 @@
     37.18344033852018,
     138.29875691701534,
     37.816515289051246
-  ]
+  ],
+  "lastChecked": "2026-11-25"
 }

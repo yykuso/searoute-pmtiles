@@ -1,12 +1,13 @@
 {
   "businessName": "佐伯市",
   "routeName": "佐伯～大島",
-  "url": "https://www.city.saiki.oita.jp/kiji0033261/index.html",
+  "url": "https://www.oitasima.net/oshima/access.html",
   "freq": 3,
   "bbox": [
     131.90335154990063,
     32.9617779291083,
     132.0729369978584,
     32.980393472596255
-  ]
+  ],
+  "lastChecked": "2026-11-25"
 }

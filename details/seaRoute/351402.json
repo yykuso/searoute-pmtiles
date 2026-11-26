@@ -1,12 +1,13 @@
 {
   "businessName": "下関市",
   "routeName": "吉見～蓋井島",
-  "url": "https://www.city.shimonoseki.lg.jp/soshiki/78/6517.html",
+  "url": "https://www.shimonoseki-port.com/154838.html",
   "freq": 3,
   "bbox": [
     130.7885260497595,
     34.058351698001644,
     130.9010232783773,
     34.100096636517016
-  ]
+  ],
+  "lastChecked": "2026-11-25"
 }

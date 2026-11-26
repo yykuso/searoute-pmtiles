@@ -1,12 +1,13 @@
 {
   "businessName": "小値賀町",
   "routeName": "小値賀島（柳）～納島",
-  "url": "http://ojika.net/tourism/transportation/saikai/",
+  "url": "https://www.town.ojika.lg.jp/soshiki/mirai/4/215.html",
   "freq": 3,
   "bbox": [
     129.0569468716618,
     33.210635110554655,
     129.06788573034825,
     33.2178441473507
-  ]
+  ],
+  "lastChecked": "2026-11-25"
 }

@@ -1,7 +1,7 @@
 {
   "businessName": "串間市観光物産協会",
   "routeName": "串間～幸島",
-  "url": "https://kushima-city.jp/koujima/",
+  "url": "https://kushima-city.jp/tourism/koujima/",
   "info": "幸島渡船、予約制",
   "freq": 1,
   "freqInfo": "随時",
@@ -10,5 +10,6 @@
     31.449521067749107,
     131.37258078522922,
     31.452803133128374
-  ]
+  ],
+  "lastChecked": "2026-11-25"
 }

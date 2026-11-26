@@ -1,7 +1,7 @@
 {
   "businessName": "勝本町漁業協同組合",
   "routeName": "壱岐島（勝本）～辰の島",
-  "url": "https://www.kankai.net/jf-k/",
+  "url": "https://www.ikikankou.com/spot/10277",
   "info": "4～11月",
   "note": "season",
   "freq": 2,
@@ -10,5 +10,6 @@
     33.854445086337854,
     129.69557286289398,
     33.863719565521215
-  ]
+  ],
+  "lastChecked": "2026-11-25"
 }

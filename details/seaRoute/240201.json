@@ -1,7 +1,7 @@
 {
   "businessName": "津エアポートライン",
   "routeName": "津～中部国際空港",
-  "url": "https://www.tsu-airportline.co.jp/timefare/",
+  "url": "https://tsu-airportline.co.jp/",
   "freq": 3,
   "shipName": "フェニックス カトレア",
   "bbox": [
@@ -9,5 +9,6 @@
     34.7108006091729,
     136.8279829901335,
     34.86045702684774
-  ]
+  ],
+  "lastChecked": "2026-11-25"
 }

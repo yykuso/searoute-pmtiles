@@ -1,7 +1,7 @@
 {
   "businessName": "コスモライン",
   "routeName": "鹿児島～種子島（西之表）",
-  "url": "http://cosmoline.jp/",
+  "url": "https://cosmoline.jp/",
   "freq": 2,
   "car": 1,
   "bike": 1,
@@ -11,5 +11,6 @@
     30.728240253944293,
     130.9908100285477,
     31.592776374067483
-  ]
+  ],
+  "lastChecked": "2026-11-25"
 }

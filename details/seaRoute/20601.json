@@ -1,7 +1,7 @@
 {
   "businessName": "十和田観光電鉄",
   "routeName": "十和田湖遊覧船（休屋～子ノ口）",
-  "url": "https://www.google.com/search?q=%E5%A4%A2%E3%81%AE%E6%B5%B7%E4%B8%AD%E5%8F%B7",
+  "url": "https://www.toutetsu.co.jp/ship.html",
   "info": "4月～11月",
   "note": "season",
   "freq": 2,
@@ -12,5 +12,6 @@
     40.426768378596556,
     140.94016360734415,
     40.478394160168
-  ]
+  ],
+  "lastChecked": "2026-11-25"
 }

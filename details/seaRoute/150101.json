@@ -1,7 +1,7 @@
 {
   "businessName": "佐渡汽船",
   "routeName": "新潟～佐渡島（両津）",
-  "url": "https://www.sadokisen.co.jp/timetables/",
+  "url": "https://www.sadokisen.co.jp/reservation/timetables/?route=1",
   "freq": 3,
   "car": 1,
   "bike": 1,
@@ -12,5 +12,6 @@
     37.9303968719462,
     139.0786276113721,
     38.10366331715248
-  ]
+  ],
+  "lastChecked": "2026-11-25"
 }

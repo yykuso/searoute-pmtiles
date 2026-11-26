@@ -1,7 +1,7 @@
 {
   "businessName": "金華山フェリー",
   "routeName": "鮎川～金華山",
-  "url": "http://seadream-kinkasan.com/#liner-area",
+  "url": "https://www.kinkasanferry.com/",
   "freq": 2,
   "car": 0,
   "bike": 0,
@@ -12,5 +12,6 @@
     38.26702861714169,
     141.55085330229812,
     38.295610313528805
-  ]
+  ],
+  "lastChecked": "2026-11-25"
 }

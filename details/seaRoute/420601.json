@@ -1,12 +1,13 @@
 {
   "businessName": "鷹島汽船",
   "routeName": "今福～飛島～鷹島",
-  "url": "https://www.city-matsuura.jp/top/soshikikarasagasu/sangyoushinkou/shokoshinkogakari/2/1016.html",
+  "url": "https://www.saryokyo.com/member/member-04.html",
   "freq": 3,
   "bbox": [
     129.75752159191103,
     33.354477758696376,
     129.77600080008602,
     33.42704637472996
-  ]
+  ],
+  "lastChecked": "2026-11-25"
 }

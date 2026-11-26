@@ -1,12 +1,13 @@
 {
   "businessName": "小値賀町",
   "routeName": "小値賀島（笛吹）～大島",
-  "url": "http://ojika.net/tourism/transportation/hamayu/",
+  "url": "https://www.town.ojika.lg.jp/soshiki/mirai/4/216.html",
   "freq": 3,
   "bbox": [
     129.02476001493525,
     33.174547770775455,
     129.05926798639155,
     33.18651892355395
-  ]
+  ],
+  "lastChecked": "2026-11-25"
 }

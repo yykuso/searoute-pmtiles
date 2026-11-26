@@ -1,7 +1,7 @@
 {
   "businessName": "ポートサービス",
   "routeName": "横浜 シーバス",
-  "url": "https://www.yokohama-cruising.jp/contents/seabass.html",
+  "url": "https://yokohama-cruising.jp/seabass/",
   "freq": 3,
   "shipName": "シーバス５号, シーバスZERO, シーバスACE",
   "bbox": [
@@ -9,5 +9,6 @@
     35.44612470971672,
     139.65264927244607,
     35.46729928918567
-  ]
+  ],
+  "lastChecked": "2026-11-25"
 }

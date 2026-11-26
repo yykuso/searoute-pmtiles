@@ -1,7 +1,7 @@
 {
   "businessName": "四国汽船",
   "routeName": "宇野～直島（宮浦）",
-  "url": "https://www.shikokukisen.com/instant/#route02",
+  "url": "https://shikokukisen.com/routes/",
   "freq": 3,
   "car": 1,
   "bike": 1,
@@ -11,5 +11,6 @@
     34.45649194990447,
     133.97385434490403,
     34.49245580874043
-  ]
+  ],
+  "lastChecked": "2026-11-25"
 }

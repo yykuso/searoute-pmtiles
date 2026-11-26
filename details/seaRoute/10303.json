@@ -1,7 +1,7 @@
 {
   "businessName": "津軽海峡フェリー",
   "routeName": "室蘭～青森",
-  "url": "https://www.tsugarukaikyo.co.jp/timetable/",
+  "url": "https://www.tsugarukaikyo.co.jp/service/timetable/",
   "freq": 2,
   "freqInfo": "1日1往復",
   "car": 1,
@@ -13,5 +13,6 @@
     40.84322636762409,
     141.2394681280953,
     42.353293548145736
-  ]
+  ],
+  "lastChecked": "2026-11-25"
 }

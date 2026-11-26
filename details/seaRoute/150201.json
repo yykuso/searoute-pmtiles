@@ -2,14 +2,15 @@
   "businessName": "へぐら航路",
   "routeName": "輪島～舳倉島",
   "url": "https://hegura.com/guide/",
-  "info": "運休中",
-  "note": "suspend",
+  "info": "平日運航",
   "freq": 2,
+  "freqInfo": "1日1往復",
   "shipName": "希海",
   "bbox": [
     136.90159673807855,
     37.40079852907268,
     136.94674135279482,
     37.849179488189094
-  ]
+  ],
+  "lastChecked": "2026-11-25"
 }

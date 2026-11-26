@@ -1,7 +1,7 @@
 {
   "businessName": "静岡市",
   "routeName": "井川ダム～大村",
-  "url": "https://www.city.shizuoka.lg.jp/032_000005.html",
+  "url": "https://www.city.shizuoka.lg.jp/s5796/s006226.html",
   "info": "井川湖渡船(ダム航路)・季節運航",
   "note": "season",
   "freq": 3,
@@ -11,5 +11,6 @@
     35.21124634405378,
     138.24131504286547,
     35.22045994924732
-  ]
+  ],
+  "lastChecked": "2026-11-25"
 }

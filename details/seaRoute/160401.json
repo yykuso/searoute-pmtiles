@@ -1,7 +1,7 @@
 {
   "businessName": "庄川遊覧船",
   "routeName": "小牧～大牧",
-  "url": "https://shogawa-yuran.co.jp/wp/timetable/",
+  "url": "https://shogawa-yuran.co.jp/timetable/",
   "info": "庄川峡遊覧船",
   "freq": 3,
   "shipName": "やまぶき, クルーズ庄川, はやぶさ丸",
@@ -10,5 +10,6 @@
     36.5000548732555,
     137.00993438636925,
     36.55423340855175
-  ]
+  ],
+  "lastChecked": "2026-11-25"
 }

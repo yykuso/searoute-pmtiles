@@ -1,7 +1,7 @@
 {
   "businessName": "小樽観光振興公社",
   "routeName": "小樽～祝津",
-  "url": "https://otaru-kankousen.jp/aobato/",
+  "url": "https://otaru-kankousen.jp/aobato-course/",
   "info": "4月～10月",
   "note": "season",
   "freq": 2,
@@ -12,5 +12,6 @@
     43.199633323540134,
     141.02776830566242,
     43.232690391407736
-  ]
+  ],
+  "lastChecked": "2026-11-25"
 }

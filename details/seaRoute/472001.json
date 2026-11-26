@@ -1,7 +1,7 @@
 {
   "businessName": "久米島オーシャンジェット",
   "routeName": "本部～那覇～久米島",
-  "url": "https://ko-jet.com/route-schedule/",
+  "url": "https://ko-jet.com/%e4%b9%97%e8%88%b9%e6%a1%88%e5%86%85/route-schedule/",
   "freq": 2,
   "freqInfo": "1日1～2往復",
   "shipName": "つむぎ",
@@ -10,5 +10,6 @@
     26.209779144449424,
     127.88463438894246,
     26.676905866112957
-  ]
+  ],
+  "lastChecked": "2026-11-25"
 }
