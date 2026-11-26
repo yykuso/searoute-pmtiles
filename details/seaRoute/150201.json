@@ -5,6 +5,9 @@
   "info": "平日運航",
   "freq": 2,
   "freqInfo": "1日1往復",
+  "car": 1,
+  "bike": 1,
+  "bicycle": 1,
   "shipName": "希海",
   "bbox": [
     136.90159673807855,

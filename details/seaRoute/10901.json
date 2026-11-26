@@ -6,6 +6,9 @@
   "note": "season",
   "freq": 2,
   "freqInfo": "1日4～5便",
+  "car": 0,
+  "bike": 0,
+  "bicycle": 0,
   "shipName": "あおばと",
   "bbox": [
     141.00285398638331,
