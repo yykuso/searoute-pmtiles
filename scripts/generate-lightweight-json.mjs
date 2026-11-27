@@ -89,6 +89,8 @@ function buildLightweightRecords(features, detailsMap) {
       const routeName = detail?.routeName;
       const info = detail?.info;
       const shipName = detail?.shipName;
+      // 運航状況（season: 季節運航 / suspend: 運休）。一覧画面の色分けに使う。url は容量を増やすので入れない
+      const note = detail?.note;
 
       return {
         routeId: routeIdValueMap.get(routeIdKey),
@@ -96,6 +98,7 @@ function buildLightweightRecords(features, detailsMap) {
         ...(routeName ? { routeName } : {}),
         ...(info ? { info } : {}),
         ...(shipName ? { shipName } : {}),
+        ...(note ? { note } : {}),
       };
     })
     .sort((a, b) => {

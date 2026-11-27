@@ -47,7 +47,9 @@ tippecanoe -Z0 -z12 -o searoute.pmtiles --force \
 レコードは次の項目のみを出力します。
 
 - GeoJSON 由来: `routeId`
-- details 由来: `businessName`, `routeName`, `info`, `shipName`（存在する場合のみ）
+- details 由来: `businessName`, `routeName`, `info`, `shipName`, `note`（存在する場合のみ。`note` は `season`: 季節運航 / `suspend`: 運休）
+
+`url` は容量を抑えるため含めません。生成スクリプトを変更して main に push すると、GitHub Actions が軽量 JSON を作り直して R2 に反映します。
 
 ```
 node scripts/generate-lightweight-json.mjs
