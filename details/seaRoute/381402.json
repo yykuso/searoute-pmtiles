@@ -3,6 +3,8 @@
   "routeName": "北条～鹿島",
   "url": "https://www.city.matsuyama.ehime.jp/kanko/kankoguide/shitestukoen/kashima/tosen.html",
   "freq": 3,
+  "car": 0,
+  "bike": 0,
   "bicycle": 0,
   "bbox": [
     132.7669538801445,

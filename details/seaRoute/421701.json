@@ -3,6 +3,8 @@
   "routeName": "瀬戸～松島（吉原）",
   "url": "https://www.ezakikaiun.com/",
   "freq": 3,
+  "bike": 1,
+  "bicycle": 1,
   "car": 1,
   "bbox": [
     129.60374031028908,

@@ -3,6 +3,8 @@
   "routeName": "安座真～久高島",
   "url": "https://kudakakaiun.jimdofree.com/",
   "freq": 3,
+  "bike": 1,
+  "bicycle": 1,
   "car": 1,
   "bbox": [
     127.82518071895059,

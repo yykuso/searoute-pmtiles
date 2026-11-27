@@ -3,6 +3,8 @@
   "routeName": "運天～伊平屋",
   "url": "https://www.vill.iheya.okinawa.jp/",
   "freq": 2,
+  "bike": 1,
+  "bicycle": 1,
   "car": 1,
   "bbox": [
     127.96874003477592,

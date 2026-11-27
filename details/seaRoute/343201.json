@@ -3,6 +3,8 @@
   "routeName": "宮島口～宮島",
   "url": "https://jr-miyajimaferry.co.jp/timetable/",
   "freq": 3,
+  "bike": 1,
+  "bicycle": 1,
   "car": 1,
   "bbox": [
     132.3061438406698,
