@@ -24,6 +24,7 @@ jobs:
           if [ -z "${{ github.event.before }}" ]; then
             echo "geojson=true" >> "$GITHUB_OUTPUT"
             echo "details=true" >> "$GITHUB_OUTPUT"
+            echo "lightweight=true" >> "$GITHUB_OUTPUT"
           else
             if git diff --name-only "${{ github.event.before }}" "${{ github.sha }}" | grep -q '^geojson/'; then
               echo "geojson=true" >> "$GITHUB_OUTPUT"
@@ -34,6 +35,12 @@ jobs:
               echo "details=true" >> "$GITHUB_OUTPUT"
             else
               echo "details=false" >> "$GITHUB_OUTPUT"
+            fi
+            # 軽量 JSON は geojson / details / 生成スクリプトのどれかが変わったら作り直す
+            if git diff --name-only "${{ github.event.before }}" "${{ github.sha }}" | grep -qE '^(geojson/|details/|scripts/generate-lightweight-json\.mjs$)'; then
+              echo "lightweight=true" >> "$GITHUB_OUTPUT"
+            else
+              echo "lightweight=false" >> "$GITHUB_OUTPUT"
             fi
           fi
 
@@ -67,7 +74,7 @@ jobs:
             verify /data/searoute.pmtiles
 
       - name: Generate lightweight JSON
-        if: steps.changes.outputs.geojson == 'true' || steps.changes.outputs.details == 'true'
+        if: steps.changes.outputs.lightweight == 'true'
         run: node scripts/generate-lightweight-json.mjs
 
       - name: Validate PMTiles header
@@ -98,7 +105,7 @@ jobs:
             --delete
 
       - name: Upload lightweight to R2
-        if: steps.changes.outputs.geojson == 'true' || steps.changes.outputs.details == 'true'
+        if: steps.changes.outputs.lightweight == 'true'
         env:
           R2_BUCKET_NAME: ${{ secrets.R2_BUCKET_NAME }}
           R2_ENDPOINT: ${{ secrets.R2_ENDPOINT }}
@@ -124,7 +131,7 @@ jobs:
             --delete
 
       - name: Trigger Cloudflare Pages rebuild
-        if: steps.changes.outputs.geojson == 'true' || steps.changes.outputs.details == 'true'
+        if: steps.changes.outputs.lightweight == 'true'
         env:
           CF_PAGES_DEPLOY_HOOK: ${{ secrets.CF_PAGES_DEPLOY_HOOK }}
         run: |
