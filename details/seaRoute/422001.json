@@ -3,6 +3,9 @@
   "routeName": "福江島～久賀島",
   "url": "https://www.kiguchi-kisen.jp/contents/timetable/",
   "freq": 2,
+  "car": 1,
+  "bike": 1,
+  "bicycle": 1,
   "bbox": [
     128.82567291033752,
     32.6968584928169,

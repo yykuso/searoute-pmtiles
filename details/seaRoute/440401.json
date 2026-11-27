@@ -3,6 +3,10 @@
   "routeName": "佐伯～大入島",
   "url": "http://www.oitasima.net/ohnyujima/access.html",
   "freq": 3,
+  "car": 1,
+  "bike": 1,
+  "bicycle": 1,
+  "shipName": "第8大入島",
   "bbox": [
     131.90329771946392,
     32.97822475851737,

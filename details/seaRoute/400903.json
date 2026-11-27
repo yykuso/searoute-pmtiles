@@ -3,6 +3,9 @@
   "routeName": "姪浜～能古島",
   "url": "https://www.city.fukuoka.lg.jp/kowan/kyakusen/hakata-port/hyo.html",
   "freq": 3,
+  "car": 1,
+  "bike": 1,
+  "bicycle": 1,
   "bbox": [
     130.3106311599415,
     33.597593701819726,

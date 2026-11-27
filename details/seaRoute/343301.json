@@ -3,6 +3,9 @@
   "routeName": "小方～阿多田島",
   "url": "https://atatajimakisen.sakura.ne.jp/timetable/",
   "freq": 3,
+  "car": 1,
+  "bike": 1,
+  "bicycle": 1,
   "bbox": [
     132.22402628753832,
     34.195413428808685,

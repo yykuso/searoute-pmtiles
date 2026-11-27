@@ -3,6 +3,9 @@
   "routeName": "広島～江田島（三高）",
   "url": "https://setonaikaikisen.co.jp/kouro/ferry/",
   "freq": 3,
+  "car": 1,
+  "bike": 1,
+  "bicycle": 1,
   "bbox": [
     132.4076596273659,
     34.25997524879162,

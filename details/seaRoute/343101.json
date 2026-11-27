@@ -3,6 +3,9 @@
   "routeName": "宮島口～宮島",
   "url": "https://miyajima-matsudai.co.jp/schedule.html",
   "freq": 3,
+  "car": 1,
+  "bike": 1,
+  "bicycle": 1,
   "bbox": [
     132.30637024462519,
     34.30299723424897,

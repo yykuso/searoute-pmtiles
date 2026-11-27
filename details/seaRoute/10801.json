@@ -4,6 +4,9 @@
   "url": "https://ship.odaito.com/%e3%83%88%e3%83%89%e3%83%af%e3%83%a9%e3%82%b3%e3%83%bc%e3%82%b9/",
   "freq": 2,
   "freqInfo": "毎日1往復",
+  "car": 0,
+  "bike": 0,
+  "bicycle": 0,
   "shipName": "パワードリーム号",
   "bbox": [
     145.2225955099873,

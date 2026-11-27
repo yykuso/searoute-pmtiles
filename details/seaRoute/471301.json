@@ -4,6 +4,10 @@
   "url": "http://www.taramakaiun.com/",
   "info": "日曜日運休",
   "freq": 2,
+  "car": 1,
+  "bike": 1,
+  "bicycle": 1,
+  "shipName": "フェリーたらまⅢ",
   "bbox": [
     124.72138405567323,
     24.63729964050865,

@@ -3,6 +3,9 @@
   "routeName": "壱岐島～原島～長島～大島",
   "url": "https://www.city.iki.nagasaki.jp/soshiki/somuka/soumuhan/mishima/985.html",
   "freq": 3,
+  "car": 1,
+  "bike": 1,
+  "bicycle": 1,
   "bbox": [
     129.63532983766683,
     33.72829358135277,

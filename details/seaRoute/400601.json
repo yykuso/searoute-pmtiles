@@ -3,6 +3,8 @@
   "routeName": "若松～戸畑",
   "url": "https://www.city.kitakyushu.lg.jp/shisei/menu01_0513.html",
   "freq": 3,
+  "bicycle": 1,
+  "shipName": "第十八わかと丸, くき丸",
   "bbox": [
     130.81463880964796,
     33.90151948842239,

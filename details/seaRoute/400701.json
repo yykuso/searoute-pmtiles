@@ -4,6 +4,10 @@
   "url": "https://www.city.munakata.lg.jp/kiji0034191/index.html",
   "info": "地島渡船",
   "freq": 3,
+  "car": 1,
+  "bike": 1,
+  "bicycle": 1,
+  "shipName": "ニューじのしま",
   "bbox": [
     130.4834903753218,
     33.85337107376633,

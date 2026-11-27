@@ -3,6 +3,9 @@
   "routeName": "伊美～姫島",
   "url": "https://www.himeshima.jp/access/",
   "freq": 3,
+  "car": 1,
+  "bike": 1,
+  "bicycle": 1,
   "bbox": [
     131.6002780393545,
     33.68739997157247,

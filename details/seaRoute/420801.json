@@ -3,6 +3,9 @@
   "routeName": "平戸～度島",
   "url": "https://www.city.hirado.nagasaki.jp/kurashi/life/sumai/koutu/ferry/fe02.html",
   "freq": 3,
+  "car": 1,
+  "bike": 1,
+  "bicycle": 1,
   "bbox": [
     129.51675205090797,
     33.37106910936456,

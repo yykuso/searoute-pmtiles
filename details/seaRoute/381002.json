@@ -4,6 +4,10 @@
   "url": "https://www.city.imabari.ehime.jp/kotsus/tosen/sekizen/",
   "info": "せきぜん渡船",
   "freq": 3,
+  "car": 1,
+  "bike": 1,
+  "bicycle": 1,
+  "shipName": "第二せきぜん, とびしま",
   "bbox": [
     132.8844084524342,
     34.070504453269095,

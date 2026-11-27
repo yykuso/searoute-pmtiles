@@ -3,6 +3,9 @@
   "routeName": "牛窓～前島",
   "url": "https://www.maejima-island.info/schedules.html",
   "freq": 3,
+  "car": 1,
+  "bike": 1,
+  "bicycle": 1,
   "bbox": [
     134.16391084998855,
     34.60743062182621,

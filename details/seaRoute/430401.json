@@ -3,6 +3,9 @@
   "routeName": "御所浦島～横浦島～上島（棚底）",
   "url": "https://kyodoferry.com/schedule.html",
   "freq": 3,
+  "car": 1,
+  "bike": 1,
+  "bicycle": 1,
   "bbox": [
     130.33468661641143,
     32.33838584772217,

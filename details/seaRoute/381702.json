@@ -3,6 +3,9 @@
   "routeName": "高浜～興居島（泊）",
   "url": "http://gogoshima-ferry.com/timetable_faretable/",
   "freq": 3,
+  "car": 1,
+  "bike": 1,
+  "bicycle": 1,
   "bbox": [
     132.68140311151677,
     33.8823399461617,
