@@ -3,9 +3,9 @@
   "routeName": "徳山～大津島",
   "url": "http://www.ccsnet.ne.jp/~jyunkou/link/jikoku/jikoku.html",
   "freq": 3,
-  "bicycle": 1,
   "car": 1,
   "bike": 1,
+  "bicycle": 1,
   "shipName": "鼓海Ⅱ, 新大津島",
   "bbox": [
     131.70192323084672,
