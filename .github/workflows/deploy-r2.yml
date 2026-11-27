@@ -37,7 +37,7 @@ jobs:
               echo "details=false" >> "$GITHUB_OUTPUT"
             fi
             # 軽量 JSON は geojson / details / 生成スクリプトのどれかが変わったら作り直す
-            if git diff --name-only "${{ github.event.before }}" "${{ github.sha }}" | grep -qE '^(geojson/|details/|scripts/generate-lightweight-json\.mjs$)'; then
+            if git diff --name-only "${{ github.event.before }}" "${{ github.sha }}" | grep -qE '^(geojson/|details/|scripts/generate-lightweight-json(\.test)?\.mjs$)'; then
               echo "lightweight=true" >> "$GITHUB_OUTPUT"
             else
               echo "lightweight=false" >> "$GITHUB_OUTPUT"
@@ -72,6 +72,10 @@ jobs:
             -v "$PWD:/data" \
             protomaps/go-pmtiles@sha256:dcec7fe1bdd371e28289f2e7cef419a0a402289e02640c094570d54beb29fa8a \
             verify /data/searoute.pmtiles
+
+      - name: Test lightweight JSON script
+        if: steps.changes.outputs.lightweight == 'true'
+        run: node --test scripts/
 
       - name: Generate lightweight JSON
         if: steps.changes.outputs.lightweight == 'true'

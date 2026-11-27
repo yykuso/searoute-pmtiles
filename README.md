@@ -61,6 +61,7 @@ node scripts/generate-lightweight-json.mjs
 - `lightweight/seaRoute_limited.json`
 - `lightweight/seaRoute_international.json`
 - `lightweight/seaRoute_KR.json`
+- `lightweight/routePages.json`（航路詳細ページ用の集約 JSON。`seaRoute` / `seaRoute_international` / `seaRoute_KR` の全航路を routeId 昇順で収録し、details の全項目と発着港 `ports`（名称・座標）を含む。`seaRoute_limited` は含まない。routeId がレイヤーをまたいで重複すると生成を失敗させる）
 
 ## 詳細 JSON への bbox 付与
 

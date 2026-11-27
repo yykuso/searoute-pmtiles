@@ -1,3 +1,4 @@
 /tools/*
 *.qmd
 /url-health-report.json
+/lightweight/
