@@ -3,6 +3,9 @@
   "routeName": "瀬戸～松島（釜浦）",
   "url": "https://www.city.saikai.nagasaki.jp/soshiki/koutsu/1/1_1/2_1/13238.html",
   "freq": 3,
+  "bike": 1,
+  "bicycle": 1,
+  "shipName": "New松島",
   "bbox": [
     129.61561399542208,
     32.93653479599214,

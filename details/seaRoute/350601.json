@@ -3,6 +3,10 @@
   "routeName": "柳井～平郡島",
   "url": "https://www.city-yanai.jp/soshiki/15/heigunferry.html",
   "freq": 3,
+  "car": 1,
+  "bike": 1,
+  "bicycle": 1,
+  "shipName": "へぐり",
   "bbox": [
     132.13329537669378,
     33.76185664058567,

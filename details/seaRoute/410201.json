@@ -3,6 +3,9 @@
   "routeName": "湊～神集島",
   "url": "http://web.people-i.ne.jp/~karatsu-maru/",
   "freq": 3,
+  "car": 0,
+  "bike": 1,
+  "bicycle": 1,
   "bbox": [
     129.95657610482058,
     33.52416385295942,

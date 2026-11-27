@@ -3,6 +3,7 @@
   "routeName": "賢島～間崎島～和具",
   "url": "https://shima-marineleisure.com/ago",
   "freq": 3,
+  "bicycle": 0,
   "shipName": "おくしま, おおさき",
   "bbox": [
     136.80415118130205,

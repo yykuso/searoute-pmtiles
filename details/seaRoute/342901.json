@@ -3,6 +3,9 @@
   "routeName": "広島～似島",
   "url": "https://ninoshimakisen.jp/time_price",
   "freq": 3,
+  "car": 1,
+  "bike": 1,
+  "bicycle": 1,
   "bbox": [
     132.42996644196052,
     34.31325786068155,

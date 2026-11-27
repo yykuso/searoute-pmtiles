@@ -3,6 +3,9 @@
   "routeName": "本部～伊江島",
   "url": "https://www.iejima.org/document/2015012100097/",
   "freq": 3,
+  "car": 1,
+  "bike": 1,
+  "bicycle": 1,
   "bbox": [
     127.80161116741156,
     26.6412395036877,

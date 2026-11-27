@@ -3,6 +3,7 @@
   "routeName": "鳥羽～日向島",
   "url": "https://shima-marineleisure.com/toba",
   "freq": 3,
+  "bicycle": 0,
   "shipName": "龍宮城, フラワーマーメイド, みつしま",
   "bbox": [
     136.83240421789702,

@@ -3,6 +3,9 @@
   "routeName": "平敷屋～津堅島",
   "url": "https://www.city.uruma.lg.jp/1009001000/contents/464.html",
   "freq": 3,
+  "car": 1,
+  "bike": 1,
+  "bicycle": 1,
   "bbox": [
     127.92299203932689,
     26.24422187342466,

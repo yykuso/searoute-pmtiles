@@ -3,6 +3,8 @@
   "routeName": "八幡浜～大島",
   "url": "https://tanakayuso.co.jp/timetable-fares/",
   "freq": 3,
+  "bike": 1,
+  "bicycle": 1,
   "bbox": [
     132.34107925888674,
     33.385949524062056,

@@ -3,6 +3,7 @@
   "routeName": "津～中部国際空港",
   "url": "https://tsu-airportline.co.jp/",
   "freq": 3,
+  "bicycle": 0,
   "shipName": "フェニックス カトレア",
   "bbox": [
     136.52518583888312,
