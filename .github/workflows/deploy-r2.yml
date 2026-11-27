@@ -75,7 +75,7 @@ jobs:
 
       - name: Test lightweight JSON script
         if: steps.changes.outputs.lightweight == 'true'
-        run: node --test scripts/
+        run: node --test scripts/*.test.mjs
 
       - name: Generate lightweight JSON
         if: steps.changes.outputs.lightweight == 'true'
